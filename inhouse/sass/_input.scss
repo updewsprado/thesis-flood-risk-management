@@ -1,0 +1,16 @@
+.input-cash-transfer {
+  margin-bottom: 10px;
+  padding: 17px 16px 17px 16px;
+  height: 42px;
+  font-size: 16px;
+
+  @include mQ(1000px) {
+    padding: 10px 10px 10px 10px;
+    font-size: 12px;
+  }
+
+  @include mQ(768px) {
+    padding: 17px 16px 17px 16px;
+    font-size: 16px;
+  }
+}

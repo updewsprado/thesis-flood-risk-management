@@ -1,0 +1,13 @@
+table {
+	@include mQ($screen-xs-max) {
+		font-size: 12px;
+	}
+
+	@include mQ($screen-mobile-lg-max) {
+		font-size: 10px;
+	}
+
+  .reject, .failed {
+    background-color: $gray;
+  }
+}

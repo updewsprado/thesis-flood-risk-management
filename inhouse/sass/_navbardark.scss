@@ -1,0 +1,100 @@
+#mainNav {
+	margin-bottom: 10px;
+	background-color: $body-bg-navyblue;
+
+	.fa-spinner {
+		@include mQMin(768px) {
+			position: absolute;
+			right: 13px;
+			top: 17px;
+		}
+		color: $gray-mid-light;
+		width: 14px !important;
+		font-size: 14px !important;
+	}
+}
+
+.navbar-default {
+	border-color: darken($body-bg-navyblue, 15%);
+
+	.navbar-brand {
+		color: $text-navbar;
+
+		&:focus, &:hover {
+			color: $white;
+		}
+
+		@include mQ($screen-xxs-max) {
+			padding-left: 10px;
+			padding-right: 5px;
+		}
+	}
+
+	.navbar-toggle {
+		background-color: $text-navbar;
+
+		&:focus, &:hover {
+			background-color: $white;
+			color: $black;
+		}
+	}
+}
+
+#enroll-buddy-navbar-collapse {
+	.page-scroll {
+		@include mQ(768px) {
+			text-align: center;
+		}
+
+		a {
+			font-weight: 600;
+			color: $text-navbar;
+			&:hover {
+				color: $white;
+			}
+		}
+	}
+
+	.dropdown {
+		@include mQ(768px) {
+			text-align: center;
+		}
+
+		a {
+			font-weight: 400;
+			background-color: transparent;
+			color: $text-navbar;
+			&:hover {
+				background-color: $body-bg-navyblue;
+				color: $white;
+			}
+		}
+
+		.dropdown-menu {
+			background-color: lighten($body-bg-navyblue, 10%);
+		}
+	}
+
+	.fa {
+		width: 20px;
+	}
+
+	.nav-button {
+		margin-top: 8px;
+		margin-bottom: auto;
+		margin-right: 10px;
+	}
+
+	.nav-input {
+		font-family:FontAwesome, "Helvetica Neue", Helvetica, Arial, sans-serif;
+		margin-top: 9px;
+		margin-bottom: auto;
+		margin-right: 10px;
+		padding: 0 12px;
+		height: 31px;
+		min-width: 100px;
+		background-color: darken($body-bg-navyblue, 10%);
+		border-color: darken($body-bg-navyblue, 10%);
+		color: $gray-mid-light;
+	}
+}

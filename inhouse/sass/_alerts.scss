@@ -1,0 +1,9 @@
+.alert {
+	@include mQ($screen-xxs-max) {
+		font-size: 12px;
+	}
+
+	@include mQ($screen-xxxs-max) {
+		font-size: 10px;
+	}
+}

@@ -1,0 +1,261 @@
+// Custom Buttons
+
+// Landing V2
+
+.btn-warning-inverse {
+	@include customButtonInverse($brand-warning);
+}
+
+// Blue Trust
+
+// .btn-default {
+//   background-color: #ccc !important;
+// }
+
+.btn-default .badge {
+    color: $white;
+    background-color: $blue-navy;
+}
+
+/*.btn.btn-primary {
+    background-color: transparent;
+    border:1px solid #f0f0f0;
+    border-color:#f0f0f0;
+    -webkit-transition: all .35s;
+    -moz-transition: all .35s;
+    transition: all .35s;
+}*/
+
+/*.btn.btn-primary:hover {
+    opacity: 0.7;
+}*/
+
+.btn-margins {
+    margin-bottom: 8px;
+}
+
+.btn-transition {
+    -webkit-transition: all .2s;
+    -moz-transition: all .2s;
+    transition: all .2s;
+
+    &:hover {
+        -ms-transform: translate(0px,-2px); /* IE 9 */
+        -webkit-transform: translate(0px,-2px); /* Safari */
+        transform: translate(0px,-2px); /* Standard syntax */
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    }
+
+    &:active {
+        -ms-transform: translate(0px,-1px); /* IE 9 */
+        -webkit-transform: translate(0px,-1px); /* Safari */
+        transform: translate(0px,-1px); /* Standard syntax */
+        box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.2), 0 4px 14px 0 rgba(0, 0, 0, 0.19);
+    }
+}
+
+.btn-scale-transition {
+    -webkit-transition: all .15s;
+    -moz-transition: all .15s;
+    transition: all .15s;
+
+    &:hover {
+        -ms-transform: matrix(1.02, 0, 0, 1.02, 0,-1);
+        -webkit-transform: matrix(1.02, 0, 0, 1.02, 0,-1);
+        transform: matrix(1.02, 0, 0, 1.02, 0,-1);
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.4), 0 6px 20px 0 rgba(0, 0, 0, 0.25);
+    }
+
+    &:active {
+        -ms-transform: matrix(1.01, 0, 0, 1.01, 0, 0);
+        -webkit-transform: matrix(1.01, 0, 0, 1.01, 0, 0);
+        transform: matrix(1.01, 0, 0, 1.01, 0, 0);
+        box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.3), 0 4px 14px 0 rgba(0, 0, 0, 0.2);
+    }
+}
+
+.btn.btn-subscribe {
+    @include customButton2($subscribe-bg, $white);
+}
+
+.btn.btn-facebook {
+    @include customButton2($facebook-bg, $white);
+}
+
+.btn.btn-google {
+    @include customButtonDark($google-plus-bg, $white);
+}
+
+.btn.btn-signup {
+    @include customButtonDark($signup-bg, $white);
+}
+
+.btn.btn-signup-inverse {
+    @include customButtonInverse($signup-bg, $white);
+}
+
+.btn.btn-orange {
+    @include customButtonDark(darken($signup-bg, 10%), $white);
+}
+
+.btn.btn-gray {
+    @include customButton2($gray-light, $black);
+}
+
+.btn.btn-signup-school {
+    @include customButtonDark($signup-school-bg, $white);
+}
+
+.btn.btn-subject {
+    @include customButton2($purple-subject, $white);
+}
+
+.btn {
+    border: 0;
+    border-radius: 5px;
+    font-family: 'Helvetica Neue',Arial,sans-serif;
+}
+
+.btn-regular {
+    border: 0;
+    font-family: 'Helvetica Neue',Arial,sans-serif;
+}
+
+.btn-xl {
+    padding: 15px 30px;
+    font-size: 27px;
+}
+
+.btn-side {
+    background-color: cornflowerblue;
+    height: 80px;
+    margin: 0;
+    text-align: center;
+    vertical-align: middle;
+}
+
+.btn-side.btn-side-default {
+    @include customButtonSide($blue-tufts, $gainsboro2, $blue-light);
+}
+
+.btn-side.btn-side-help {
+    @include customButtonSideLight($blue-alice, $gray-cadet, $blue-light);
+}
+
+.btn-side.btn-side-cart {
+    @include customButtonSide($orange-side, $yellow-linen, $blue-light);
+}
+
+.btn-side.btn-side-history {
+    @include customButtonSide($purple-plum, $blue-light, $blue-light);
+}
+
+.btn-side.btn-side-history {
+    @include customButtonSide($purple-plum, $blue-light, $blue-light);
+}
+
+.btn-side.btn-side-school-search {
+    @include customButtonSide($blue-tufts, $blue-light, $blue-light);
+}
+
+.btn-side.btn-side-student-schedule {
+    @include customButtonSide($green-middle, $blue-light, $blue-light);
+}
+
+
+// Main Tabs
+
+.box-red {
+    @include buttonTabCustom($red-cg, $white, 20%);
+}
+
+.box-yellow {
+    @include buttonTabCustom($yellow-titanium, $black, 30%);
+}
+
+.box-blue {
+    @include buttonTabCustom($blue-navy-bright, $white, 30%);
+}
+
+.box-green {
+    @include buttonTabCustom($green-icon, $white, 30%);
+}
+
+.box-white {
+    @include buttonTabCustomLight($white, $black, 12%);
+}
+
+.box-gray {
+    @include buttonEmbossed($gray-mid-mid-light, $gray);
+}
+
+.box-purple {
+    @include buttonTabCustom($purple-indigo-dark, $white, 60%);
+}
+
+.box-purple-pastel {
+    @include buttonTabCustom($purple-subject, $white, 40%);
+}
+
+.box-brown {
+    @include buttonTabCustom($brown-umber, $white, 30%);
+}
+
+// Toggle Switch (temporary)
+// from: https://www.w3schools.com/howto/tryit.asp?filename=tryhow_css_switch
+
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 60px;
+  height: 34px;
+}
+
+.switch input {display:none;}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 26px;
+  width: 26px;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+input:checked + .slider {
+  background-color: #2196F3;
+}
+
+input:focus + .slider {
+  box-shadow: 0 0 1px #2196F3;
+}
+
+input:checked + .slider:before {
+  -webkit-transform: translateX(26px);
+  -ms-transform: translateX(26px);
+  transform: translateX(26px);
+}
+
+/* Rounded sliders */
+.slider.round {
+  border-radius: 34px;
+}
+
+.slider.round:before {
+  border-radius: 50%;
+}

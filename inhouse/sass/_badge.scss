@@ -1,0 +1,29 @@
+// White Badges are for the following school levels:
+//  K12 - K to 12
+.badge-white {
+  @include badgeCustom($white, $black);
+}
+
+// Bronze Badges are for the following school levels:
+//  P - Pre School
+//  E - Elementary
+.badge-bronze {
+  @include badgeCustom($orange-bronze, lighten($orange-bronze, 50%));
+}
+
+// Silver Badges are for the following school levels:
+//  S - Secondary or High School
+.badge-silver {
+  @include badgeCustom($gray-silver, darken($gray-silver, 30%));
+}
+
+// Gold Badges are for the following school levels:
+//  C - College Undergraduate
+//  G - Graduate Studies
+.badge-gold {
+  @include badgeCustom($yellow-gold, darken($yellow-gold, 50%));
+}
+
+.badge-blue {
+  @include badgeCustom($baby-blue, $white);
+}

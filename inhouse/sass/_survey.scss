@@ -1,0 +1,12 @@
+.survey-section {
+	@include singlePageSection($charcoal, $black, $black, 4%);
+
+	.survey-form {
+		@include genericSectionInfo($body-bg-azure-lighter);
+
+		.survey-question {
+			border-bottom: 1px solid $gray-upper-mid-light;
+			margin-bottom: 20px;
+		}
+	}
+}

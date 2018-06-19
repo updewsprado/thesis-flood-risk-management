@@ -1,0 +1,53 @@
+.contact-us-section {
+	@include conversionSection($body-bg-lightblue, $black, $gray-slightly-light);
+
+	.contact-us-header {
+		margin-bottom: 30px;
+	}
+
+	// Custom radio buttons
+	.user-feeling {
+		input[type="radio"] {
+			-webkit-appearance: none;
+			width: 90px;
+			height: 90px;
+			border: none;
+			cursor: pointer;
+			transition: border .2s ease;
+			filter: grayscale(100%);
+			margin: 0 5px;
+			transition: all .2s ease;
+			
+			&:hover, &:checked {
+				filter:	grayscale(0);
+			}
+			
+			&:focus {
+				outline: 0;
+			}
+			
+			&.happy {
+				background: url('../images/icons/emotion-happy.svg') center;
+				background-size: cover;
+			}
+			
+			&.neutral {
+				background: url('../images/icons/emotion-neutral.svg') center;
+				background-size: cover;
+			}
+			&.sad {
+				background: url('../images/icons/emotion-sad.svg') center;
+				background-size: cover;
+			}
+		}
+	}
+
+	button {
+		bottom: 0px;
+	}
+
+	li {
+		padding-right: 10px;
+		list-style-position: outside;
+	}
+}

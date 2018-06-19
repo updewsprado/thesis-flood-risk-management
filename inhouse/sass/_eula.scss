@@ -1,0 +1,7 @@
+.user-agreement-section {
+	@include singlePageSection($charcoal, $black, $gray-light, 4%);
+
+	.user-agreement-info {
+		@include genericSectionInfo($body-bg-azure-lighter);
+	}
+}

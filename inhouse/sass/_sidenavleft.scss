@@ -1,0 +1,74 @@
+/* Left Side Navigation Panel */
+
+/* overlay styles, all needed */
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background-color: rgba(0,0,0,0.5);
+    z-index: 10;
+    transition: 0.5s;
+}
+
+/* The side navigation menu */
+.sidenav {
+    height: 100%; 
+    width: 250px;
+    position: fixed;
+    z-index: 3;
+    top: 0;
+    /*left: 0;*/
+    left: -250px;
+    background-color: $blue-navy-dark;
+    overflow-x: hidden;
+    padding-top: 60px;
+    text-align: left;
+    transition: 0.5s;
+}
+
+/* The navigation menu links */
+.sidenav a {
+    padding: 8px 8px 8px 32px;
+    text-decoration: none;
+    font-size: 18px;
+    color: $blue-sky;
+    display: block;
+    transition: 0.3s;
+}
+
+/* The navigation menu links */
+.sidenav a.special {
+    color: $orange-side;
+}
+
+.sidenav a.special:hover {
+    color: $orange-side-hover;
+}
+
+/* When you mouse over the navigation links, change their color */
+.sidenav a:hover, .offcanvas a:focus {
+    color: $white;
+    background-color: $blue-dark;
+}
+
+/* Position and style the close button (top right corner) */
+.sidenav .closebtn {
+    position: absolute;
+    top: 0;
+    right: 25px;
+    font-size: 36px;
+    margin-left: 50px;
+}
+
+.sidenav-elem {
+    font-size: 30px;
+    cursor: pointer;
+}
+
+/* On smaller screens, where height is less than 450px, change the style of the sidenav (less padding and a smaller font size) */
+@media screen and (max-height: 450px) {
+    .sidenav {padding-top: 15px;}
+    .sidenav a {font-size: 15px;}
+}
