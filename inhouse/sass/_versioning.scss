@@ -1,7 +1,0 @@
-.version-info-section {
-	@include singlePageSection($charcoal, $black, $gray-light, 4%);
-
-	.version-info {
-		@include genericSectionInfo($body-bg-azure-lighter);
-	}
-}
