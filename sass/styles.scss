@@ -5,10 +5,11 @@
 @import "mixins";
 
 // Per component
-@import "text";
 @import "footer";
-@import "socialmedia";
 @import "forms";
+@import "modals";
+@import "socialmedia";
+@import "text";
 
 #mainNav {
 	margin-bottom: 10px;
