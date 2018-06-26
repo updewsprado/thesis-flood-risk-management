@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Flood Risk Management System</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- Libraries from web -->
+  <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"> -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+  <!-- Libraries stored locally -->
+  <link rel="stylesheet" href="vendor/font-awesome/css/font-awesome.min.css">
+
+  <!-- Theme CSS -->
+  <link rel="stylesheet" type="text/css" href="css/styles.css">
+</head>
+<body class="main-body">
+
+<nav class="navbar navbar-inverse navbar-fixed-top">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="#">Flood Risk Management System</a>
+    </div>
+    <ul class="nav navbar-nav navbar-right">
+      <li>
+        <a href="index.html">
+          <i class="fa fa-tachometer" aria-hidden="true"></i>
+          Dashboard
+        </a>
+      </li>
+      <li>
+        <a href="#">
+          <i class="fa fa-cog" aria-hidden="true"></i>
+          Dashboard Settings
+        </a>
+      </li>
+      <li class="active">
+        <a href="data_admin.html">
+          <i class="fa fa-database" aria-hidden="true"></i>
+          Data Administration
+        </a>
+      </li>
+      <li>
+        <a href="#">
+          <i class="fa fa-bar-chart" aria-hidden="true"></i>
+          Historical Data
+        </a>
+      </li>
+    </ul>
+  </div>
+</nav>
+
+<div class="container margin-top-page">
+  <div class="row">
+    <div class="col-sm-12">
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <h4>
+            Data Administration Page
+          </h4>
+        </div>
+        <div class="panel-body">
+          <div class="alert alert-info alert-dismissible fade in">
+            <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+            Configure the parametarized values and upload csv files using this page.
+          </div>
+          <div class="row">
+            <div class="col-sm-6">
+              <h4>Static Datasets</h4>
+            </div>
+            <div class="col-sm-6 text-right">
+              <button type="button" class="btn btn-primary" 
+                  data-toggle="modal" data-target="#fileUploadModal">
+                <i class="fa fa-upload" aria-hidden="true"></i>
+                Upload new file
+              </button>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-sm-12">
+              <table class="table table-responsive table-condensed table-hover">
+                <thead>
+                  <th>Filename</th>
+                  <th>Data Provider</th>
+                </thead>
+                <tbody>  
+                  <tr>
+                    <td><a href="#">Local Government Unit File #1</a></td>
+                    <td>Local Government Unit</td>
+                  </tr>
+                  <tr>
+                    <td><a href="#">Local Government Unit File #2</a></td>
+                    <td>Local Government Unit</td>
+                  </tr>
+                  <tr>
+                    <td><a href="#">Philippine Statistics Authority Data #1</a></td>
+                    <td>Philippine Statistics Authority</td>
+                  </tr>
+                  <tr>
+                    <td><a href="#">Philippine Statistics Authority Data #2</a></td>
+                    <td>Philippine Statistics Authority</td>
+                  </tr>
+                  <tr>
+                    <td><a href="#">Philippine Statistics Authority Data #3</a></td>
+                    <td>Philippine Statistics Authority</td>
+                  </tr>
+                  <tr>
+                    <td><a href="#">DSWD File #1</a></td>
+                    <td>DSWD</td>
+                  </tr>
+                  <tr>
+                    <td><a href="#">DSWD File #2</a></td>
+                    <td>DSWD</td>
+                  </tr>
+                  <tr>
+                    <td><a href="#">NDRRMC File #1</a></td>
+                    <td>NDRRMC</td>
+                  </tr>
+                  <tr>
+                    <td><a href="#">NDRRMC File #2</a></td>
+                    <td>NDRRMC</td>
+                  </tr>
+                  <tr>
+                    <td><a href="#">PAGASA Data #1</a></td>
+                    <td>PAGASA</td>
+                  </tr>
+                  <tr>
+                    <td><a href="#">PAGASA Data #2</a></td>
+                    <td>PAGASA</td>
+                  </tr>
+                  <tr>
+                    <td><a href="#">PAGASA Data #3</a></td>
+                    <td>PAGASA</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+          <hr>
+          <div class="row">
+            <div class="col-sm-12">
+              <h4>Editable Values</h4>
+            </div>
+          </div>
+        </div>
+        <div class="panel-footer">Panel Footer</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Modal -->
+<div id="fileUploadModal" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">Upload New File</h4>
+      </div>
+      <div class="modal-body">
+        <div class="form-group">
+          <label for="selectProvider">Data Provider:</label>
+          <select class="form-control" id="selectProvider">
+            <option>select a data provider...</option>
+            <option>DSWD</option>
+            <option>Local Government Unit</option>
+            <option>NDRRMC</option>
+            <option>PAGASA</option>
+            <option>Philippine Statistics Authority</option>
+            <option>Other</option>
+          </select>
+        </div>
+        <hr>
+        <label>Select Data File (CSV only):</label>
+        <div class="input-group">
+            <label class="input-group-btn">
+                <span class="btn btn-primary">
+                    Browse&hellip; <input type="file" style="display: none;" multiple>
+                </span>
+            </label>
+            <input type="text" class="form-control" readonly>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary" data-dismiss="modal">
+          <i class="fa fa-upload" aria-hidden="true"></i>
+          Upload
+        </button>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<script type="text/javascript">
+  $(function() {
+
+    // We can attach the `fileselect` event to all file inputs on the page
+    $(document).on('change', ':file', function() {
+      var input = $(this),
+          numFiles = input.get(0).files ? input.get(0).files.length : 1,
+          label = input.val().replace(/\\/g, '/').replace(/.*\//, '');
+      input.trigger('fileselect', [numFiles, label]);
+    });
+
+    // We can watch for our custom `fileselect` event like this
+    $(document).ready( function() {
+        $(':file').on('fileselect', function(event, numFiles, label) {
+
+            var input = $(this).parents('.input-group').find(':text'),
+                log = numFiles > 1 ? numFiles + ' files selected' : label;
+
+            if( input.length ) {
+                input.val(log);
+            } else {
+                if( log ) alert(log);
+            }
+
+        });
+    });
+    
+  });
+</script>
+
+</body>
+</html>
