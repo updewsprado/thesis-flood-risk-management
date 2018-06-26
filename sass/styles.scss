@@ -1,10 +1,14 @@
 @import "variables";
 @import "bootstrap";
 
+// Project specific style
+@import "variablesFRMS";
+
 // Reusable function components
 @import "mixins";
 
 // Per component
+@import "alerts";
 @import "footer";
 @import "forms";
 @import "modals";
@@ -46,3 +50,4 @@
 hr {
 	margin: 5px 0;
 }
+
