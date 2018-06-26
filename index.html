@@ -97,7 +97,7 @@
               <p>
                 <a href="#" data-toggle="modal" data-target="#barangayDetailsModal">Saog</a>, 
                 <a href="#" data-toggle="modal" data-target="#barangayDetailsModal">Ibayo</a> and 
-                <a href="#" data-toggle="modal" data-target="#barangayDetailsModal">Lias</a>
+                <a href="#" data-toggle="modal" data-target="#barangayDetailsModalHigh">Lias</a>
                 needs rescue and evacuation. COORDINATE with DSWD for relief goods.
                 <br><br>
                 <span>20:08 June 12</span>
@@ -111,9 +111,8 @@
               <br>
               <p>
                 Coordinate with BCs on
-                <a href="#" data-toggle="modal" data-target="#barangayDetailsModal">Poblacion</a>, 
-                <a href="#" data-toggle="modal" data-target="#barangayDetailsModal">Abangan</a> and 
-                <a href="#" data-toggle="modal" data-target="#barangayDetailsModal">Sta. Rosa</a>
+                <a href="#" data-toggle="modal" data-target="#barangayDetailsModalMidHigh">Poblacion</a> and 
+                <a href="#" data-toggle="modal" data-target="#barangayDetailsModalMedium">Abangan</a>
                 <br><br>
                 <span>20:08 June 12</span>
               </p>
@@ -189,7 +188,7 @@
               <p>Action Required: <b>RESCUE & EVACUATION</b></p>
               <br>
               <button type="button" class="btn btn-info btn-block" 
-                  data-toggle="modal" data-target="#barangayDetailsModal">
+                  data-toggle="modal" data-target="#barangayDetailsModalHigh">
                 More info
                 <i class="fa fa-info-circle" aria-hidden="true"></i>
               </button>
@@ -198,15 +197,15 @@
           <div class="col-sm-4">
             <div class="alert alert-mid-high">
               <h4><b><u><i class="fa fa-map-marker" aria-hidden="true"></i> POBLACION</u></b></h4>
-              <p>Alert Level: <span>MID-HIGH</span></p>
+              <p>Alert Level: <span>Mid-high</span></p>
               <br>
               <p>Average Flood level: <span>XXXX</span></p>
               <p>No. of People Affected: <span>XXXX</span></p>
               <br>
-              <p>Action Required: <b>RESCUE & EVACUATION</b></p>
+              <p>Action Required: <b>Continuous Monitoring</b></p>
               <br>
               <button type="button" class="btn btn-info btn-block" 
-                  data-toggle="modal" data-target="#barangayDetailsModal">
+                  data-toggle="modal" data-target="#barangayDetailsModalMidHigh">
                 More info
                 <i class="fa fa-info-circle" aria-hidden="true"></i>
               </button>
@@ -215,15 +214,15 @@
           <div class="col-sm-4">
             <div class="alert alert-medium">
               <h4><b><u><i class="fa fa-map-marker" aria-hidden="true"></i> ABANGAN</u></b></h4>
-              <p>Alert Level: <span>MEDIUM</span></p>
+              <p>Alert Level: <span>Medium</span></p>
               <br>
               <p>Average Flood level: <span>XXXX</span></p>
               <p>No. of People Affected: <span>XXXX</span></p>
               <br>
-              <p>Action Required: <b>RESCUE & EVACUATION</b></p>
+              <p>Action Required: <b>Continuous Monitoring</b></p>
               <br>
               <button type="button" class="btn btn-info btn-block" 
-                  data-toggle="modal" data-target="#barangayDetailsModal">
+                  data-toggle="modal" data-target="#barangayDetailsModalMedium">
                 More info
                 <i class="fa fa-info-circle" aria-hidden="true"></i>
               </button>
@@ -232,15 +231,15 @@
           <div class="col-sm-4">
             <div class="alert alert-none">
               <h4><b><u><i class="fa fa-map-marker" aria-hidden="true"></i> STA ROSA</u></b></h4>
-              <p>Alert Level: <span>NORMAL</span></p>
+              <p>Alert Level: <span>Normal</span></p>
               <br>
               <p>Average Flood level: <span>XXXX</span></p>
               <p>No. of People Affected: <span>XXXX</span></p>
               <br>
-              <p>Action Required: <b>RESCUE & EVACUATION</b></p>
-              <br>
+              <p>Action Required: <b>None</b></p>
+              <br><br>
               <button type="button" class="btn btn-info btn-block" 
-                  data-toggle="modal" data-target="#barangayDetailsModal">
+                  data-toggle="modal" data-target="#barangayDetailsModalNormal">
                 More info
                 <i class="fa fa-info-circle" aria-hidden="true"></i>
               </button>
@@ -371,7 +370,7 @@
             </div>
           </div>
           <div class="col-sm-6">
-            <div class="panel panel-danger">
+            <div class="panel panel-critical">
               <div class="panel-heading">
                 Action Board
                 <i class="fa fa-bell fa-lg" aria-hidden="true"></i>
@@ -389,6 +388,371 @@
                 <div class="well well-lg">
                   Coordinate with DSWD for the relief goods. Make sure that
                   the relief shelter is ready for occupancy.
+                </div>
+                <p>
+                  <b>Assigned Shelter:</b>
+                  <span>Guillermo Basketball Court</span>
+                </p>
+                <p>
+                  <b>Average Flood Level:</b>
+                  <span>3 feet</span>
+                </p>
+                <p>
+                  <b>Resources Needed:</b>
+                  <span>Rescue truck, 10 rescuers</span>
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- Barangay Details Modal -->
+<div id="barangayDetailsModalHigh" class="modal fade" role="dialog">
+  <div class="modal-dialog modal-lg">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h3 class="modal-title">
+          <b><i class="fa fa-map-marker" aria-hidden="true"></i> LIAS</b>
+          <small>as of 16:44 June 15, 2018</small>
+        </h3>
+      </div>
+      <div class="modal-body">
+        <div class="row">
+          <div class="col-sm-6">
+            <div class="panel panel-info">
+              <div class="panel-heading">
+                Risk and Vulnerability Info
+                <i class="fa fa-info-circle fa-lg" aria-hidden="true"></i>
+              </div>
+              <div class="panel-body">
+                <div class="well well-lg">
+                  <h4>
+                    Risk Factor: <span class="text-danger">HIGH</span>
+                  </h4>
+                  <p>
+                    The area is exposed to rain enduced disaster. Disaster
+                    vulnerability is high.
+                  </p>
+                </div>
+                <h4>Estimated Affected</h4>
+                <p>
+                  <b>Families:</b>
+                  <span>600</span>
+                </p>
+                <p>
+                  <b>Vulnerable Population:</b>
+                  <span>900</span>
+                </p>
+                <p>
+                  <b>Affected Population:</b>
+                  <span>5000</span>
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-6">
+            <div class="panel panel-high">
+              <div class="panel-heading">
+                Action Board
+                <i class="fa fa-bell fa-lg" aria-hidden="true"></i>
+              </div>
+              <div class="panel-body">
+                <h2 class="text-danger text-center">
+                  <b>
+                    <u>
+                      EVACUATE NOW
+                      <i class="fa fa-exclamation-triangle" aria-hidden="true"></i>
+                    </u>
+                  </b>
+                </h2>
+                <br>
+                <div class="well well-lg">
+                  Coordinate with DSWD for the relief goods. Make sure that
+                  the relief shelter is ready for occupancy.
+                </div>
+                <p>
+                  <b>Assigned Shelter:</b>
+                  <span>Guillermo Basketball Court</span>
+                </p>
+                <p>
+                  <b>Average Flood Level:</b>
+                  <span>3 feet</span>
+                </p>
+                <p>
+                  <b>Resources Needed:</b>
+                  <span>Rescue truck, 10 rescuers</span>
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- Barangay Details Modal -->
+<div id="barangayDetailsModalMidHigh" class="modal fade" role="dialog">
+  <div class="modal-dialog modal-lg">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h3 class="modal-title">
+          <b><i class="fa fa-map-marker" aria-hidden="true"></i> POBLACION</b>
+          <small>as of 16:44 June 15, 2018</small>
+        </h3>
+      </div>
+      <div class="modal-body">
+        <div class="row">
+          <div class="col-sm-6">
+            <div class="panel panel-info">
+              <div class="panel-heading">
+                Risk and Vulnerability Info
+                <i class="fa fa-info-circle fa-lg" aria-hidden="true"></i>
+              </div>
+              <div class="panel-body">
+                <div class="well well-lg">
+                  <h4>
+                    Risk Factor: <span class="text-danger">HIGH</span>
+                  </h4>
+                  <p>
+                    The area is exposed to rain enduced disaster. Disaster
+                    vulnerability is high.
+                  </p>
+                </div>
+                <h4>Estimated Affected</h4>
+                <p>
+                  <b>Families:</b>
+                  <span>600</span>
+                </p>
+                <p>
+                  <b>Vulnerable Population:</b>
+                  <span>900</span>
+                </p>
+                <p>
+                  <b>Affected Population:</b>
+                  <span>5000</span>
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-6">
+            <div class="panel panel-mid-high">
+              <div class="panel-heading">
+                Action Board
+                <i class="fa fa-bell fa-lg" aria-hidden="true"></i>
+              </div>
+              <div class="panel-body">
+                <h2 class="text-warning text-center">
+                  <b>
+                    <u>
+                      Continous Monitoring
+                      <i class="fa fa-eye" aria-hidden="true"></i>
+                    </u>
+                  </b>
+                </h2>
+                <br>
+                <div class="well well-lg">
+                  Coordinate with BCs. Make sure that
+                  the relief shelter is ready for occupancy.
+                </div>
+                <p>
+                  <b>Assigned Shelter:</b>
+                  <span>Guillermo Basketball Court</span>
+                </p>
+                <p>
+                  <b>Average Flood Level:</b>
+                  <span>3 feet</span>
+                </p>
+                <p>
+                  <b>Resources Needed:</b>
+                  <span>Rescue truck, 10 rescuers</span>
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- Barangay Details Modal -->
+<div id="barangayDetailsModalMedium" class="modal fade" role="dialog">
+  <div class="modal-dialog modal-lg">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h3 class="modal-title">
+          <b><i class="fa fa-map-marker" aria-hidden="true"></i> ABANGAN</b>
+          <small>as of 16:44 June 15, 2018</small>
+        </h3>
+      </div>
+      <div class="modal-body">
+        <div class="row">
+          <div class="col-sm-6">
+            <div class="panel panel-info">
+              <div class="panel-heading">
+                Risk and Vulnerability Info
+                <i class="fa fa-info-circle fa-lg" aria-hidden="true"></i>
+              </div>
+              <div class="panel-body">
+                <div class="well well-lg">
+                  <h4>
+                    Risk Factor: <span class="text-danger">HIGH</span>
+                  </h4>
+                  <p>
+                    The area is exposed to rain enduced disaster. Disaster
+                    vulnerability is high.
+                  </p>
+                </div>
+                <h4>Estimated Affected</h4>
+                <p>
+                  <b>Families:</b>
+                  <span>600</span>
+                </p>
+                <p>
+                  <b>Vulnerable Population:</b>
+                  <span>900</span>
+                </p>
+                <p>
+                  <b>Affected Population:</b>
+                  <span>5000</span>
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-6">
+            <div class="panel panel-medium">
+              <div class="panel-heading">
+                Action Board
+                <i class="fa fa-bell fa-lg" aria-hidden="true"></i>
+              </div>
+              <div class="panel-body">
+                <h2 class="text-warning text-center">
+                  <b>
+                    <u>
+                      Continous Monitoring
+                      <i class="fa fa-eye" aria-hidden="true"></i>
+                    </u>
+                  </b>
+                </h2>
+                <br>
+                <div class="well well-lg">
+                  Coordinate with BCs. Make sure that
+                  the relief shelter is ready for occupancy.
+                </div>
+                <p>
+                  <b>Assigned Shelter:</b>
+                  <span>Guillermo Basketball Court</span>
+                </p>
+                <p>
+                  <b>Average Flood Level:</b>
+                  <span>3 feet</span>
+                </p>
+                <p>
+                  <b>Resources Needed:</b>
+                  <span>Rescue truck, 10 rescuers</span>
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- Barangay Details Modal -->
+<div id="barangayDetailsModalNormal" class="modal fade" role="dialog">
+  <div class="modal-dialog modal-lg">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h3 class="modal-title">
+          <b><i class="fa fa-map-marker" aria-hidden="true"></i> STA ROSA</b>
+          <small>as of 16:44 June 15, 2018</small>
+        </h3>
+      </div>
+      <div class="modal-body">
+        <div class="row">
+          <div class="col-sm-6">
+            <div class="panel panel-info">
+              <div class="panel-heading">
+                Risk and Vulnerability Info
+                <i class="fa fa-info-circle fa-lg" aria-hidden="true"></i>
+              </div>
+              <div class="panel-body">
+                <div class="well well-lg">
+                  <h4>
+                    Risk Factor: <span class="text-danger">HIGH</span>
+                  </h4>
+                  <p>
+                    The area is exposed to rain enduced disaster. Disaster
+                    vulnerability is high.
+                  </p>
+                </div>
+                <h4>Estimated Affected</h4>
+                <p>
+                  <b>Families:</b>
+                  <span>600</span>
+                </p>
+                <p>
+                  <b>Vulnerable Population:</b>
+                  <span>900</span>
+                </p>
+                <p>
+                  <b>Affected Population:</b>
+                  <span>5000</span>
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-6">
+            <div class="panel panel-normal">
+              <div class="panel-heading">
+                Action Board
+                <i class="fa fa-bell fa-lg" aria-hidden="true"></i>
+              </div>
+              <div class="panel-body">
+                <h2 class="text-success text-center">
+                  <b>
+                    No action required
+                    <i class="fa fa-smile-o" aria-hidden="true"></i>
+                  </b>
+                </h2>
+                <br>
+                <div class="well well-lg">
+                  Location is safe
                 </div>
                 <p>
                   <b>Assigned Shelter:</b>
