@@ -5,13 +5,12 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <!-- Libraries from web -->
+  <!-- Libraries -->
   <script src="vendor/jquery/jquery.min.js"></script>
   <script src="vendor/momentjs/moment.min.js"></script>
   <script src="vendor/bootstrap/js/bootstrap.min.js"></script>
   <script src="vendor/datetimepicker/bootstrap-datetimepicker.min.js"></script>
 
-  <!-- Libraries stored locally -->
   <link rel="stylesheet" href="vendor/font-awesome/css/font-awesome.min.css">
 
   <!-- Theme CSS -->
@@ -33,33 +32,19 @@
           Dashboard
         </a>
       </li>
-<!--       <li>
-        <a href="#">
-          <i class="fa fa-cog" aria-hidden="true"></i>
-          Dashboard Settings
-        </a>
-      </li> -->
       <li>
         <a href="data_admin.html">
           <i class="fa fa-database" aria-hidden="true"></i>
           Data Administration
         </a>
       </li>
-<!--       <li>
-        <a href="#">
-          <i class="fa fa-bar-chart" aria-hidden="true"></i>
-          Historical Data
-        </a>
-      </li> -->
       <li>
-
-                <div class='input-group date' id='datetimepicker1'>
-                  <input type='text' class="form-control" />
-                  <span class="input-group-addon">
-                    <span class="glyphicon glyphicon-calendar"></span>
-                  </span>
-                </div>
-
+        <div class='input-group date' id='datetimepicker1'>
+          <input type='text' class="form-control" />
+          <span class="input-group-addon">
+            <span class="glyphicon glyphicon-calendar"></span>
+          </span>
+        </div>
       </li>
     </ul>
   </div>
@@ -1983,7 +1968,11 @@
 
 <script type="text/javascript">
   $(function () {
-    $('#datetimepicker1').datetimepicker();
+    var defaultDateTime = moment('06/12/2018 20:30:00', 'MM/DD/YYYY hh:mm:ss');
+
+    $('#datetimepicker1').datetimepicker({
+      defaultDate: defaultDateTime,
+    });
   });
 </script>
 
