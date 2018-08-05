@@ -6,15 +6,18 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   <!-- Libraries from web -->
-  <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"> -->
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <script src="vendor/jquery/jquery.min.js"></script>
+  <script src="vendor/momentjs/moment.min.js"></script>
+  <script src="vendor/bootstrap/js/bootstrap.min.js"></script>
+  <script src="vendor/datetimepicker/bootstrap-datetimepicker.min.js"></script>
 
   <!-- Libraries stored locally -->
   <link rel="stylesheet" href="vendor/font-awesome/css/font-awesome.min.css">
 
   <!-- Theme CSS -->
   <link rel="stylesheet" type="text/css" href="css/styles.css">
+
+  <link rel="stylesheet" type="text/css" href="vendor/datetimepicker/bootstrap-datetimepicker.min.css">
 </head>
 <body class="main-body">
 
@@ -30,23 +33,33 @@
           Dashboard
         </a>
       </li>
-      <li>
+<!--       <li>
         <a href="#">
           <i class="fa fa-cog" aria-hidden="true"></i>
           Dashboard Settings
         </a>
-      </li>
+      </li> -->
       <li>
         <a href="data_admin.html">
           <i class="fa fa-database" aria-hidden="true"></i>
           Data Administration
         </a>
       </li>
-      <li>
+<!--       <li>
         <a href="#">
           <i class="fa fa-bar-chart" aria-hidden="true"></i>
           Historical Data
         </a>
+      </li> -->
+      <li>
+
+                <div class='input-group date' id='datetimepicker1'>
+                  <input type='text' class="form-control" />
+                  <span class="input-group-addon">
+                    <span class="glyphicon glyphicon-calendar"></span>
+                  </span>
+                </div>
+
       </li>
     </ul>
   </div>
@@ -572,6 +585,18 @@
                   Coordinate with DSWD for the relief goods. Make sure that
                   the relief shelter is ready for occupancy.
                 </div>
+                <h2 class="text-danger text-center">
+                  <b>
+                    <u>
+                      ASK LGU for Rescuers
+                      <i class="fa fa-exclamation-triangle" aria-hidden="true"></i>
+                    </u>
+                  </b>
+                </h2>
+                <br>
+                <div class="well well-lg">
+                  [Insert narrative and resources needed]
+                </div>
                 <p>
                   <b>Assigned Shelter:</b>
                   <span>Guillermo Basketball Court</span>
@@ -663,6 +688,18 @@
                 <div class="well well-lg">
                   Coordinate with DSWD for the relief goods. Make sure that
                   the relief shelter is ready for occupancy.
+                </div>
+                <h2 class="text-danger text-center">
+                  <b>
+                    <u>
+                      ASK LGU for Rescuers
+                      <i class="fa fa-exclamation-triangle" aria-hidden="true"></i>
+                    </u>
+                  </b>
+                </h2>
+                <br>
+                <div class="well well-lg">
+                  [Insert narrative and resources needed]
                 </div>
                 <p>
                   <b>Assigned Shelter:</b>
@@ -1943,6 +1980,12 @@
 
   </div>
 </div>
+
+<script type="text/javascript">
+  $(function () {
+    $('#datetimepicker1').datetimepicker();
+  });
+</script>
 
 </body>
 </html>
