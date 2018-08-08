@@ -1,0 +1,1 @@
+<h1>This is a test page for NEWS controller</h1>
