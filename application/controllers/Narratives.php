@@ -23,4 +23,28 @@ class Narratives extends CI_Controller {
       echo json_encode($data['municipality_actions']);  
     }
   }
+
+  public function barangay_actions() {
+    $data['barangay_actions'] = $this->narratives_model->get_barangay_actions();
+
+    if (empty($data['barangay_actions'])) {
+      show_404();
+      return;
+    }
+    else {
+      echo json_encode($data['barangay_actions']);  
+    }
+  }
+
+  public function barangay_risk_factors() {
+    $data['barangay_risk_factors'] = $this->narratives_model->get_barangay_risk_factors();
+
+    if (empty($data['barangay_risk_factors'])) {
+      show_404();
+      return;
+    }
+    else {
+      echo json_encode($data['barangay_risk_factors']);  
+    }
+  }
 }
