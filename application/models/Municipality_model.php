@@ -20,4 +20,14 @@ class Municipality_model extends CI_Model {
     return $query->row_array();
   }
 
+  // TODO: Get all barangays under the municipality
+  public function get_barangays_of_municipality($id=1) {
+    
+  }
+
+  // TODO: Get alert levels of the municipality
+  public function get_alert_levels($id=1, $date_end=null, $date_start=null) {
+    
+  }
+
 }
