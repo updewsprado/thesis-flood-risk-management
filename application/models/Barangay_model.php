@@ -11,9 +11,15 @@ class Barangay_model extends CI_Model {
     return $query->row_array();
   }
 
-  // TODO: Get alert levels of the barangay
-  public function get_alert_levels($id=1, $date_end=null, $date_start=null) {
-
+  // Get alert level of the barangay
+  public function get_alert_level($id=1, $timestamp=null) {
+    $query_text = 'SELECT binfo.id, binfo.name, balert.ts, balert.alert_level_id
+        FROM alert_level_history_barangay as balert
+        INNER JOIN barangay_basic_info as binfo
+        ON binfo.id=balert.barangay_id
+        WHERE balert.barangay_id=' . $id . ' AND balert.ts="' . $timestamp . '"';
+    $query = $this->db->query($query_text);
+    return $query->row_array();
   }
 
 }

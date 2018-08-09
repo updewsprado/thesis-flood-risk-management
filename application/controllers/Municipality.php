@@ -12,6 +12,11 @@ class Municipality extends CI_Controller {
     $this->load->view('municipality/index', $data);
   }
 
+  // API for getting the alert level of a municipality
+  public function alert_level($municipality_id=1) {
+
+  }
+
   // API for getting all barangays under the municipality
   public function all_barangays($municipality_id=1) {
     $data['all_barangays'] = $this->municipality_model->get_barangays_of_municipality($municipality_id);
@@ -44,9 +49,9 @@ class Municipality extends CI_Controller {
     }
   }
 
-  // API for weather
-  public function weather($municipality_id=1, $date_end=null, $date_start=null) {
-    $data['weather'] = $this->municipality_model->get_weather($municipality_id);
+  // API for weather from a date range
+  public function weather_range($municipality_id=1, $date_end=null, $date_start=null) {
+    $data['weather'] = $this->municipality_model->get_weather_range($municipality_id);
 
     if (empty($data['weather'])) {
       show_404();

@@ -11,7 +11,7 @@ class Municipality_model extends CI_Model {
     return $query->row_array();
   }
 
-  public function get_weather($id=1, $date_end=null, $date_start=null) {
+  public function get_weather_range($id=1, $date_end=null, $date_start=null) {
     $query_text = 'SELECT * FROM weather WHERE municipality_id=' . $id;
     
     // TODO: query composition based on date variables
