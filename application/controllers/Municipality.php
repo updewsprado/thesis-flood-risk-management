@@ -13,7 +13,20 @@ class Municipality extends CI_Controller {
   }
 
   // API for getting the alert level of a municipality
-  public function alert_level($municipality_id=1) {
+  public function alert_level($municipality_id=1, $timestamp="2018-10-10 00:00:00") {
+    // Quick parsing of date input
+    $timestamp = str_replace("%20"," ", $timestamp);
+    $timestamp = str_replace("."," ", $timestamp);
+
+    $data['municipality_alert'] = $this->municipality_model->get_alert_level($municipality_id, $timestamp);
+
+    if (empty($data['municipality_alert'])) {
+      show_404();
+      return;
+    }
+    else {
+      echo json_encode($data['municipality_alert']);  
+    }
 
   }
 
