@@ -42,8 +42,6 @@ class Municipality extends CI_Controller {
   public function weather($municipality_id=1, $date_end=null, $date_start=null) {
     $data['weather'] = $this->municipality_model->get_weather($municipality_id);
 
-    echo "municipality: " . $municipality_id . ", end: " . $date_end . ", start: " . $date_start;
-
     if (empty($data['weather'])) {
       show_404();
     }
