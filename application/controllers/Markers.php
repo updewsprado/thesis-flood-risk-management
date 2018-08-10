@@ -7,12 +7,25 @@ class Markers extends CI_Controller {
     $this->load->helper('url_helper');
   }
 
+  // ex URL: http://localhost/markers
+  /*
+    ex output:
+
+    Markers Index Page
+  */
   public function index() {
     $data['title'] = 'Markers Index Page';
     $this->load->view('markers/index', $data);
   }
 
   // API get all marker levels at specified time
+  // ex URL: http://localhost/markers/levels/2014-09-19 00:00:00
+  /*
+    ex output:
+
+    [{"name":"Abangan Bridge","marker_id":"1","ts":"2014-09-19 00:00:00","height":"7"},
+    {"name":"Abangan Bridge","marker_id":"1","ts":"2014-09-19 00:00:00","height":"8"}]
+  */
   public function levels($timestamp="2014-09-19 00:00:00") {
     // Quick parsing of date input
     $timestamp = str_replace("%20"," ", $timestamp);
