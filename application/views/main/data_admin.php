@@ -27,13 +27,13 @@
     </div>
     <ul class="nav navbar-nav navbar-right">
       <li>
-        <a href="index.html">
+        <a href="<?php echo base_url(); ?>">
           <i class="fa fa-tachometer" aria-hidden="true"></i>
           Dashboard
         </a>
       </li>
       <li class="active">
-        <a href="data_admin.html">
+        <a href="<?php echo base_url(); ?>data_admin">
           <i class="fa fa-database" aria-hidden="true"></i>
           Data Administration
         </a>
