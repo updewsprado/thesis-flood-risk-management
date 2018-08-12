@@ -1,0 +1,41 @@
+// Variables for Flood Risk Management System
+
+// Alert 0 (Greens)
+$alert-0-base:        #53A548;
+$alert-0-darker:      darken($alert-0-base, 40%);
+$alert-0-dark:        darken($alert-0-base, 20%);
+$alert-0:             $alert-0-base;
+$alert-0-light:       lighten($alert-0-base, 20%);
+$alert-0-lighter:     lighten($alert-0-base, 35%);
+
+// Alert 1 (Yellows)
+$alert-1-base:        #ffff00;
+$alert-1-darker:      darken($alert-1-base, 40%);
+$alert-1-dark:        darken($alert-1-base, 25%);
+$alert-1:             $alert-1-base;
+$alert-1-light:       lighten($alert-1-base, 20%);
+$alert-1-lighter:     lighten($alert-1-base, 35%);
+
+// Alert 2 (Oranges)
+$alert-2-base:        #ffa500;
+$alert-2-darker:      darken($alert-2-base, 40%);
+$alert-2-dark:        darken($alert-2-base, 20%);
+$alert-2:             $alert-2-base;
+$alert-2-light:       lighten($alert-2-base, 20%);
+$alert-2-lighter:     lighten($alert-2-base, 35%);
+
+// Alert 3 (Magentas)
+$alert-3-base:        #f0337f;
+$alert-3-darker:      darken($alert-3-base, 40%);
+$alert-3-dark:        darken($alert-3-base, 20%);
+$alert-3:             $alert-3-base;
+$alert-3-light:       lighten($alert-3-base, 20%);
+$alert-3-lighter:     lighten($alert-3-base, 35%);
+
+// Alert 4 (Reds)
+$alert-4-base:        #ff0000;
+$alert-4-darker:      darken($alert-4-base, 40%);
+$alert-4-dark:        darken($alert-4-base, 20%);
+$alert-4:             $alert-4-base;
+$alert-4-light:       lighten($alert-4-base, 20%);
+$alert-4-lighter:     lighten($alert-4-base, 35%);

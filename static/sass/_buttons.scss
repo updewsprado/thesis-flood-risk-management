@@ -1,0 +1,3 @@
+.btn-calamity {
+  @include button-variant($white, $gray-darker, $btn-default-border);
+}
