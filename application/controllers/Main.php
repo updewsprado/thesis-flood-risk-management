@@ -9,6 +9,10 @@ class Main extends CI_Controller {
     $this->load->view('main/index');
   }
 
+  public function angular_main() {
+    $this->load->view('main/angular_main');
+  }
+
   public function data_admin() {
     $this->load->view('main/data_admin');
   }
