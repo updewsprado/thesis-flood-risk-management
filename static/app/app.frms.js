@@ -5,8 +5,8 @@
 
   app.controller('mainCtrl', function($log, $scope, $http, $window) {
 
-    $log.debug("mainController has been initiated!");
     var vm = $scope;
+    this.$onInit = onInit;
 
     // Function Declarations
     vm.getActionBoardMunicipality = getActionBoardMunicipality;
@@ -18,11 +18,16 @@
     vm.getMessagesTwitter = getMessagesTwitter;
 
     // Variables
-    vm.municipality = {
-      name: "Marilao, Bulacan",
-    };
+    vm.municipalityInfo = {};
 
     // Function Definitions
+
+    function onInit() {
+      var targetDate = "2015-07-15 08:00:00";
+
+      $log.debug("mainController has been initiated!");
+      vm.getAlertMunicipality(targetDate);
+    }
 
     // TODO: Get the Alert Levels of the Barangays
     function getAlertBarangays(targetDate) {
@@ -39,6 +44,15 @@
 
       // TODO: municipality name, alert level, cumulative rainfall, wind level,
       //    temperature and heat index
+
+      vm.municipalityInfo = {
+        name: "Marilao, Bulacan",
+        alert: {
+          level: 4,
+          desc: "Severe",
+        },
+        rainfall: "80mm",
+      };
     }
 
     // TODO: Get the Municipality Action Board

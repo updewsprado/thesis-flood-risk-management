@@ -66,7 +66,7 @@
           <div class="panel-body">
             <h3 class="text-muted">
               <i class="fa fa-globe" aria-hidden="true"></i>
-              {{ municipality.name }}
+              {{ municipalityInfo.name }}
             </h3>
             <h2>
               Alert Level: <span class="text-danger"><b>CRITICAL</b></span>
