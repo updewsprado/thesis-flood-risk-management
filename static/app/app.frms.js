@@ -26,6 +26,7 @@
 
     // Variables
     vm.allBarangays = {};
+    vm.markerLevels = {};
     vm.municipalityInfo = {};
 
     // Function Definitions
@@ -186,6 +187,63 @@
       // TODO:
       //    River & Flood markers and height
       //    Description will be dynamic on the front end part
+
+      vm.markerLevels = [
+        {
+          name: "Abangan Bridge",
+          height: 8
+        },
+        {
+          name: "Tabing Ilog Bridge",
+          height: 10
+        },
+        {
+          name: "San Jose Bridge",
+          height: 7
+        },
+        {
+          name: "Poblacion Marker",
+          height: 6.5
+        },
+        {
+          name: "SM Marker",
+          height: 6
+        },
+        {
+          name: "Lias Marker",
+          height: 4
+        },
+        {
+          name: "Ibayo Marker",
+          height: 2
+        },
+      ];
+
+      // Reproduce row class and desc from height level
+      for (var i = 0; i < vm.markerLevels.length; i++) {
+        let height = vm.markerLevels[i].height;
+
+        if (height >= 8) {
+          vm.markerLevels[i].rowClass = "critical";
+          vm.markerLevels[i].desc = "Critical";
+        } 
+        else if (height > 6) {
+          vm.markerLevels[i].rowClass = "high";
+          vm.markerLevels[i].desc = "High";
+        }
+        else if (height > 4) {
+          vm.markerLevels[i].rowClass = "mid-high";
+          vm.markerLevels[i].desc = "Mid High";
+        }
+        else if (height > 2) {
+          vm.markerLevels[i].rowClass = "medium";
+          vm.markerLevels[i].desc = "Medium";
+        }
+        else {
+          vm.markerLevels[i].rowClass = "none";
+          vm.markerLevels[i].desc = "Normal";
+        }
+      }
     }
 
     // TODO: Collate facebook messages
@@ -211,6 +269,7 @@
 
       getAlertMunicipality(targetDate);
       getAlertBarangays(targetDate);
+      getMarkerLevels(targetDate);
     }
     
   });
