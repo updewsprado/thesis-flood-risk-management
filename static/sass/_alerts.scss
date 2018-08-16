@@ -4,18 +4,18 @@
   @include alert-variant($alert-4-lighter, $alert-4-dark, $alert-4-dark);
 }
 
-.alert-high {
+.alert-severe {
   @include alert-variant($alert-3-lighter, $alert-3-dark, $alert-3-dark);
 }
 
-.alert-mid-high {
+.alert-high {
   @include alert-variant($alert-2-lighter, $alert-2-dark, $alert-2-dark);
 }
 
-.alert-medium {
+.alert-moderate {
   @include alert-variant($alert-1-lighter, $alert-1-dark, $alert-1-dark);
 }
 
-.alert-none {
+.alert-normal {
   @include alert-variant($alert-0-lighter, $alert-0-dark, $alert-0-dark);
 }

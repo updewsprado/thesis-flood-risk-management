@@ -173,6 +173,43 @@
             </h4>
           </div>
           <div class="panel-body">
+            <div class="col-sm-4" ng-repeat="barangay in allBarangays">
+              <div class="alert alert-{{ barangay.alert.desc }}">
+                <h4>
+                  <b>
+                    <u>
+                      <i class="fa fa-map-marker" aria-hidden="true"></i> 
+                      {{ barangay.basic_info.name | uppercase }}
+                    </u>
+                  </b>
+                </h4>
+                <p>
+                  Alert Level: 
+                  <span>{{ barangay.alert.desc | uppercase}}</span>
+                </p>
+                <br>
+                <p>
+                  Average Flood level: 
+                  <span>{{ barangay.flood_status.level }}m</span>
+                </p>
+                <p>
+                  No. of People Affected:<br>
+                  <span>{{ barangay.basic_info.population }}</span>
+                </p>
+                <br>
+                <p>
+                  Action Required:<br>
+                  <b>{{ barangay.alert.action_required | capitalizeWord }}</b>
+                </p>
+                <br>
+                <button type="button" class="btn btn-info btn-block" 
+                    data-toggle="modal" data-target="#barangayDetailsModal">
+                  More info
+                  <i class="fa fa-info-circle" aria-hidden="true"></i>
+                </button>
+              </div>
+            </div>
+<!-- 
             <div class="col-sm-4">
               <div class="alert alert-critical">
                 <h4><b><u><i class="fa fa-map-marker" aria-hidden="true"></i> SAOG</u></b></h4>
@@ -275,176 +312,7 @@
                 </button>
               </div>
             </div>
-            <div class="col-sm-4">
-              <div class="alert alert-none">
-                <h4><b><u><i class="fa fa-map-marker" aria-hidden="true"></i> ABANGAN SUR</u></b></h4>
-                <p>Alert Level: <span>Normal</span></p>
-                <br>
-                <p>Average Flood level: <span>XXXX</span></p>
-                <p>No. of People Affected: <span>XXXX</span></p>
-                <br>
-                <p>Action Required: <b>None</b></p>
-                <br><br>
-                <button type="button" class="btn btn-info btn-block" 
-                    data-toggle="modal" data-target="#barangayDetailsModalNormal_AbanganSur">
-                  More info
-                  <i class="fa fa-info-circle" aria-hidden="true"></i>
-                </button>
-              </div>
-            </div>
-            <div class="col-sm-4">
-              <div class="alert alert-none">
-                <h4><b><u><i class="fa fa-map-marker" aria-hidden="true"></i> LAMBAKIN</u></b></h4>
-                <p>Alert Level: <span>Normal</span></p>
-                <br>
-                <p>Average Flood level: <span>XXXX</span></p>
-                <p>No. of People Affected: <span>XXXX</span></p>
-                <br>
-                <p>Action Required: <b>None</b></p>
-                <br><br>
-                <button type="button" class="btn btn-info btn-block" 
-                    data-toggle="modal" data-target="#barangayDetailsModalNormal_Lambakin">
-                  More info
-                  <i class="fa fa-info-circle" aria-hidden="true"></i>
-                </button>
-              </div>
-            </div>
-            <div class="col-sm-4">
-              <div class="alert alert-none">
-                <h4><b><u><i class="fa fa-map-marker" aria-hidden="true"></i> LOMA DE GATO</u></b></h4>
-                <p>Alert Level: <span>Normal</span></p>
-                <br>
-                <p>Average Flood level: <span>XXXX</span></p>
-                <p>No. of People Affected: <span>XXXX</span></p>
-                <br>
-                <p>Action Required: <b>None</b></p>
-                <br><br>
-                <button type="button" class="btn btn-info btn-block" 
-                    data-toggle="modal" data-target="#barangayDetailsModalNormal_LomaDeGato">
-                  More info
-                  <i class="fa fa-info-circle" aria-hidden="true"></i>
-                </button>
-              </div>
-            </div>
-            <div class="col-sm-4">
-              <div class="alert alert-none">
-                <h4><b><u><i class="fa fa-map-marker" aria-hidden="true"></i> NAGBALON</u></b></h4>
-                <p>Alert Level: <span>Normal</span></p>
-                <br>
-                <p>Average Flood level: <span>XXXX</span></p>
-                <p>No. of People Affected: <span>XXXX</span></p>
-                <br>
-                <p>Action Required: <b>None</b></p>
-                <br><br>
-                <button type="button" class="btn btn-info btn-block" 
-                    data-toggle="modal" data-target="#barangayDetailsModalNormal_Nagbalon">
-                  More info
-                  <i class="fa fa-info-circle" aria-hidden="true"></i>
-                </button>
-              </div>
-            </div>
-            <div class="col-sm-4">
-              <div class="alert alert-none">
-                <h4><b><u><i class="fa fa-map-marker" aria-hidden="true"></i> PATUBIG</u></b></h4>
-                <p>Alert Level: <span>Normal</span></p>
-                <br>
-                <p>Average Flood level: <span>XXXX</span></p>
-                <p>No. of People Affected: <span>XXXX</span></p>
-                <br>
-                <p>Action Required: <b>None</b></p>
-                <br><br>
-                <button type="button" class="btn btn-info btn-block" 
-                    data-toggle="modal" data-target="#barangayDetailsModalNormal_Patubig">
-                  More info
-                  <i class="fa fa-info-circle" aria-hidden="true"></i>
-                </button>
-              </div>
-            </div>
-            <div class="col-sm-4">
-              <div class="alert alert-none">
-                <h4><b><u><i class="fa fa-map-marker" aria-hidden="true"></i> POBLACION 2ND</u></b></h4>
-                <p>Alert Level: <span>Normal</span></p>
-                <br>
-                <p>Average Flood level: <span>XXXX</span></p>
-                <p>No. of People Affected: <span>XXXX</span></p>
-                <br>
-                <p>Action Required: <b>None</b></p>
-                <br><br>
-                <button type="button" class="btn btn-info btn-block" 
-                    data-toggle="modal" data-target="#barangayDetailsModalNormal_Poblacion2nd">
-                  More info
-                  <i class="fa fa-info-circle" aria-hidden="true"></i>
-                </button>
-              </div>
-            </div>
-            <div class="col-sm-4">
-              <div class="alert alert-none">
-                <h4><b><u><i class="fa fa-map-marker" aria-hidden="true"></i> PRENZA 1ST</u></b></h4>
-                <p>Alert Level: <span>Normal</span></p>
-                <br>
-                <p>Average Flood level: <span>XXXX</span></p>
-                <p>No. of People Affected: <span>XXXX</span></p>
-                <br>
-                <p>Action Required: <b>None</b></p>
-                <br><br>
-                <button type="button" class="btn btn-info btn-block" 
-                    data-toggle="modal" data-target="#barangayDetailsModalNormal_Prenza1st">
-                  More info
-                  <i class="fa fa-info-circle" aria-hidden="true"></i>
-                </button>
-              </div>
-            </div>
-            <div class="col-sm-4">
-              <div class="alert alert-none">
-                <h4><b><u><i class="fa fa-map-marker" aria-hidden="true"></i> PRENZA 2ND</u></b></h4>
-                <p>Alert Level: <span>Normal</span></p>
-                <br>
-                <p>Average Flood level: <span>XXXX</span></p>
-                <p>No. of People Affected: <span>XXXX</span></p>
-                <br>
-                <p>Action Required: <b>None</b></p>
-                <br><br>
-                <button type="button" class="btn btn-info btn-block" 
-                    data-toggle="modal" data-target="#barangayDetailsModalNormal_Prenza2nd">
-                  More info
-                  <i class="fa fa-info-circle" aria-hidden="true"></i>
-                </button>
-              </div>
-            </div>
-            <div class="col-sm-4">
-              <div class="alert alert-none">
-                <h4><b><u><i class="fa fa-map-marker" aria-hidden="true"></i> TABING-ILOG</u></b></h4>
-                <p>Alert Level: <span>Normal</span></p>
-                <br>
-                <p>Average Flood level: <span>XXXX</span></p>
-                <p>No. of People Affected: <span>XXXX</span></p>
-                <br>
-                <p>Action Required: <b>None</b></p>
-                <br><br>
-                <button type="button" class="btn btn-info btn-block" 
-                    data-toggle="modal" data-target="#barangayDetailsModalNormal_TabingIlog">
-                  More info
-                  <i class="fa fa-info-circle" aria-hidden="true"></i>
-                </button>
-              </div>
-            </div>
-            <div class="col-sm-4">
-              <div class="alert alert-none">
-                <h4><b><u><i class="fa fa-map-marker" aria-hidden="true"></i> STA ROSA 2ND</u></b></h4>
-                <p>Alert Level: <span>Normal</span></p>
-                <br>
-                <p>Average Flood level: <span>XXXX</span></p>
-                <p>No. of People Affected: <span>XXXX</span></p>
-                <br>
-                <p>Action Required: <b>None</b></p>
-                <br><br>
-                <button type="button" class="btn btn-info btn-block" 
-                    data-toggle="modal" data-target="#barangayDetailsModalNormal_StaRosa2nd">
-                  More info
-                  <i class="fa fa-info-circle" aria-hidden="true"></i>
-                </button>
-              </div>
-            </div>
+             -->
           </div>
         </div>
       </div>

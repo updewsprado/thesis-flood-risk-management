@@ -5806,40 +5806,40 @@ button.close {
   .alert-critical .alert-link {
     color: #660000; }
 
-.alert-high {
+.alert-severe {
   background-color: #fcd9e7;
   border-color: #b00d4f;
   color: #b00d4f; }
-  .alert-high hr {
+  .alert-severe hr {
     border-top-color: #980b44; }
-  .alert-high .alert-link {
+  .alert-severe .alert-link {
     color: #810939; }
 
-.alert-mid-high {
+.alert-high {
   background-color: #ffe4b3;
   border-color: #996300;
   color: #996300; }
-  .alert-mid-high hr {
+  .alert-high hr {
     border-top-color: #805300; }
-  .alert-mid-high .alert-link {
+  .alert-high .alert-link {
     color: #664200; }
 
-.alert-medium {
+.alert-moderate {
   background-color: #ffffb3;
   border-color: olive;
   color: olive; }
-  .alert-medium hr {
+  .alert-moderate hr {
     border-top-color: #666600; }
-  .alert-medium .alert-link {
+  .alert-moderate .alert-link {
     color: #4d4d00; }
 
-.alert-none {
+.alert-normal {
   background-color: #c2e2bd;
   border-color: #2f5e29;
   color: #2f5e29; }
-  .alert-none hr {
+  .alert-normal hr {
     border-top-color: #264c21; }
-  .alert-none .alert-link {
+  .alert-normal .alert-link {
     color: #1d3a1a; }
 
 .btn-calamity {
@@ -6162,19 +6162,19 @@ footer {
 .table-hover > tbody > tr > th.none:hover, .table-hover > tbody > tr.none:hover > td, .table-hover > tbody > tr:hover > .none, .table-hover > tbody > tr.none:hover > th {
   background-color: #b1dbab; }
 
-.text-alert-0 {
+.text-alert-1 {
   color: #2f5e29; }
 
-.text-alert-1 {
+.text-alert-2 {
   color: olive; }
 
-.text-alert-2 {
+.text-alert-3 {
   color: #996300; }
 
-.text-alert-3 {
+.text-alert-4 {
   color: #b00d4f; }
 
-.text-alert-4 {
+.text-alert-5 {
   color: #990000; }
 
 .text-white {
