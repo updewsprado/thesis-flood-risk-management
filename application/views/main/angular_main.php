@@ -223,38 +223,6 @@
                   <td>{{ marker.height }} meters</td>
                   <td>{{ marker.desc }}</td>
                 </tr> 
-<!-- 
-                <tr class="critical">
-                  <td>Poblacion marker</td>
-                  <td>10 meters</td>
-                  <td>Critical</td>
-                </tr>
-                <tr class="critical">
-                  <td>Abangan bridge</td>
-                  <td>8 meters</td>
-                  <td>Critical</td>
-                </tr>
-                <tr class="high">
-                  <td>Bridge #3</td>
-                  <td>7 meters</td>
-                  <td>High</td>
-                </tr>
-                <tr class="mid-high">
-                  <td>Tabing-ilog bridge</td>
-                  <td>6 meters</td>
-                  <td>Mid High</td>
-                </tr>
-                <tr class="medium">
-                  <td>Bridge #4</td>
-                  <td>4 meters</td>
-                  <td>Medium</td>
-                </tr>
-                <tr class="none">
-                  <td>Bridge #5</td>
-                  <td>2 meters</td>
-                  <td>Normal</td>
-                </tr>
-                 -->
               </tbody>
             </table>
           </div>
@@ -279,11 +247,11 @@
             <i class="fa fa-facebook-square fa-lg" aria-hidden="true"></i>
             Facebook Feeds
           </div>
-          <div class="panel-body">
-            <div class="panel panel-default">
+          <div class="panel-body">            
+            <div class="panel panel-default" ng-repeat="msg in messagesFacebook">
               <div class="panel-body">
                 <p>
-                  <b>Meralco: </b> There will be power interruption in Tabing-ilog, Loma De Gato and Ibayo
+                  <b>{{ msg.sender }}: </b> {{ msg.message }}
                 </p>
               </div>
             </div>

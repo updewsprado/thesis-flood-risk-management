@@ -27,6 +27,8 @@
     // Variables
     vm.allBarangays = {};
     vm.markerLevels = {};
+    vm.messagesFacebook = {};
+    vm.messagesTwitter = {};
     vm.municipalityInfo = {};
 
     // Function Definitions
@@ -252,6 +254,24 @@
 
       // TODO:
       //    Get last 5 messages with respect to the target date
+
+      vm.messagesFacebook = [
+        {
+          ts: "2018-06-12 20:30",
+          sender: "Citizen #1",
+          message: "Bahang baha na po sa amin. Tulong!"
+        },
+        {
+          ts: "2018-06-12 18:30",
+          sender: "NAWASA",
+          message: "Magkakaroon ng maputik na tubig ngayong tag-baha."
+        },
+        {
+          ts: "2018-06-12 15:30",
+          sender: "Meralco",
+          message: "Nagbabadyang mawalan ng kuryente sa lakas ng bagyo."
+        },
+      ];
     }
 
     // TODO: Collate twitter messages
@@ -270,6 +290,8 @@
       getAlertMunicipality(targetDate);
       getAlertBarangays(targetDate);
       getMarkerLevels(targetDate);
+      getMessagesFacebook(targetDate);
+      getMessagesTwitter(targetDate);
     }
     
   });
