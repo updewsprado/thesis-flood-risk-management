@@ -233,12 +233,8 @@
             Twitter Feeds
           </div>
           <div class="panel-body">
-            <p>
-              <b>@test:</b> Wala pong kuryente dito sa may Abangan ...21:35 6/12
-            </p>
-            <hr>
-            <p>
-              <b>@test2:</b> Stranded na po kami dito sa may SM Marilao ...21:35 6/12
+            <p ng-repeat="msg in messagesTwitter">
+              <b>@{{ msg.sender }}:</b> {{ msg.message }}... {{ msg.ts }}
             </p>
           </div>
         </div>

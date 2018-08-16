@@ -280,6 +280,24 @@
 
       // TODO:
       //    Get last 5 messages with respect to the target date
+
+      vm.messagesTwitter = [
+        {
+          ts: "2018-06-12 20:30",
+          sender: "test",
+          message: "Wala pong kuryente dito sa may Abangan"
+        },
+        {
+          ts: "2018-06-12 18:30",
+          sender: "test2",
+          message: "Stranded na po kami dito sa may SM Marilao"
+        },
+        {
+          ts: "2018-06-12 15:30",
+          sender: "test3",
+          message: "Nagbabara na po ang mga kanal sa amin"
+        },
+      ]; 
     }
 
     // Recalculate necessary data when target date changes
