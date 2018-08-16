@@ -3,13 +3,13 @@
 .panel-critical {
   @include panel-variant($alert-4-dark, $alert-4-dark, $alert-4-lighter, $alert-4-dark);
 }
-.panel-high {
+.panel-severe {
   @include panel-variant($alert-3-dark, $alert-3-dark, $alert-3-lighter, $alert-3-dark);
 }
-.panel-mid-high {
+.panel-high {
   @include panel-variant($alert-2-dark, $alert-2-dark, $alert-2-lighter, $alert-2-dark);
 }
-.panel-medium {
+.panel-moderate {
   @include panel-variant($alert-1-dark, $alert-1-dark, $alert-1-lighter, $alert-1-dark);
 }
 .panel-normal {

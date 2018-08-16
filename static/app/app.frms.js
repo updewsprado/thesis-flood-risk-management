@@ -15,6 +15,7 @@
     this.$onInit = onInit;
 
     // Function Declarations
+    vm.clickedBarangayMoreInfo = clickedBarangayMoreInfo;
     vm.getActionBoardMunicipality = getActionBoardMunicipality;
     vm.getAlertBarangays = getAlertBarangays;
     vm.getAlertMunicipality = getAlertMunicipality;
@@ -30,14 +31,21 @@
     vm.messagesFacebook = {};
     vm.messagesTwitter = {};
     vm.municipalityInfo = {};
+    vm.params = {};
+    vm.targetDate;
 
     // Function Definitions
 
     function onInit() {
-      var targetDate = "2015-07-15 08:00:00";
+      vm.targetDate = "2015-07-15 08:00:00";
 
       $log.debug("mainController has been initiated!");
-      recalculateData(targetDate);
+      recalculateData(vm.targetDate);
+    }
+
+    function clickedBarangayMoreInfo(barangay) {
+      $log.debug("clickedBarangayMoreInfo", barangay);
+      vm.params = barangay;
     }
 
     // TODO: Get the Alert Levels of the Barangays
@@ -66,6 +74,10 @@
             desc: "Neck High",
             level: 1.12,
           },
+          shelters: [
+            "Constantino Covered Court",
+            "Nagbalong Covered Court"
+          ],
         },
         {
           basic_info: {
@@ -84,6 +96,10 @@
             desc: "Waist High",
             level: 0.7,
           },
+          shelters: [
+            "Guillermo Basketball Court",
+            "Patubig Barangay Hall"
+          ],
         },
         {
           basic_info: {
@@ -102,6 +118,10 @@
             desc: "Knee High",
             level: 0.5,
           },
+          shelters: [
+            "Constantino Covered Court",
+            "Nagbalong Covered Court"
+          ],
         },
         {
           basic_info: {
@@ -120,6 +140,10 @@
             desc: "Ankle High",
             level: 0.2,
           },
+          shelters: [
+            "Guillermo Basketball Court",
+            "Patubig Barangay Hall"
+          ],
         },
         {
           basic_info: {
@@ -138,6 +162,10 @@
             desc: "No Flood",
             level: 0,
           },
+          shelters: [
+            "Constantino Covered Court",
+            "Nagbalong Covered Court"
+          ],
         },
       ];
 

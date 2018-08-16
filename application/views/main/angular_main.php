@@ -203,6 +203,7 @@
                 </p>
                 <br>
                 <button type="button" class="btn btn-info btn-block" 
+                    ng-click="clickedBarangayMoreInfo(barangay)"
                     data-toggle="modal" data-target="#barangayDetailsModal">
                   More info
                   <i class="fa fa-info-circle" aria-hidden="true"></i>
@@ -295,8 +296,11 @@
         <div class="modal-header">
           <button type="button" class="close" data-dismiss="modal">&times;</button>
           <h3 class="modal-title">
-            <b><i class="fa fa-map-marker" aria-hidden="true"></i> SAOG</b>
-            <small>as of 16:44 June 15, 2018</small>
+            <b>
+              <i class="fa fa-map-marker" aria-hidden="true"></i> 
+              {{ params.basic_info.name | uppercase }}
+            </b>
+            <small>as of {{ targetDate }}</small>
           </h3>
         </div>
         <div class="modal-body">
@@ -320,21 +324,21 @@
                   <h4>Estimated Affected</h4>
                   <p>
                     <b>Families:</b>
-                    <span>600</span>
+                    <span>{{ params.basic_info.families }}</span>
                   </p>
                   <p>
                     <b>Vulnerable Population:</b>
-                    <span>900</span>
+                    <span>{{ params.basic_info.vulnerable }}</span>
                   </p>
                   <p>
                     <b>Affected Population:</b>
-                    <span>5000</span>
+                    <span>{{ params.basic_info.population }}</span>
                   </p>
                 </div>
               </div>
             </div>
             <div class="col-sm-6">
-              <div class="panel panel-critical">
+              <div class="panel panel-{{ params.alert.desc }}">
                 <div class="panel-heading">
                   Action Board
                   <i class="fa fa-bell fa-lg" aria-hidden="true"></i>
@@ -367,11 +371,13 @@
                   </div>
                   <p>
                     <b>Assigned Shelter:</b>
-                    <span>Guillermo Basketball Court</span>
+                    <span ng-repeat="shelter in params.shelters">
+                      {{ shelter }}, 
+                    </span>
                   </p>
                   <p>
                     <b>Average Flood Level:</b>
-                    <span>3 feet</span>
+                    <span>{{ params.flood_status.level }} meters</span>
                   </p>
                   <p>
                     <b>Resources Needed:</b>
@@ -400,7 +406,7 @@
           <button type="button" class="close" data-dismiss="modal">&times;</button>
           <h3 class="modal-title">
             <b><i class="fa fa-map-marker" aria-hidden="true"></i> IBAYO</b>
-            <small>as of 16:44 June 15, 2018</small>
+            <small>as of {{ targetDate }}</small>
           </h3>
         </div>
         <div class="modal-body">

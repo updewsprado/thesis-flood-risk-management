@@ -5974,46 +5974,46 @@ footer {
   .panel-critical > .panel-footer + .panel-collapse > .panel-body {
     border-bottom-color: #990000; }
 
-.panel-high {
+.panel-severe {
   border-color: #b00d4f; }
-  .panel-high > .panel-heading {
+  .panel-severe > .panel-heading {
     color: #b00d4f;
     background-color: #fcd9e7;
     border-color: #b00d4f; }
-    .panel-high > .panel-heading + .panel-collapse > .panel-body {
+    .panel-severe > .panel-heading + .panel-collapse > .panel-body {
       border-top-color: #b00d4f; }
-    .panel-high > .panel-heading .badge {
+    .panel-severe > .panel-heading .badge {
       color: #fcd9e7;
       background-color: #b00d4f; }
-  .panel-high > .panel-footer + .panel-collapse > .panel-body {
+  .panel-severe > .panel-footer + .panel-collapse > .panel-body {
     border-bottom-color: #b00d4f; }
 
-.panel-mid-high {
+.panel-high {
   border-color: #996300; }
-  .panel-mid-high > .panel-heading {
+  .panel-high > .panel-heading {
     color: #996300;
     background-color: #ffe4b3;
     border-color: #996300; }
-    .panel-mid-high > .panel-heading + .panel-collapse > .panel-body {
+    .panel-high > .panel-heading + .panel-collapse > .panel-body {
       border-top-color: #996300; }
-    .panel-mid-high > .panel-heading .badge {
+    .panel-high > .panel-heading .badge {
       color: #ffe4b3;
       background-color: #996300; }
-  .panel-mid-high > .panel-footer + .panel-collapse > .panel-body {
+  .panel-high > .panel-footer + .panel-collapse > .panel-body {
     border-bottom-color: #996300; }
 
-.panel-medium {
+.panel-moderate {
   border-color: olive; }
-  .panel-medium > .panel-heading {
+  .panel-moderate > .panel-heading {
     color: olive;
     background-color: #ffffb3;
     border-color: olive; }
-    .panel-medium > .panel-heading + .panel-collapse > .panel-body {
+    .panel-moderate > .panel-heading + .panel-collapse > .panel-body {
       border-top-color: olive; }
-    .panel-medium > .panel-heading .badge {
+    .panel-moderate > .panel-heading .badge {
       color: #ffffb3;
       background-color: olive; }
-  .panel-medium > .panel-footer + .panel-collapse > .panel-body {
+  .panel-moderate > .panel-footer + .panel-collapse > .panel-body {
     border-bottom-color: olive; }
 
 .panel-normal {
