@@ -69,18 +69,24 @@
               {{ municipalityInfo.name }}
             </h3>
             <h2>
-              Alert Level: <span class="text-danger"><b>CRITICAL</b></span>
+              Alert Level: 
+              <span class="text-alert-{{ municipalityInfo.alert.level }}">
+                <b>{{ municipalityInfo.alert.desc | uppercase }}</b>
+              </span>
             </h2>
-            <p>20mm of rain is continuously falling for 15 hours. Wind is at 100km/hr.</p>
+            <p>
+              {{ municipalityInfo.weather.rainfall }}mm of rain is continuously 
+              falling for 24 hours. Wind is at {{ municipalityInfo.weather.wind }}km/hr.
+            </p>
             <div class="row">
               <div class="col-xs-6">
                 <p>
-                  <b>Temperature: </b><br> 20 &deg;C
+                  <b>Temperature: </b><br> {{ municipalityInfo.weather.temperature }} &deg;C
                 </p>
               </div>
               <div class="col-xs-6">
                 <p>
-                  <b>Heat Index: </b><br> 25 &deg;C
+                  <b>Heat Index: </b><br> {{ municipalityInfo.weather.heat_index }} &deg;C
                 </p>
               </div>
             </div>

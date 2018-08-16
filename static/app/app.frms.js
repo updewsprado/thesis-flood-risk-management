@@ -51,7 +51,12 @@
           level: 4,
           desc: "Severe",
         },
-        rainfall: "80mm",
+        weather: {
+          rainfall: 80,
+          wind: 120,
+          temperature: 18,
+          heat_index: 23,
+        }
       };
     }
 
