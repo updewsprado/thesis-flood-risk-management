@@ -90,6 +90,21 @@ class Municipality extends CI_Controller {
     }
   }
 
+  public function weather($municipality_id=1, $timestamp="2018-10-10 00:00:00") {
+    // Quick parsing of date input
+    $timestamp = str_replace("%20"," ", $timestamp);
+    $timestamp = str_replace("."," ", $timestamp);
+
+    $data['weather'] = $this->municipality_model->get_weather($municipality_id, $timestamp);
+
+    if (empty($data['weather'])) {
+      show_404();
+    }
+    else {
+      echo json_encode($data['weather']);
+    }
+  }
+
   // API for weather from a date range
   // ex URL: http://localhost/municipality/weather_range/1
   /*

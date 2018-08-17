@@ -37,7 +37,7 @@
     // Function Definitions
 
     function onInit() {
-      vm.targetDate = "2015-07-15 08:00:00";
+      vm.targetDate = "2014-09-19 00:00:00";
 
       $log.debug("mainController has been initiated!");
       recalculateData(vm.targetDate);
@@ -176,7 +176,7 @@
     function getAlertMunicipality(targetDate) {
       $log.debug("getAlertMunicipality function: target date = ", targetDate);
 
-      // TODO: municipality name, alert level, cumulative rainfall, wind level,
+      // TODO: municipality name, alert level, cumulative rain, wind level,
       //    temperature and heat index
 
       vm.municipalityInfo = {
@@ -185,13 +185,22 @@
           level: 5,
           desc: "critical",
         },
-        weather: {
-          rainfall: 80,
-          wind: 120,
-          temperature: 18,
-          heat_index: 23,
-        }
+        // weather: {
+        //   rain: 80,
+        //   wind: 120,
+        //   temperature: 18,
+        //   heat_index: 23,
+        // }
       };
+
+      let api_url = '/municipality/weather/1/' + targetDate;
+      $log.debug("api value: ", api_url);
+
+      $http.get(api_url).then(function(resp) {
+        $log.debug("Get Weather API", resp.data);
+        vm.municipalityInfo.weather = resp.data;
+      });
+
     }
 
     // TODO: Get the Municipality Action Board

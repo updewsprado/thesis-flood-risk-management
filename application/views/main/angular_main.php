@@ -75,8 +75,8 @@
               </span>
             </h2>
             <p>
-              {{ municipalityInfo.weather.rainfall }}mm of rain is continuously 
-              falling for 24 hours. Wind is at {{ municipalityInfo.weather.wind }}km/hr.
+              {{ municipalityInfo.weather.rain }}mm of rain is continuously 
+              falling for 15 hours. Wind is at {{ municipalityInfo.weather.wind }}km/hr.
             </p>
             <div class="row">
               <div class="col-xs-6">
