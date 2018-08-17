@@ -9,7 +9,8 @@ class Markers_model extends CI_Model {
     $query_text = 'SELECT rfm.name, ml.marker_id, ml.ts, ml.height 
         FROM marker_levels as ml 
         INNER JOIN river_flood_markers as rfm 
-        ON ml.marker_id=rfm.id WHERE ml.ts="' . $timestamp . '"';
+        ON ml.marker_id=rfm.id WHERE ml.ts="' . $timestamp . '"' .
+        'ORDER BY ml.height desc, rfm.name desc';
 
     $query = $this->db->query($query_text);
     return $query->result_array();

@@ -219,45 +219,21 @@
       $log.debug("getCurrentDate function");
     }
 
-    // TODO: Get current Marker Levels
+    // Get current Marker Levels
     function getMarkerLevels(targetDate) {
       $log.debug("getMarkerLevels function: target date = ", targetDate);
 
-      // TODO:
-      //    River & Flood markers and height
-      //    Description will be dynamic on the front end part
+      let api_url = '/markers/levels/' + targetDate;
+      $log.debug("api value: ", api_url);
 
-      vm.markerLevels = [
-        {
-          name: "Abangan Bridge",
-          height: 8
-        },
-        {
-          name: "Tabing Ilog Bridge",
-          height: 10
-        },
-        {
-          name: "San Jose Bridge",
-          height: 7
-        },
-        {
-          name: "Poblacion Marker",
-          height: 6.5
-        },
-        {
-          name: "SM Marker",
-          height: 6
-        },
-        {
-          name: "Lias Marker",
-          height: 4
-        },
-        {
-          name: "Ibayo Marker",
-          height: 2
-        },
-      ];
+      $http.get(api_url).then(function(resp) {
+        $log.debug("Get Marker Levels API", resp.data);
+        vm.markerLevels = resp.data;
+        appendMarkerLevelDesc();
+      });
+    }
 
+    function appendMarkerLevelDesc() {
       // Reproduce row class and desc from height level
       for (var i = 0; i < vm.markerLevels.length; i++) {
         let height = vm.markerLevels[i].height;
