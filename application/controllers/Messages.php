@@ -27,8 +27,12 @@ class Messages extends CI_Controller {
     {"id":"2","municipality_id":"1","ts":"2018-06-12 17:00:00",
     "sender":"NAWASA","message":"Expect water supply to be muddy for the whole Marilao"}]
   */
-  public function facebook($municipality_id=1) {
-    $data['facebook'] = $this->messages_model->get_facebook_messages($municipality_id);
+  public function facebook($municipality_id=1, $timestamp="2018-10-10 00:00:00") {
+    // Quick parsing of date input
+    $timestamp = str_replace("%20"," ", $timestamp);
+    $timestamp = str_replace("."," ", $timestamp);
+    
+    $data['facebook'] = $this->messages_model->get_facebook_messages($municipality_id, $timestamp);
 
     if (empty($data['facebook'])) {
       show_404();

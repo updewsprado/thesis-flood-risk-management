@@ -37,7 +37,7 @@
     // Function Definitions
 
     function onInit() {
-      vm.targetDate = "2014-09-19 00:00:00";
+      vm.targetDate = "2014-09-19 8:00:00";
 
       $log.debug("mainController has been initiated!");
       recalculateData(vm.targetDate);
@@ -285,30 +285,17 @@
       }
     }
 
-    // TODO: Collate facebook messages
+    // Collate facebook messages
     function getMessagesFacebook(targetDate) {
       $log.debug("getMessagesFacebook function: target date = ", targetDate);
 
-      // TODO:
-      //    Get last 5 messages with respect to the target date
+      let api_url = '/messages/facebook/1/' + targetDate;
+      $log.debug("api value: ", api_url);
 
-      vm.messagesFacebook = [
-        {
-          ts: "2018-06-12 20:30",
-          sender: "Citizen #1",
-          message: "Bahang baha na po sa amin. Tulong!"
-        },
-        {
-          ts: "2018-06-12 18:30",
-          sender: "NAWASA",
-          message: "Magkakaroon ng maputik na tubig ngayong tag-baha."
-        },
-        {
-          ts: "2018-06-12 15:30",
-          sender: "Meralco",
-          message: "Nagbabadyang mawalan ng kuryente sa lakas ng bagyo."
-        },
-      ];
+      $http.get(api_url).then(function(resp) {
+        $log.debug("Get Facebook Messages API", resp.data);
+        vm.messagesFacebook = resp.data;
+      });
     }
 
     // TODO: Collate twitter messages
