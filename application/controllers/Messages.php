@@ -51,8 +51,12 @@ class Messages extends CI_Controller {
     {"id":"2","municipality_id":"1","ts":"2018-07-12 19:35:00",
     "sender":"tambay","message":"Stranded na po kami dito sa may SM Marilao"}]
   */
-  public function twitter($municipality_id=1) {
-    $data['twitter'] = $this->messages_model->get_twitter_messages($municipality_id);
+  public function twitter($municipality_id=1, $timestamp="2018-10-10 00:00:00") {
+    // Quick parsing of date input
+    $timestamp = str_replace("%20"," ", $timestamp);
+    $timestamp = str_replace("."," ", $timestamp);
+    
+    $data['twitter'] = $this->messages_model->get_twitter_messages($municipality_id, $timestamp);
 
     if (empty($data['twitter'])) {
       show_404();

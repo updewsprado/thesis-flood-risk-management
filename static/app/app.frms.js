@@ -298,30 +298,17 @@
       });
     }
 
-    // TODO: Collate twitter messages
+    // Collate twitter messages
     function getMessagesTwitter(targetDate) {
       $log.debug("getMessagesTwitter function: target date = ", targetDate);
 
-      // TODO:
-      //    Get last 5 messages with respect to the target date
+      let api_url = '/messages/twitter/1/' + targetDate;
+      $log.debug("api value: ", api_url);
 
-      vm.messagesTwitter = [
-        {
-          ts: "2018-06-12 20:30",
-          sender: "test",
-          message: "Wala pong kuryente dito sa may Abangan"
-        },
-        {
-          ts: "2018-06-12 18:30",
-          sender: "test2",
-          message: "Stranded na po kami dito sa may SM Marilao"
-        },
-        {
-          ts: "2018-06-12 15:30",
-          sender: "test3",
-          message: "Nagbabara na po ang mga kanal sa amin"
-        },
-      ]; 
+      $http.get(api_url).then(function(resp) {
+        $log.debug("Get Twitter Messages API", resp.data);
+        vm.messagesTwitter = resp.data;
+      });
     }
 
     // Recalculate necessary data when target date changes
