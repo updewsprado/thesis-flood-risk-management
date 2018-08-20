@@ -27,9 +27,11 @@ class Barangay_model extends CI_Model {
   public function get_flood_and_hazard_scores_all($timestamp=null) {
     // TODO: Add timestamp range to the query
     $query_text = '
-      SELECT bh.barangay_id, bh.ts, fll.score as flood_score, bh.score as hazard_score
-      FROM barangay_hazards as bh, barangay_flood_levels as bfl, flood_level_lut as fll
+      SELECT bh.barangay_id, bbi.name, bh.ts, fll.score as flood_score, bh.score as hazard_score
+      FROM barangay_basic_info as bbi, barangay_hazards as bh, 
+          barangay_flood_levels as bfl, flood_level_lut as fll
       WHERE bh.barangay_id = bfl.barangay_id
+      AND bbi.id = bh.barangay_id
       AND bfl.flood_level_id = fll.id
       AND bh.ts = bfl.ts  
       ORDER BY bh.barangay_id ASC, bh.ts ASC
@@ -42,9 +44,13 @@ class Barangay_model extends CI_Model {
   public function get_evc_all($timestamp=null) {
     // TODO: Add timestamp range to the query
     $query_text = '
-      SELECT barangay_id, exposure, vulnerability, coping_capacity
-      
+      SELECT brp.barangay_id, bbi.name, brp.exposure, brp.vulnerability, brp.coping_capacity
+      FROM barangay_basic_info as bbi, barangay_risk_profiles as brp
+      WHERE bbi.id = brp.barangay_id
+      ORDER BY bbi.name ASC
     ';
+    $query = $this->db->query($query_text);
+    return $query->result_array();
   }
 
 }

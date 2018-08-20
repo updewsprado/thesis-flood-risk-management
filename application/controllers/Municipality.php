@@ -91,7 +91,18 @@ class Municipality extends CI_Controller {
       echo json_encode($data['flood_hazard_score']);  
     }
 
+    // $data['evc_score'] = $this->barangay_model->get_evc_all();
+
+    // if (empty($data['evc_score'])) {
+    //   show_404();
+    //   return;
+    // }
+    // else {
+    //   echo json_encode($data['evc_score']);  
+    // }
+
     // TODO: generate the municipality alert level from the sum of barangay levels
+
   }
 
   // API for municipality basic info
