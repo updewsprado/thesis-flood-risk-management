@@ -4,6 +4,7 @@ class Municipality extends CI_Controller {
   public function __construct() {
     parent::__construct();
     $this->load->model('municipality_model');
+    $this->load->model('barangay_model');
     $this->load->helper('url_helper');
   }
 
@@ -64,8 +65,32 @@ class Municipality extends CI_Controller {
   }
 
   // TODO: Generate municipality alert levels
-  public function generate_alerts($municipality_id=1) {
+  public function generate_alerts($municipality_id=1, $timestamp=null) {
+    // Quick parsing of date input
+    $timestamp = str_replace("%20"," ", $timestamp);
+    $timestamp = str_replace("."," ", $timestamp);
+
+    // $bgy1 = 1;
+    // $bgy2 = 2;
+    // $bgy3 = 3;
+
+    // $data[$bgy1] = 'test';
+    // $data[$bgy2] = 'test2';
+    // $data[$bgy3] = 'test3';
+
+    // echo json_encode($data);
+
     // TODO: generate barangay alert levels
+    $data['flood_hazard_score'] = $this->barangay_model->get_flood_and_hazard_scores_all($municipality_id);
+
+    if (empty($data['flood_hazard_score'])) {
+      show_404();
+      return;
+    }
+    else {
+      echo json_encode($data['flood_hazard_score']);  
+    }
+
     // TODO: generate the municipality alert level from the sum of barangay levels
   }
 
