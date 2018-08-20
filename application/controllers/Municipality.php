@@ -94,6 +94,29 @@ class Municipality extends CI_Controller {
       // Compute the Barangay Alert Score
       $alert_score = $flood_score + (($hazard * $exposure * $vulnerability) / $capacity);
 
+      // Get alert level from alert score
+      if (($alert_score >= 0) && ($alert_score < 6)) {
+        $alert_level = 1;
+        $alert_desc = "Normal";
+      } 
+      else if ($alert_score < 10) {
+        $alert_level = 2;
+        $alert_desc = "Moderate";
+      }
+      else if ($alert_score < 13) {
+        $alert_level = 3;
+        $alert_desc = "High";
+      }
+      else if ($alert_score < 20) {
+        $alert_level = 4;
+        $alert_desc = "Severe";
+      }
+      else {
+        $alert_level = 5;
+        $alert_desc = "Critical";
+      }
+      
+
       $alert_scores[$ctr] = array(
         'barangay_id' => $barangay_id,
         'ts' => $ts,
@@ -103,6 +126,8 @@ class Municipality extends CI_Controller {
         'vulnerability' => $vulnerability,
         'capacity' => $capacity,
         'alert_score' => $alert_score,
+        'alert_level' => $alert_level,
+        'alert_desc' => $alert_desc
       );
 
       $ctr++;
