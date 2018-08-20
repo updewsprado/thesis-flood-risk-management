@@ -70,36 +70,45 @@ class Municipality extends CI_Controller {
     $timestamp = str_replace("%20"," ", $timestamp);
     $timestamp = str_replace("."," ", $timestamp);
 
-    // $bgy1 = 1;
-    // $bgy2 = 2;
-    // $bgy3 = 3;
-
-    // $data[$bgy1] = 'test';
-    // $data[$bgy2] = 'test2';
-    // $data[$bgy3] = 'test3';
-
-    // echo json_encode($data);
-
     // TODO: generate barangay alert levels
-    $data['flood_hazard_score'] = $this->barangay_model->get_flood_and_hazard_scores_all($municipality_id);
+    $flood_hazard_scores = $this->barangay_model->get_flood_and_hazard_scores_all($municipality_id);
+    $evc_scores = $this->barangay_model->get_evc_all();
 
-    if (empty($data['flood_hazard_score'])) {
-      show_404();
-      return;
-    }
-    else {
-      echo json_encode($data['flood_hazard_score']);  
+    // Create a dictionary for evc per barangay id
+    foreach ($evc_scores as $evc_barangay) {
+      $evc_scores_dict[$evc_barangay['barangay_id']] = $evc_barangay;
     }
 
-    // $data['evc_score'] = $this->barangay_model->get_evc_all();
+    // echo json_encode($evc_scores_dict);
 
-    // if (empty($data['evc_score'])) {
-    //   show_404();
-    //   return;
-    // }
-    // else {
-    //   echo json_encode($data['evc_score']);  
-    // }
+    $ctr = 0;
+    foreach ($flood_hazard_scores as $fh_barangay) {
+      $barangay_id = $fh_barangay['barangay_id'];
+      $ts = $fh_barangay['ts'];
+      $flood_score = $fh_barangay['flood_score'];
+      $hazard = $fh_barangay['hazard_score'];
+      $exposure = $evc_scores_dict[$fh_barangay['barangay_id']]['exposure'];
+      $vulnerability = $evc_scores_dict[$fh_barangay['barangay_id']]['vulnerability'];
+      $capacity = $evc_scores_dict[$fh_barangay['barangay_id']]['coping_capacity'];
+
+      // Compute the Barangay Alert Score
+      $alert_score = $flood_score + (($hazard * $exposure * $vulnerability) / $capacity);
+
+      $alert_scores[$ctr] = array(
+        'barangay_id' => $barangay_id,
+        'ts' => $ts,
+        'flood_score' => $flood_score,
+        'hazard' => $hazard,
+        'exposure' => $exposure,
+        'vulnerability' => $vulnerability,
+        'capacity' => $capacity,
+        'alert_score' => $alert_score,
+      );
+
+      $ctr++;
+    }
+
+    echo json_encode($alert_scores);
 
     // TODO: generate the municipality alert level from the sum of barangay levels
 

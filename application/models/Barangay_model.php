@@ -31,6 +31,7 @@ class Barangay_model extends CI_Model {
       FROM barangay_basic_info as bbi, barangay_hazards as bh, 
           barangay_flood_levels as bfl, flood_level_lut as fll
       WHERE bh.barangay_id = bfl.barangay_id
+      AND bbi.id <= 5
       AND bbi.id = bh.barangay_id
       AND bfl.flood_level_id = fll.id
       AND bh.ts = bfl.ts  
