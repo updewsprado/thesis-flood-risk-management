@@ -54,4 +54,22 @@ class Barangay_model extends CI_Model {
     return $query->result_array();
   }
 
+  public function insert_batch_alerts_barangay($barangay_alerts) {
+    //  Necessary fields to insert (4): id, ts, barangay_id, alert_level_id
+    $data = [];
+    $length = count($barangay_alerts);
+    for ($i=0; $i < $length; $i++) { 
+      $barangay = $barangay_alerts[$i];
+
+      $data[$i] = array(
+        // 'id' => $i,
+        'ts' => $barangay['ts'],
+        'barangay_id' => $barangay['barangay_id'],
+        'alert_level_id' => $barangay['alert_level']
+      );
+    }
+
+    return $this->db->insert_batch('alert_level_history_barangay', $data);
+  }
+
 }

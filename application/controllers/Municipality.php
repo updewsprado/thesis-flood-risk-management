@@ -75,11 +75,16 @@ class Municipality extends CI_Controller {
     $evc_scores = $this->barangay_model->get_evc_all();
     $barangay_alert_scores = $this->generate_alerts_barangay($evc_scores, $flood_hazard_scores);
 
-    // TODO: Insert the generated barangay levels to the database
+    // TODO: Insert the generated barangay alert levels to the database
+    // echo json_encode($barangay_alert_scores);
+    $this->insert_batch_alerts_barangay($barangay_alert_scores);
 
     // generate the municipality alert level from the sum of barangay levels
     $municipality_alerts = $this->generate_alerts_municipality($barangay_alert_scores);
-    echo json_encode($municipality_alerts);
+
+    // TODO: Insert the generated municipality alert levels to the database
+    //  Necessary fields to insert (4): id, ts, municipality_id, alert_level_id
+    // echo json_encode($municipality_alerts);
   }
 
   // generate barangay alert levels
@@ -196,6 +201,12 @@ class Municipality extends CI_Controller {
     }
 
     return $municipality_alerts;
+  }
+
+  // batch insert barangay alert levels
+  private function insert_batch_alerts_barangay($barangay_alerts) {
+    $return_val = $this->barangay_model->insert_batch_alerts_barangay($barangay_alerts);
+    echo "Inserted Rows: " . $return_val;
   }
 
   // API for municipality basic info
