@@ -48,13 +48,9 @@
       vm.params = barangay;
     }
 
-    // TODO: Get the Alert Levels of the Barangays
+    // Get the Alert Levels of the Barangays
     function getAlertBarangays(targetDate) {
       $log.debug("getAlertBarangays function: target date = ", targetDate);
-
-      // TODO: barangay name, alert level, average flood level, no. of affected people,
-      //    risk and vulnerability info,
-      //    barangay action board info
 
       // vm.allBarangays = [
         // {
@@ -81,14 +77,12 @@
         // },
       // ];
 
-      // TODO: 
       // getBarangayBasicInfo
       let api_barangays_all = '/municipality/all_barangays/1/';
       $log.debug("api value: ", api_barangays_all);
 
       $http.get(api_barangays_all).then(function(resp) {
         $log.debug("Get Municipality Barangays All API", resp.data);
-        // vm.allBarangays = resp.data;
 
         var i = 0;
         for (i = 0; i < resp.data.length; i++) {
@@ -107,14 +101,14 @@
             vm.allBarangays[ctr].flood_status = response;
           });
 
+          // getBarangayShelters
+          getBarangayShelters(vm.allBarangays[ctr].basic_info.id).then(function(response) {
+            vm.allBarangays[ctr].shelters = response;
+          });
         };
 
         $log.debug("all barangays", vm.allBarangays);
       });
-
-      
-      // getBarangayShelters
-
     }
 
     function getBarangayAlert(barangayId, targetDate) {
@@ -144,6 +138,21 @@
         bflood.desc = resp.data.adesc;
 
         return bflood;
+      });
+    }
+
+    function getBarangayShelters(barangayId) {
+      let api_shelter = '/barangay/shelters/' + barangayId;
+      $log.debug("api value: ", api_shelter);
+
+      return $http.get(api_shelter).then(function(resp) {
+        $log.debug("Get Barangay Shelter API", resp.data);
+
+        let bshelters = [];
+        for (var i = 0; i < resp.data.length; i++) {
+          bshelters.push(resp.data[i].name);
+        };
+        return bshelters;
       });
     }
 

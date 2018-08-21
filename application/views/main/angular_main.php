@@ -173,7 +173,7 @@
             </h4>
           </div>
           <div class="panel-body">
-            <div class="col-sm-4" ng-repeat="barangay in allBarangays">
+            <div class="col-sm-4" ng-repeat="barangay in allBarangays | orderBy: '-alert.level'">
               <div class="alert alert-{{ barangay.alert.desc | lowercase }}">
                 <h4>
                   <b>
@@ -338,7 +338,7 @@
               </div>
             </div>
             <div class="col-sm-6">
-              <div class="panel panel-{{ params.alert.desc }}">
+              <div class="panel panel-{{ params.alert.desc | lowercase }}">
                 <div class="panel-heading">
                   Action Board
                   <i class="fa fa-bell fa-lg" aria-hidden="true"></i>

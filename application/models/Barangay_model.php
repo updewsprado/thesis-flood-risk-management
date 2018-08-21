@@ -71,6 +71,13 @@ class Barangay_model extends CI_Model {
     return $query->result_array();
   }
 
+  public function get_shelters($id=1) {
+    $query_text = 'SELECT name FROM 
+        barangay_assigned_shelters WHERE barangay_id=' . $id;
+    $query = $this->db->query($query_text);
+    return $query->result_array();
+  }
+
   public function insert_batch_alerts($alerts) {
     //  Necessary fields to insert (4): id, ts, barangay_id, alert_level_id
     $data = [];

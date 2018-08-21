@@ -78,4 +78,15 @@ class Barangay extends CI_Controller {
     }
   }
 
+  public function shelters($bgy_id=1) {
+    $data = $this->barangay_model->get_shelters($bgy_id);
+
+    if (empty($data)) {
+      show_404();
+      return;
+    }
+    else {
+      echo json_encode($data);  
+    }
+  }
 }
