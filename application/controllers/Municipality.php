@@ -64,6 +64,16 @@ class Municipality extends CI_Controller {
     }
   }
 
+  public function delete_alerts() {
+    if ($this->barangay_model->delete_alerts()) {
+      echo "Successfully emptied barangay alerts table<Br>" ;
+    } 
+
+    if ($this->municipality_model->delete_alerts()) {
+      echo "Successfully emptied municipality alerts table<Br>";
+    } 
+  }
+
   // TODO: Generate municipality alert levels
   public function generate_alerts($municipality_id=1, $timestamp=null) {
     // Quick parsing of date input
@@ -75,16 +85,17 @@ class Municipality extends CI_Controller {
     $evc_scores = $this->barangay_model->get_evc_all();
     $barangay_alert_scores = $this->generate_alerts_barangay($evc_scores, $flood_hazard_scores);
 
-    // TODO: Insert the generated barangay alert levels to the database
+    // Insert the generated barangay alert levels to the database
     // echo json_encode($barangay_alert_scores);
     $this->insert_batch_alerts_barangay($barangay_alert_scores);
 
     // generate the municipality alert level from the sum of barangay levels
     $municipality_alerts = $this->generate_alerts_municipality($barangay_alert_scores);
 
-    // TODO: Insert the generated municipality alert levels to the database
+    // Insert the generated municipality alert levels to the database
     //  Necessary fields to insert (4): id, ts, municipality_id, alert_level_id
     // echo json_encode($municipality_alerts);
+    $this->insert_batch_alerts_municipality($municipality_alerts);
   }
 
   // generate barangay alert levels
@@ -205,8 +216,14 @@ class Municipality extends CI_Controller {
 
   // batch insert barangay alert levels
   private function insert_batch_alerts_barangay($barangay_alerts) {
-    $return_val = $this->barangay_model->insert_batch_alerts_barangay($barangay_alerts);
-    echo "Inserted Rows: " . $return_val;
+    $return_val = $this->barangay_model->insert_batch_alerts($barangay_alerts);
+    echo "Inserted Barangay Alert Rows: " . $return_val . "<Br>";
+  }
+
+  // batch insert municipality alert levels
+  private function insert_batch_alerts_municipality($municipality_alerts) {
+    $return_val = $this->municipality_model->insert_batch_alerts($municipality_alerts);
+    echo "Inserted Municipality Alert Rows: " . $return_val . "<Br>";
   }
 
   // API for municipality basic info

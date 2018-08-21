@@ -5,6 +5,10 @@ class Barangay_model extends CI_Model {
     $this->load->database();
   }
 
+  public function delete_alerts() {
+    return $this->db->empty_table('alert_level_history_barangay');
+  }
+
   public function get_basic_info($id=1) {
     $query_text = 'SELECT * FROM barangay_basic_info WHERE id=' . $id;
     $query = $this->db->query($query_text);
@@ -31,7 +35,6 @@ class Barangay_model extends CI_Model {
       FROM barangay_basic_info as bbi, barangay_hazards as bh, 
           barangay_flood_levels as bfl, flood_level_lut as fll
       WHERE bh.barangay_id = bfl.barangay_id
-      AND bbi.id <= 3
       AND bbi.id = bh.barangay_id
       AND bfl.flood_level_id = fll.id
       AND bh.ts = bfl.ts  
@@ -54,12 +57,12 @@ class Barangay_model extends CI_Model {
     return $query->result_array();
   }
 
-  public function insert_batch_alerts_barangay($barangay_alerts) {
+  public function insert_batch_alerts($alerts) {
     //  Necessary fields to insert (4): id, ts, barangay_id, alert_level_id
     $data = [];
-    $length = count($barangay_alerts);
+    $length = count($alerts);
     for ($i=0; $i < $length; $i++) { 
-      $barangay = $barangay_alerts[$i];
+      $barangay = $alerts[$i];
 
       $data[$i] = array(
         // 'id' => $i,

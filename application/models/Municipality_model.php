@@ -5,6 +5,10 @@ class Municipality_model extends CI_Model {
     $this->load->database();
   }
 
+  public function delete_alerts() {
+    return $this->db->empty_table('alert_level_history_municipality');
+  }
+
   public function get_basic_info($id=1) {
     $query_text = 'SELECT * FROM municipality_basic_info WHERE id=' . $id;
     $query = $this->db->query($query_text);
@@ -47,6 +51,25 @@ class Municipality_model extends CI_Model {
         WHERE malert.municipality_id=' . $id . ' AND malert.ts="' . $timestamp . '"';
     $query = $this->db->query($query_text);
     return $query->row_array();
+  }
+
+  public function insert_batch_alerts($alerts) {
+    //  Necessary fields to insert (4): id, ts, municipality_id, alert_level_id
+    $data = [];
+    $length = count($alerts);
+
+    $ctr = 0;
+    foreach ($alerts as $alert) {
+      $data[$ctr] = array(
+        // 'id' => $ctr,
+        'ts' => $alert['ts'],
+        'municipality_id' => 1,
+        'alert_level_id' => $alert['level']
+      );
+      $ctr++;
+    }
+
+    return $this->db->insert_batch('alert_level_history_municipality', $data);
   }
 
 }
