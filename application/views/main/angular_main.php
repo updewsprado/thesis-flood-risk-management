@@ -174,7 +174,7 @@
           </div>
           <div class="panel-body">
             <div class="col-sm-4" ng-repeat="barangay in allBarangays">
-              <div class="alert alert-{{ barangay.alert.desc }}">
+              <div class="alert alert-{{ barangay.alert.desc | lowercase }}">
                 <h4>
                   <b>
                     <u>

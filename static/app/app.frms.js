@@ -26,7 +26,7 @@
     vm.recalculateData = recalculateData;
 
     // Variables
-    vm.allBarangays = {};
+    vm.allBarangays = [];
     vm.markerLevels = {};
     vm.messagesFacebook = {};
     vm.messagesTwitter = {};
@@ -56,120 +56,164 @@
       //    risk and vulnerability info,
       //    barangay action board info
 
-      vm.allBarangays = [
-        {
-          basic_info: {
-            name: "saog",
-            families: 2289,
-            population: 11445,
-            vulnerable: 4921,
-          },
-          alert: {
-            level: 5,
-            desc: "critical",
-            action_required: "rescue & evacuation",
-          },
-          flood_status: {
-            score: 14,
-            desc: "Neck High",
-            level: 1.12,
-          },
-          shelters: [
-            "Constantino Covered Court",
-            "Nagbalong Covered Court"
-          ],
-        },
-        {
-          basic_info: {
-            name: "lias",
-            families: 2289,
-            population: 11445,
-            vulnerable: 4921,
-          },
-          alert: {
-            level: 4,
-            desc: "severe",
-            action_required: "rescue & evacuation",
-          },
-          flood_status: {
-            score: 10,
-            desc: "Waist High",
-            level: 0.7,
-          },
-          shelters: [
-            "Guillermo Basketball Court",
-            "Patubig Barangay Hall"
-          ],
-        },
-        {
-          basic_info: {
-            name: "poblacion 1st",
-            families: 2289,
-            population: 11445,
-            vulnerable: 4921,
-          },
-          alert: {
-            level: 3,
-            desc: "high",
-            action_required: "continuous monitoring",
-          },
-          flood_status: {
-            score: 8,
-            desc: "Knee High",
-            level: 0.5,
-          },
-          shelters: [
-            "Constantino Covered Court",
-            "Nagbalong Covered Court"
-          ],
-        },
-        {
-          basic_info: {
-            name: "abangan norte",
-            families: 2289,
-            population: 11445,
-            vulnerable: 4921,
-          },
-          alert: {
-            level: 2,
-            desc: "moderate",
-            action_required: "continuous monitoring",
-          },
-          flood_status: {
-            score: 5,
-            desc: "Ankle High",
-            level: 0.2,
-          },
-          shelters: [
-            "Guillermo Basketball Court",
-            "Patubig Barangay Hall"
-          ],
-        },
-        {
-          basic_info: {
-            name: "lambakin",
-            families: 2289,
-            population: 11445,
-            vulnerable: 4921,
-          },
-          alert: {
-            level: 1,
-            desc: "normal",
-            action_required: "none",
-          },
-          flood_status: {
-            score: 2,
-            desc: "No Flood",
-            level: 0,
-          },
-          shelters: [
-            "Constantino Covered Court",
-            "Nagbalong Covered Court"
-          ],
-        },
-      ];
+      // vm.allBarangays = [
+        // {
+        //   basic_info: {
+        //     name: "saog",
+        //     families: 2289,
+        //     population: 11445,
+        //     vulnerable: 4921,
+        //   },
+        //   alert: {
+        //     level: 5,
+        //     desc: "critical",
+        //     action_required: "rescue & evacuation",
+        //   },
+        //   flood_status: {
+        //     score: 14,
+        //     desc: "Neck High",
+        //     level: 1.12,
+        //   },
+        //   shelters: [
+        //     "Constantino Covered Court",
+        //     "Nagbalong Covered Court"
+        //   ],
+        // },
+        // {
+        //   basic_info: {
+        //     name: "lias",
+        //     families: 2289,
+        //     population: 11445,
+        //     vulnerable: 4921,
+        //   },
+        //   alert: {
+        //     level: 4,
+        //     desc: "severe",
+        //     action_required: "rescue & evacuation",
+        //   },
+        //   flood_status: {
+        //     score: 10,
+        //     desc: "Waist High",
+        //     level: 0.7,
+        //   },
+        //   shelters: [
+        //     "Guillermo Basketball Court",
+        //     "Patubig Barangay Hall"
+        //   ],
+        // },
+        // {
+        //   basic_info: {
+        //     name: "poblacion 1st",
+        //     families: 2289,
+        //     population: 11445,
+        //     vulnerable: 4921,
+        //   },
+        //   alert: {
+        //     level: 3,
+        //     desc: "high",
+        //     action_required: "continuous monitoring",
+        //   },
+        //   flood_status: {
+        //     score: 8,
+        //     desc: "Knee High",
+        //     level: 0.5,
+        //   },
+        //   shelters: [
+        //     "Constantino Covered Court",
+        //     "Nagbalong Covered Court"
+        //   ],
+        // },
+        // {
+        //   basic_info: {
+        //     name: "abangan norte",
+        //     families: 2289,
+        //     population: 11445,
+        //     vulnerable: 4921,
+        //   },
+        //   alert: {
+        //     level: 2,
+        //     desc: "moderate",
+        //     action_required: "continuous monitoring",
+        //   },
+        //   flood_status: {
+        //     score: 5,
+        //     desc: "Ankle High",
+        //     level: 0.2,
+        //   },
+        //   shelters: [
+        //     "Guillermo Basketball Court",
+        //     "Patubig Barangay Hall"
+        //   ],
+        // },
+        // {
+        //   basic_info: {
+        //     name: "lambakin",
+        //     families: 2289,
+        //     population: 11445,
+        //     vulnerable: 4921,
+        //   },
+        //   alert: {
+        //     level: 1,
+        //     desc: "normal",
+        //     action_required: "none",
+        //   },
+        //   flood_status: {
+        //     score: 2,
+        //     desc: "No Flood",
+        //     level: 0,
+        //   },
+        //   shelters: [
+        //     "Constantino Covered Court",
+        //     "Nagbalong Covered Court"
+        //   ],
+        // },
+      // ];
 
-      $log.debug(vm.allBarangays);
+      // TODO: 
+      // getBarangayBasicInfo
+      let api_barangays_all = '/municipality/all_barangays/1/';
+      $log.debug("api value: ", api_barangays_all);
+
+      $http.get(api_barangays_all).then(function(resp) {
+        $log.debug("Get Municipality Barangays All API", resp.data);
+        // vm.allBarangays = resp.data;
+
+        var i = 0;
+        for (i = 0; i < resp.data.length; i++) {
+          vm.allBarangays[i] = {};
+          vm.allBarangays[i].basic_info = resp.data[i];
+
+          // getBarangayAlert
+          let ctr = i;
+          getBarangayAlert(vm.allBarangays[ctr].basic_info.id, targetDate).then(function(response) {
+            $log.debug("return value: ", response, ctr);
+            vm.allBarangays[ctr].alert = response;
+          });
+        };
+
+        $log.debug("all barangays", vm.allBarangays);
+      });
+
+      
+      // getBarangayFloodStatus
+      // getBarangayShelters
+
+      
+    }
+
+    function getBarangayAlert(barangayId, targetDate) {
+      let api_alert = '/barangay/alert_level/' + barangayId + '/' + targetDate;
+      $log.debug("api value: ", api_alert);
+
+      return $http.get(api_alert).then(function(resp) {
+        $log.debug("Get Barangay Alert API", resp.data);
+        let balert = {};
+        balert.level = resp.data.level;
+        balert.desc = resp.data.adesc;
+        balert.action_required = "Standby";
+
+        return balert;
+      });
     }
 
     // Get the Municipality Alert Level and all other info needed for display
@@ -210,7 +254,6 @@
         $log.debug("Get Weather API", resp.data);
         vm.municipalityInfo.weather = resp.data;
       });
-
     }
 
     // TODO: Get the Municipality Action Board

@@ -34,15 +34,17 @@ class Municipality_model extends CI_Model {
 
   // TODO: Get all barangays under the municipality
   public function get_barangays_of_municipality($id=1) {
-    $query_text = 'SELECT name, population_vulnerable FROM barangay_basic_info';
-    // $query_text += ' WHERE municipality_id=' . $id;
-    // echo $query_text;
+    $query_text = '
+        SELECT id, name, num_families as families, population_total as population,
+            population_vulnerable as vulnerable 
+        FROM barangay_basic_info
+        WHERE municipality_id = ' . $id;
 
     $query = $this->db->query($query_text);
     return $query->result_array();
   }
 
-  // TODO: Get alert level of the municipality
+  // Get alert level of the municipality
   public function get_alert_level($id=1, $timestamp=null) {
     $query_text = '
         SELECT minfo.id, minfo.name, malert.ts, malert.alert_level_id as level,
