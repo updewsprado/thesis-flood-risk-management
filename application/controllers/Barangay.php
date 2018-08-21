@@ -41,6 +41,22 @@ class Barangay extends CI_Controller {
     }
   }
 
+  public function flood_level($bgy_id=1, $timestamp="2018-10-10 00:00:00") {
+    // Quick parsing of date input
+    $timestamp = str_replace("%20"," ", $timestamp);
+    $timestamp = str_replace("."," ", $timestamp);
+
+    $data['bgy_flood'] = $this->barangay_model->get_flood_level($bgy_id, $timestamp);
+
+    if (empty($data['bgy_flood'])) {
+      show_404();
+      return;
+    }
+    else {
+      echo json_encode($data['bgy_flood']);  
+    }
+  }
+
   // API for barangay basic info
   // ex URL: http://localhost/barangay/info/9
   /*

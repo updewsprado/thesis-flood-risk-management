@@ -18,13 +18,25 @@ class Barangay_model extends CI_Model {
   // Get alert level of the barangay
   public function get_alert_level($id=1, $timestamp=null) {
     $query_text = '
-        SELECT binfo.id, binfo.name, balert.ts, balert.alert_level_id as level,
-            alut.alert_desc as adesc
-        FROM alert_level_history_barangay as balert, barangay_basic_info as binfo, 
-            alert_levels_lut as alut
-        WHERE binfo.id=balert.barangay_id
-        AND alut.level = balert.alert_level_id
-        AND balert.barangay_id=' . $id . ' AND balert.ts="' . $timestamp . '"';
+      SELECT binfo.id, binfo.name, balert.ts, balert.alert_level_id as level,
+          alut.alert_desc as adesc
+      FROM alert_level_history_barangay as balert, barangay_basic_info as binfo, 
+          alert_levels_lut as alut
+      WHERE binfo.id=balert.barangay_id
+      AND alut.level = balert.alert_level_id
+      AND balert.barangay_id=' . $id . ' AND balert.ts="' . $timestamp . '"';
+    $query = $this->db->query($query_text);
+    return $query->row_array();
+  }
+
+  // Get flood level of the barangay
+  public function get_flood_level($id=1, $timestamp=null) {
+    $query_text = '
+      SELECT bfl.barangay_id, fll.score, fll.flood_desc as adesc, 
+          bfl.level_estimate as level
+      FROM barangay_flood_levels as bfl, flood_level_lut as fll
+      WHERE bfl.flood_level_id = fll.id
+      AND bfl.barangay_id=' . $id . ' AND bfl.ts="' . $timestamp . '"';
     $query = $this->db->query($query_text);
     return $query->row_array();
   }
