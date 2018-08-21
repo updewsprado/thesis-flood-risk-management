@@ -70,10 +70,65 @@ class Municipality extends CI_Controller {
     $timestamp = str_replace("%20"," ", $timestamp);
     $timestamp = str_replace("."," ", $timestamp);
 
-    // TODO: generate barangay alert levels
+    // generate barangay alert levels
     $flood_hazard_scores = $this->barangay_model->get_flood_and_hazard_scores_all($municipality_id);
     $evc_scores = $this->barangay_model->get_evc_all();
+    $barangay_alert_scores = $this->generate_alerts_barangay($evc_scores, $flood_hazard_scores);
 
+    // TODO: Insert the generated barangay levels to the database
+
+    // TODO: generate the municipality alert level from the sum of barangay levels
+    $municipality_alerts = [];
+    foreach ($barangay_alert_scores as $alert_score) {
+      $ts_key = str_replace("%20","_", $alert_score['ts']);
+      $ts_key = str_replace(" ", "_", $ts_key);
+      $ts_key = str_replace(":", "-", $ts_key);
+
+      if(array_key_exists($ts_key, $municipality_alerts)) {
+        $municipality_alerts[$ts_key]['score'] += $alert_score['alert_score'];
+      }
+      else {
+        $municipality_alerts[$ts_key] = array(
+          'ts' => $alert_score['ts'],
+          'score' => $alert_score['alert_score']
+        );
+      }
+    }
+
+    foreach ($municipality_alerts as $indiv_alert) {
+      $ts_key = str_replace("%20","_", $indiv_alert['ts']);
+      $ts_key = str_replace(" ", "_", $ts_key);
+      $ts_key = str_replace(":", "-", $ts_key);
+
+      $alert_score = $indiv_alert['score'];
+
+      // Get alert level from alert score
+      if (($alert_score >= 0) && ($alert_score < 11)) {
+        $municipality_alerts[$ts_key]['level'] = 1;
+        $municipality_alerts[$ts_key]['desc'] = "Normal";
+      } 
+      else if ($alert_score < 21) {
+        $municipality_alerts[$ts_key]['level'] = 2;
+        $municipality_alerts[$ts_key]['desc'] = "Moderate";
+      }
+      else if ($alert_score < 31) {
+        $municipality_alerts[$ts_key]['level'] = 3;
+        $municipality_alerts[$ts_key]['desc'] = "High";
+      }
+      else if ($alert_score < 51) {
+        $municipality_alerts[$ts_key]['level'] = 4;
+        $municipality_alerts[$ts_key]['desc'] = "Severe";
+      }
+      else {
+        $municipality_alerts[$ts_key]['level'] = 5;
+        $municipality_alerts[$ts_key]['desc'] = "Critical";
+      }
+    }
+
+    echo json_encode($municipality_alerts);
+  }
+
+  private function generate_alerts_barangay($evc_scores=null, $flood_hazard_scores=null) {
     // Create a dictionary for evc per barangay id
     foreach ($evc_scores as $evc_barangay) {
       $evc_scores_dict[$evc_barangay['barangay_id']] = $evc_barangay;
@@ -133,10 +188,7 @@ class Municipality extends CI_Controller {
       $ctr++;
     }
 
-    echo json_encode($alert_scores);
-
-    // TODO: generate the municipality alert level from the sum of barangay levels
-
+    return $alert_scores;
   }
 
   // API for municipality basic info
