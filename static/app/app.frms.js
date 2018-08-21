@@ -37,7 +37,7 @@
     // Function Definitions
 
     function onInit() {
-      vm.targetDate = "2014-09-19 8:00:00";
+      vm.targetDate = "2014-09-19 0:00:00";
 
       $log.debug("mainController has been initiated!");
       recalculateData(vm.targetDate);
@@ -172,19 +172,19 @@
       $log.debug(vm.allBarangays);
     }
 
-    // TODO: Get the Municipality Alert Level and all other info needed for display
+    // Get the Municipality Alert Level and all other info needed for display
     function getAlertMunicipality(targetDate) {
       $log.debug("getAlertMunicipality function: target date = ", targetDate);
 
-      // TODO: municipality name, alert level, cumulative rain, wind level,
+      // municipality name, alert level, cumulative rain, wind level,
       //    temperature and heat index
 
       vm.municipalityInfo = {
         name: "Marilao, Bulacan",
-        alert: {
-          level: 5,
-          desc: "critical",
-        },
+        // alert: {
+        //   level: 5,
+        //   adesc: "critical",
+        // },
         // weather: {
         //   rain: 80,
         //   wind: 120,
@@ -193,10 +193,20 @@
         // }
       };
 
-      let api_url = '/municipality/weather/1/' + targetDate;
-      $log.debug("api value: ", api_url);
+      let api_alert = '/municipality/alert_level/1/' + targetDate;
+      $log.debug("api value: ", api_alert);
 
-      $http.get(api_url).then(function(resp) {
+      $http.get(api_alert).then(function(resp) {
+        $log.debug("Get Municipality Alert API", resp.data);
+        vm.municipalityInfo.alert = {};
+        vm.municipalityInfo.alert.level = resp.data.level;
+        vm.municipalityInfo.alert.desc = resp.data.adesc;
+      });
+
+      let api_weather = '/municipality/weather/1/' + targetDate;
+      $log.debug("api value: ", api_weather);
+
+      $http.get(api_weather).then(function(resp) {
         $log.debug("Get Weather API", resp.data);
         vm.municipalityInfo.weather = resp.data;
       });

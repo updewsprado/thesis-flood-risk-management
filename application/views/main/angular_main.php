@@ -411,7 +411,7 @@
 
 <script type="text/javascript">
   $(function () {
-    var defaultDateTime = moment('06/12/2018 20:30:00', 'MM/DD/YYYY hh:mm:ss');
+    var defaultDateTime = moment('09/19/2014 08:00:00', 'MM/DD/YYYY hh:mm:ss');
 
     $('#datetimepicker1').datetimepicker({
       defaultDate: defaultDateTime,
