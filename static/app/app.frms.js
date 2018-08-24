@@ -49,6 +49,39 @@
     function clickedBarangayMoreInfo(barangay) {
       $log.debug("clickedBarangayMoreInfo", barangay);
       vm.params = barangay;
+
+      // TODO: Compute for risk factor
+      vm.params.risk = computeRiskFactor(barangay);
+
+
+
+      // TODO: Compute affected population
+    }
+
+    function computeRiskFactor(barangay) {
+      $log.debug("computeRiskFactor", barangay);
+
+      let hazard = barangay.alert.hscore;
+      let exposure = barangay.basic_info.exposure;
+      let vulnerability = barangay.basic_info.vulnerability;
+      let capacity = barangay.basic_info.capacity;
+      let risk = (hazard * exposure * vulnerability) / capacity;
+
+      if (risk < 1.6) {
+        return "low";
+      } 
+      else if (risk < 3.5) {
+        return "moderate";
+      }
+      else if (risk < 5) {
+        return "mid-high";
+      }
+      else if (risk < 7) {
+        return "high";
+      }
+      else {
+        return "very high";
+      }
     }
 
     // Get the Alert Levels of the Barangays

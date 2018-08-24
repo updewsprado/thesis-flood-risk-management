@@ -326,7 +326,7 @@
                 <div class="panel-body">
                   <div class="well well-lg">
                     <h4>
-                      Risk Factor: <span class="text-danger">HIGH</span>
+                      Risk Factor: <span class="text-danger">{{ params.risk | uppercase }}</span>
                     </h4>
                     <p>
                       The area is exposed to rain enduced disaster. Disaster
