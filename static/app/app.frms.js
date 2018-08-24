@@ -230,26 +230,51 @@
       // Reproduce row class and desc from height level
       for (var i = 0; i < vm.markerLevels.length; i++) {
         let height = vm.markerLevels[i].height;
+        let mtype = vm.markerLevels[i].marker_type;
 
-        if (height >= 8) {
-          vm.markerLevels[i].rowClass = "critical";
-          vm.markerLevels[i].desc = "Critical";
-        } 
-        else if (height > 6) {
-          vm.markerLevels[i].rowClass = "high";
-          vm.markerLevels[i].desc = "High";
+        if (mtype == "River") {
+          if (height >= 15) {
+            vm.markerLevels[i].rowClass = "critical";
+            vm.markerLevels[i].desc = "Critical";
+          } 
+          else if (height >= 13) {
+            vm.markerLevels[i].rowClass = "high";
+            vm.markerLevels[i].desc = "High";
+          }
+          else if (height >= 11) {
+            vm.markerLevels[i].rowClass = "mid-high";
+            vm.markerLevels[i].desc = "Mid High";
+          }
+          else if (height >= 10) {
+            vm.markerLevels[i].rowClass = "medium";
+            vm.markerLevels[i].desc = "Medium";
+          }
+          else {
+            vm.markerLevels[i].rowClass = "none";
+            vm.markerLevels[i].desc = "Normal";
+          }
         }
-        else if (height > 4) {
-          vm.markerLevels[i].rowClass = "mid-high";
-          vm.markerLevels[i].desc = "Mid High";
-        }
-        else if (height > 2) {
-          vm.markerLevels[i].rowClass = "medium";
-          vm.markerLevels[i].desc = "Medium";
-        }
-        else {
-          vm.markerLevels[i].rowClass = "none";
-          vm.markerLevels[i].desc = "Normal";
+        else if (mtype == "Flood") {
+          if (height >= 1.25) {
+            vm.markerLevels[i].rowClass = "critical";
+            vm.markerLevels[i].desc = "Critical";
+          } 
+          else if (height >= 0.64) {
+            vm.markerLevels[i].rowClass = "high";
+            vm.markerLevels[i].desc = "High";
+          }
+          else if (height >= 0.34) {
+            vm.markerLevels[i].rowClass = "mid-high";
+            vm.markerLevels[i].desc = "Mid High";
+          }
+          else if (height >= 0.1) {
+            vm.markerLevels[i].rowClass = "medium";
+            vm.markerLevels[i].desc = "Medium";
+          }
+          else {
+            vm.markerLevels[i].rowClass = "none";
+            vm.markerLevels[i].desc = "Normal";
+          }
         }
       }
     }
