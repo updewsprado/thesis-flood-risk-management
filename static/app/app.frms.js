@@ -70,17 +70,13 @@
       actionAskForRescuers(barangay);
 
       // // Normal Operations
-      // actionNormalOperations(barangay);
+      actionNormalOperations(barangay);
 
       // // Start Recovery
       // actionStartRecovery(barangay);
 
       // TODO:
-      // isContinuousMonitoring: false,
-      // isCoordinateWithShelters: false,
-      // isAskLGUForRecuers: false,
       // isStartRecovery: false,
-      // isNormalOperations: false
     }
 
     function actionEvacuateNow(barangay) {
@@ -119,6 +115,10 @@
       // Normal Operations
     function actionNormalOperations(barangay) {
       $log.debug("actionNormalOperations", barangay);
+      let flood_score = barangay.flood_status.score;
+      let risk_score = barangay.risk_score;
+
+      barangay.action_board.isNormalOperations = ((flood_score <= 2) && (risk_score <= 2));
     }
 
       // Start Recovery
