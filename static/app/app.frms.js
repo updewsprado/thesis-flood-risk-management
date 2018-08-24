@@ -63,17 +63,17 @@
       // Continuous Monitoring
       actionContinuousMonitoring(barangay);
 
-      // Coordinate with shelters
-      actionCoordinateWithShelters(barangay);
+      // // Coordinate with shelters
+      // actionCoordinateWithShelters(barangay);
 
-      // Ask LGU for Rescuers
-      actionAskForRescuers(barangay);
+      // // Ask LGU for Rescuers
+      // actionAskForRescuers(barangay);
 
-      // Normal Operations
-      actionNormalOperations(barangay);
+      // // Normal Operations
+      // actionNormalOperations(barangay);
 
-      // Start Recovery
-      actionStartRecovery(barangay);
+      // // Start Recovery
+      // actionStartRecovery(barangay);
 
       // TODO:
       // isContinuousMonitoring: false,
@@ -84,7 +84,6 @@
     }
 
     function actionEvacuateNow(barangay) {
-
       let flood_score = barangay.flood_status.score;
       let risk_score = barangay.risk_score;
 
@@ -95,6 +94,9 @@
       // Continuous Monitoring
     function actionContinuousMonitoring(barangay) {
       $log.debug("actionContinuousMonitoring", barangay);
+      let alert_level = barangay.alert.level;
+
+      barangay.action_board.isContinuousMonitoring = (alert_level == 2);
     }
 
       // Coordinate with shelters

@@ -368,21 +368,36 @@
                     </h2>
                     <br>
                     <div class="well well-lg">
-                      Coordinate with DSWD for the relief goods. Make sure that
-                      the relief shelter is ready for occupancy.
+                      [Insert narrative]
                     </div>
                   </div>
-                  <h2 class="text-danger text-center">
-                    <b>
-                      <u>
-                        ASK LGU for Rescuers
-                        <i class="fa fa-exclamation-triangle" aria-hidden="true"></i>
-                      </u>
-                    </b>
-                  </h2>
-                  <br>
-                  <div class="well well-lg">
-                    [Insert narrative and resources needed]
+                  <div ng-if="params.action_board.isAskLGUForRecuers">
+                    <h2 class="text-danger text-center">
+                      <b>
+                        <u>
+                          ASK LGU for Rescuers
+                          <i class="fa fa-exclamation-triangle" aria-hidden="true"></i>
+                        </u>
+                      </b>
+                    </h2>
+                    <br>
+                    <div class="well well-lg">
+                      [Insert narrative]
+                    </div>
+                  </div>
+                  <div ng-if="params.action_board.isContinuousMonitoring">
+                    <h2 class="text-warning text-center">
+                      <b>
+                        <u>
+                          Continuous Monitoring
+                          <i class="fa fa-exclamation-triangle" aria-hidden="true"></i>
+                        </u>
+                      </b>
+                    </h2>
+                    <br>
+                    <div class="well well-lg">
+                      [Insert narrative]
+                    </div>
                   </div>
                   <p>
                     <b>Assigned Shelter:</b>
