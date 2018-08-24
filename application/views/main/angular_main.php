@@ -279,36 +279,34 @@
     </div>
   </div>
 
-  <!-- Municipality Action Modal - State of Calamity -->
-  <div id="municipalityDetailsStateOfCalamityModal" class="modal fade" role="dialog">
-    <div class="modal-dialog modal-lg">
-      
-      <!-- Modal content -->
-      <div class="modal-content">
-        <div class="modal-header">
-          <button type="button" class="close" data-dismiss="modal">&times;</button>
-          <h2 class="modal-title">
-            <b>
-              State of Calamity
-              <i class="fa fa-exclamation-triangle" aria-hidden="true"></i> 
-            </b>
-            <small>as of {{ targetDate }}</small>
-          </h2>
-        </div>
-        <div class="modal-body">
-          <h3>
-            Convene a Special Session of the municipal council to approve the declaration of state of calamity.
-          </h3>
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-        </div>
+<!-- Municipality Action Modal - State of Calamity -->
+<div id="municipalityDetailsStateOfCalamityModal" class="modal fade" role="dialog">
+  <div class="modal-dialog modal-lg">
+    
+    <!-- Modal content -->
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h2 class="modal-title">
+          <b>
+            State of Calamity
+            <i class="fa fa-exclamation-triangle" aria-hidden="true"></i> 
+          </b>
+          <small>as of {{ targetDate }}</small>
+        </h2>
       </div>
-
+      <div class="modal-body">
+        <h3>
+          Convene a Special Session of the municipal council to approve the declaration of state of calamity.
+        </h3>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
     </div>
+
   </div>
-
-
+</div>
 
 <!-- Municipality Action Modal - Evacuate Now -->
 <div id="municipalityDetailsEvacuateModal" class="modal fade" role="dialog">
@@ -407,16 +405,13 @@
               </div>
               <div class="panel-body">
                 <div class="list-group">
-                  <a href="#" class="list-group-item">
+                  <a href="" class="list-group-item" data-toggle="modal" 
+                      data-target="#barangayDetailsModal"
+                      ng-click="clickedBarangayMoreInfo(barangay)"
+                      ng-repeat="barangay in municipalityInfo.action_board.listContinuousMonitoring">
                     <b>
                       <i class="fa fa-map-marker" aria-hidden="true"></i>
-                      Poblacion
-                    </b>
-                  </a>
-                  <a href="#" class="list-group-item">
-                    <b>
-                      <i class="fa fa-map-marker" aria-hidden="true"></i>
-                      Abangan
+                      {{ barangay.basic_info.name }}
                     </b>
                   </a>
                 </div>
@@ -479,187 +474,187 @@
   </div>
 </div>
 
-  <!-- Municipality Action Modal - Start Recovery -->
-  <div id="municipalityDetailsRecoveryModal" class="modal fade" role="dialog">
-    <div class="modal-dialog modal-lg">
-      
-      <!-- Modal content -->
-      <div class="modal-content">
-        <div class="modal-header">
-          <button type="button" class="close" data-dismiss="modal">&times;</button>
-          <h2 class="modal-title">
-            <b class="text-primary">
-              Start Recovery
-              <i class="fa fa-check" aria-hidden="true"></i>
-            </b>
-            <small>as of {{ targetDate }}</small>
-          </h2>
-        </div>
-        <div class="modal-body">
-          <h3>
-            Recovery procedures shall commence. Skies are clear and all roads are passable.
-          </h3>
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-        </div>
+<!-- Municipality Action Modal - Start Recovery -->
+<div id="municipalityDetailsRecoveryModal" class="modal fade" role="dialog">
+  <div class="modal-dialog modal-lg">
+    
+    <!-- Modal content -->
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h2 class="modal-title">
+          <b class="text-primary">
+            Start Recovery
+            <i class="fa fa-check" aria-hidden="true"></i>
+          </b>
+          <small>as of {{ targetDate }}</small>
+        </h2>
       </div>
-
+      <div class="modal-body">
+        <h3>
+          Recovery procedures shall commence. Skies are clear and all roads are passable.
+        </h3>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
     </div>
+
   </div>
+</div>
 
-  <!-- Barangay Details Modal -->
-  <div id="barangayDetailsModal" class="modal fade" role="dialog">
-    <div class="modal-dialog modal-lg">
+<!-- Barangay Details Modal -->
+<div id="barangayDetailsModal" class="modal fade" role="dialog">
+  <div class="modal-dialog modal-lg">
 
-      <!-- Modal content-->
-      <div class="modal-content">
-        <div class="modal-header">
-          <button type="button" class="close" data-dismiss="modal">&times;</button>
-          <h3 class="modal-title">
-            <b>
-              <i class="fa fa-map-marker" aria-hidden="true"></i> 
-              {{ params.basic_info.name | uppercase }}
-            </b>
-            <small>as of {{ targetDate }}</small>
-          </h3>
-        </div>
-        <div class="modal-body">
-          <div class="row">
-            <div class="col-sm-6">
-              <div class="panel panel-info">
-                <div class="panel-heading">
-                  Risk and Vulnerability Info
-                  <i class="fa fa-info-circle fa-lg" aria-hidden="true"></i>
-                </div>
-                <div class="panel-body">
-                  <div class="well well-lg">
-                    <h4>
-                      Risk Factor: <span class="text-danger">{{ params.risk | uppercase }}</span>
-                    </h4>
-                    <p>
-                      The area is exposed to rain enduced disaster. Disaster
-                      vulnerability is high.
-                    </p>
-                  </div>
-                  <h4>Estimated Affected</h4>
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h3 class="modal-title">
+          <b>
+            <i class="fa fa-map-marker" aria-hidden="true"></i> 
+            {{ params.basic_info.name | uppercase }}
+          </b>
+          <small>as of {{ targetDate }}</small>
+        </h3>
+      </div>
+      <div class="modal-body">
+        <div class="row">
+          <div class="col-sm-6">
+            <div class="panel panel-info">
+              <div class="panel-heading">
+                Risk and Vulnerability Info
+                <i class="fa fa-info-circle fa-lg" aria-hidden="true"></i>
+              </div>
+              <div class="panel-body">
+                <div class="well well-lg">
+                  <h4>
+                    Risk Factor: <span class="text-danger">{{ params.risk | uppercase }}</span>
+                  </h4>
                   <p>
-                    <b>Families:</b>
-                    <span>{{ params.basic_info.families }}</span>
-                  </p>
-                  <p>
-                    <b>Vulnerable Population:</b>
-                    <span>{{ params.basic_info.vulnerable }}</span>
-                  </p>
-                  <p>
-                    <b>Affected Population:</b>
-                    <span>{{ params.basic_info.affected }}</span>
+                    The area is exposed to rain enduced disaster. Disaster
+                    vulnerability is high.
                   </p>
                 </div>
+                <h4>Estimated Affected</h4>
+                <p>
+                  <b>Families:</b>
+                  <span>{{ params.basic_info.families }}</span>
+                </p>
+                <p>
+                  <b>Vulnerable Population:</b>
+                  <span>{{ params.basic_info.vulnerable }}</span>
+                </p>
+                <p>
+                  <b>Affected Population:</b>
+                  <span>{{ params.basic_info.affected }}</span>
+                </p>
               </div>
             </div>
-            <div class="col-sm-6">
-              <div class="panel panel-{{ params.alert.desc | lowercase }}">
-                <div class="panel-heading">
-                  Action Board
-                  <i class="fa fa-bell fa-lg" aria-hidden="true"></i>
+          </div>
+          <div class="col-sm-6">
+            <div class="panel panel-{{ params.alert.desc | lowercase }}">
+              <div class="panel-heading">
+                Action Board
+                <i class="fa fa-bell fa-lg" aria-hidden="true"></i>
+              </div>
+              <div class="panel-body">
+                <div ng-if="params.action_board.isEvacuateNow">
+                  <h2 class="text-danger text-center">
+                    <b>
+                      <u>
+                        EVACUATE NOW
+                        <i class="fa fa-exclamation-triangle" aria-hidden="true"></i>
+                      </u>
+                    </b>
+                  </h2>
+                  <br>
+                  <div class="well well-lg">
+                    [Insert narrative]
+                  </div>
                 </div>
-                <div class="panel-body">
-                  <div ng-if="params.action_board.isEvacuateNow">
-                    <h2 class="text-danger text-center">
-                      <b>
-                        <u>
-                          EVACUATE NOW
-                          <i class="fa fa-exclamation-triangle" aria-hidden="true"></i>
-                        </u>
-                      </b>
-                    </h2>
-                    <br>
-                    <div class="well well-lg">
-                      [Insert narrative]
-                    </div>
+                <div ng-if="params.action_board.isAskLGUForRecuers">
+                  <h2 class="text-danger text-center">
+                    <b>
+                      <u>
+                        ASK LGU for Rescuers
+                        <i class="fa fa-exclamation-triangle" aria-hidden="true"></i>
+                      </u>
+                    </b>
+                  </h2>
+                  <br>
+                  <div class="well well-lg">
+                    [Insert narrative]
                   </div>
-                  <div ng-if="params.action_board.isAskLGUForRecuers">
-                    <h2 class="text-danger text-center">
-                      <b>
-                        <u>
-                          ASK LGU for Rescuers
-                          <i class="fa fa-exclamation-triangle" aria-hidden="true"></i>
-                        </u>
-                      </b>
-                    </h2>
-                    <br>
-                    <div class="well well-lg">
-                      [Insert narrative]
-                    </div>
-                  </div>
-                  <div ng-if="params.action_board.isCoordinateWithShelters">
-                    <h2 class="text-warning text-center">
-                      <b>
-                        <u>
-                          Coordinate w/ Shelters
-                          <i class="fa fa-exclamation-triangle" aria-hidden="true"></i>
-                        </u>
-                      </b>
-                    </h2>
-                    <br>
-                    <div class="well well-lg">
-                      [Insert narrative]
-                    </div>
-                  </div>
-                  <div ng-if="params.action_board.isContinuousMonitoring">
-                    <h2 class="text-warning text-center">
-                      <b>
-                        <u>
-                          Continuous Monitoring
-                          <i class="fa fa-exclamation-triangle" aria-hidden="true"></i>
-                        </u>
-                      </b>
-                    </h2>
-                    <br>
-                    <div class="well well-lg">
-                      [Insert narrative]
-                    </div>
-                  </div>
-                  <div ng-if="params.action_board.isNormalOperations">
-                    <h2 class="text-success text-center">
-                      <b>
-                        <u>
-                          Normal Operations
-                        </u>
-                      </b>
-                    </h2>
-                    <br>
-                    <div class="well well-lg">
-                      [Insert narrative]
-                    </div>
-                  </div>
-                  <p>
-                    <b>Assigned Shelter:</b>
-                    <span ng-repeat="shelter in params.shelters">
-                      {{ shelter }}, 
-                    </span>
-                  </p>
-                  <p>
-                    <b>Average Flood Level:</b>
-                    <span>{{ params.flood_status.level }} meters</span>
-                  </p>
-                  <p>
-                    <b>Resources Needed:</b>
-                    <span>Rescue truck, 10 rescuers</span>
-                  </p>
                 </div>
+                <div ng-if="params.action_board.isCoordinateWithShelters">
+                  <h2 class="text-warning text-center">
+                    <b>
+                      <u>
+                        Coordinate w/ Shelters
+                        <i class="fa fa-exclamation-triangle" aria-hidden="true"></i>
+                      </u>
+                    </b>
+                  </h2>
+                  <br>
+                  <div class="well well-lg">
+                    [Insert narrative]
+                  </div>
+                </div>
+                <div ng-if="params.action_board.isContinuousMonitoring">
+                  <h2 class="text-warning text-center">
+                    <b>
+                      <u>
+                        Continuous Monitoring
+                        <i class="fa fa-exclamation-triangle" aria-hidden="true"></i>
+                      </u>
+                    </b>
+                  </h2>
+                  <br>
+                  <div class="well well-lg">
+                    [Insert narrative]
+                  </div>
+                </div>
+                <div ng-if="params.action_board.isNormalOperations">
+                  <h2 class="text-success text-center">
+                    <b>
+                      <u>
+                        Normal Operations
+                      </u>
+                    </b>
+                  </h2>
+                  <br>
+                  <div class="well well-lg">
+                    [Insert narrative]
+                  </div>
+                </div>
+                <p>
+                  <b>Assigned Shelter:</b>
+                  <span ng-repeat="shelter in params.shelters">
+                    {{ shelter }}, 
+                  </span>
+                </p>
+                <p>
+                  <b>Average Flood Level:</b>
+                  <span>{{ params.flood_status.level }} meters</span>
+                </p>
+                <p>
+                  <b>Resources Needed:</b>
+                  <span>Rescue truck, 10 rescuers</span>
+                </p>
               </div>
             </div>
           </div>
         </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-        </div>
       </div>
-
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
     </div>
+
   </div>
+</div>
 
 </div>
 <!-- End of Angular App -->
