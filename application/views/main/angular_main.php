@@ -135,9 +135,11 @@
                 </button>
                 <br>
                 <p>
-                  <a href="#" data-toggle="modal" data-target="#barangayDetailsModal">Saog</a>, 
-                  <a href="#" data-toggle="modal" data-target="#barangayDetailsModalCritical_Ibayo">Ibayo</a> and 
-                  <a href="#" data-toggle="modal" data-target="#barangayDetailsModalHigh">Lias</a>
+                  <a href="" data-toggle="modal" data-target="#barangayDetailsModal"
+                      ng-click="clickedBarangayMoreInfo(barangay)"
+                      ng-repeat="barangay in municipalityInfo.action_board.listEvacuation">
+                    {{ barangay.basic_info.name }},
+                  </a>
                   needs rescue and evacuation. COORDINATE with DSWD for relief goods.
                   <br><br>
                   <span>{{ targetDate }}</span>
