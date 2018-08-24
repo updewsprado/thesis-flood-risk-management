@@ -63,7 +63,7 @@ class Municipality extends CI_Controller {
     if ($current_alert["level"] <= 2) {
       $data['severe_alert_count'] = $this->municipality_model->get_previous_severe_alerts_count($municipality_id, $timestamp);
 
-      if ($data['severe_alert_count'] > 1) {
+      if ($data['severe_alert_count'] >= 1) {
         echo json_encode(true);
       } 
       else {

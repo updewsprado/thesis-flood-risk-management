@@ -419,7 +419,7 @@
             </div>
           </div>
           <div class="col-sm-6">
-            <div class="panel panel-mid-high">
+            <div class="panel panel-moderate">
               <div class="panel-heading">
                 Action Board
                 <i class="fa fa-bell fa-lg" aria-hidden="true"></i>
@@ -608,6 +608,19 @@
                       <u>
                         Continuous Monitoring
                         <i class="fa fa-exclamation-triangle" aria-hidden="true"></i>
+                      </u>
+                    </b>
+                  </h2>
+                  <br>
+                  <div class="well well-lg">
+                    [Insert narrative]
+                  </div>
+                </div>
+                <div ng-if="params.action_board.isStartRecovery">
+                  <h2 class="text-success text-center">
+                    <b>
+                      <u>
+                        Start Recovery
                       </u>
                     </b>
                   </h2>

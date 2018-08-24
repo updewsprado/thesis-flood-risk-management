@@ -68,17 +68,17 @@
       // Continuous Monitoring
       actionContinuousMonitoring(barangay);
 
-      // // Coordinate with shelters
+      // Coordinate with shelters
       actionCoordinateWithShelters(barangay);
 
-      // // Ask LGU for Rescuers
+      // Ask LGU for Rescuers
       actionAskForRescuers(barangay);
 
-      // // Normal Operations
+      // Normal Operations
       actionNormalOperations(barangay);
 
-      // // Start Recovery
-      // actionStartRecovery(barangay);
+      // Start Recovery
+      actionStartRecovery(barangay);
 
       // TODO:
       // isStartRecovery: false,
@@ -129,6 +129,15 @@
       // Start Recovery
     function actionStartRecovery(barangay) {
       $log.debug("actionStartRecovery", barangay);
+      let bgy_id = barangay.basic_info.id;
+
+      let api_bgy_recovery = '/barangay/is_recovering/' + bgy_id +'/' + vm.targetDate;
+      $log.debug("api value: ", api_bgy_recovery);
+
+      $http.get(api_bgy_recovery).then(function(resp) {
+        $log.debug("Get Municipality Start Recovery API", resp.data);
+        barangay.action_board.isStartRecovery = (resp.data == "true");
+      });
     }
 
     function computeRiskFactor(barangay) {
@@ -350,7 +359,7 @@
     function actionMunStartRecovery() {
       $log.debug("actionMunStartRecovery function");
 
-      // TODO: find out if municipality came from severe/critical for the past 12 hours
+      // find out if municipality came from severe/critical for the past 12 hours
       // vm.municipalityInfo.action_board.isStartRecovery = (vm.municipalityInfo.alert.level <= 2);
 
       let api_mun_recovery = '/municipality/is_recovering/1/' + vm.targetDate;
