@@ -11,11 +11,16 @@
   <!-- Custom Fonts -->
   <link rel="stylesheet" href="<?php echo base_url(); ?>static/vendor/font-awesome/css/font-awesome.min.css">
 
-  <link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>static/vendor/datetimepicker/bootstrap-datetimepicker.min.css">
+  <link rel="stylesheet" href="<?php echo base_url(); ?>static/vendor/datetimepicker/bootstrap-datetimepicker.min.css">
+  <link rel="stylesheet" href="<?php echo base_url(); ?>static/vendor/angular-moment-picker/angular-moment-picker.min.css">
 
   <!-- Angular JS Files -->
   <script src="<?php echo base_url(); ?>static/vendor/angular/angular.min.js"></script>
   <script src="<?php echo base_url(); ?>static/vendor/angular/angular-ui-router.js"></script>
+
+  <!-- Date and time libraries -->
+  <script src="<?php echo base_url(); ?>static/vendor/momentjs/moment.min.js"></script>
+  <script src="<?php echo base_url(); ?>static/vendor/angular-moment-picker/angular-moment-picker.min.js"></script>
 
   <!-- Bootstrapping -->
   <script src="<?php echo base_url(); ?>static/app/app.frms.js"></script>
@@ -47,12 +52,21 @@
           </a>
         </li>
         <li>
+
           <div class='input-group date' id='datetimepicker1'>
-            <input type='text' class="form-control" />
+            <!-- <input type='text' class="form-control" /> -->
+            <input class="form-control"
+                format="YYYY-MM-DD HH:mm"
+                ng-change="recalculateData(targetDate)"
+                ng-model="momentDate"
+                ng-model-options="{ updateOn: 'blur' }"
+                placeholder="Select a date..."
+                moment-picker="targetDate">
             <span class="input-group-addon">
               <span class="glyphicon glyphicon-calendar"></span>
             </span>
           </div>
+
         </li>
       </ul>
     </div>
@@ -60,6 +74,19 @@
 
   <!-- Main Content -->  
   <div class="container margin-top-page">
+<!-- 
+    <div class="row">
+      <div class="col-sm-12">
+        <input class="form-control"
+            format="YYYY-MM-DD HH:mm"
+            ng-change="recalculateData(targetDate)"
+            ng-model="momentDate"
+            ng-model-options="{ updateOn: 'blur' }"
+            placeholder="Select a date..."
+            moment-picker="targetDate">
+      </div>
+    </div>
+     -->
     <div class="row">
       <div class="col-sm-3 text-center">
         <div class="panel panel-default">
@@ -405,8 +432,6 @@
 <!-- Bootstrap Core Javascript -->
 <script src="<?php echo base_url(); ?>static/vendor/bootstrap/js/bootstrap.min.js"></script>
 
-<!-- Date and time libraries -->
-<script src="<?php echo base_url(); ?>static/vendor/momentjs/moment.min.js"></script>
 <script src="<?php echo base_url(); ?>static/vendor/datetimepicker/bootstrap-datetimepicker.min.js"></script>
 
 <script type="text/javascript">

@@ -1,7 +1,7 @@
 (function() {
   'use strict';
 
-  var app = angular.module('frmsApp', ['ui.router']);
+  var app = angular.module('frmsApp', ['ui.router', 'moment-picker']);
 
   app.filter('capitalizeWord', function() {
     return function(text) {
@@ -33,13 +33,17 @@
     vm.municipalityInfo = {};
     vm.params = {};
     vm.targetDate;
+    vm.momentDate;
+    vm.testDate;
 
     // Function Definitions
 
     function onInit() {
-      vm.targetDate = "2014-09-19 0:00:00";
+      let initDate = "2014-09-19 0:00";
+      vm.momentDate = moment(initDate);
+      vm.targetDate = vm.momentDate.format("YYYY-MM-DD HH:mm");
 
-      $log.debug("mainController has been initiated!");
+      $log.debug("mainController has been initiated!", vm.targetDate, vm.momentDate, vm.testDate);
       recalculateData(vm.targetDate);
     }
 
