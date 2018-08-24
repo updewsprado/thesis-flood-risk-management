@@ -308,6 +308,215 @@
     </div>
   </div>
 
+
+
+<!-- Municipality Action Modal - Evacuate Now -->
+<div id="municipalityDetailsEvacuateModal" class="modal fade" role="dialog">
+  <div class="modal-dialog modal-lg">
+    
+    <!-- Modal content -->
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h2 class="modal-title">
+          <b class="text-danger">
+            Evacuate Now
+            <i class="fa fa-truck" aria-hidden="true"></i> 
+          </b>
+          <small>as of 16:44 June 15, 2018</small>
+        </h2>
+      </div>
+      <div class="modal-body">
+        <div class="row">
+          <div class="col-sm-6">
+            <div class="panel panel-info">
+              <div class="panel-heading">
+                Target Barangays
+              </div>
+              <div class="panel-body">
+                <div class="list-group">
+                  <a href="#" class="list-group-item">
+                    <b>
+                      <i class="fa fa-map-marker" aria-hidden="true"></i>
+                      Saog
+                    </b>
+                  </a>
+                  <a href="#" class="list-group-item">
+                    <b>
+                      <i class="fa fa-map-marker" aria-hidden="true"></i>
+                      Ibayo
+                    </b>
+                  </a>
+                  <a href="#" class="list-group-item">
+                    <b>
+                      <i class="fa fa-map-marker" aria-hidden="true"></i>
+                      Lias
+                    </b>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-6">
+            <div class="panel panel-critical">
+              <div class="panel-heading">
+                Action Board
+                <i class="fa fa-bell fa-lg" aria-hidden="true"></i>
+              </div>
+              <div class="panel-body">
+                <h2 class="text-danger text-center">
+                  <b>
+                    <u>
+                      EVACUATE NOW
+                      <i class="fa fa-exclamation-triangle" aria-hidden="true"></i>
+                    </u>
+                  </b>
+                </h2>
+                <br>
+                <div class="well well-lg">
+                  Listed barangays need resuce and evacuation. Coordinate with 
+                  DSWD for the relief goods. Make sure that the relief shelter 
+                  is ready for occupancy.
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- Municipality Action Modal - Monitoring -->
+<div id="municipalityDetailsMonitoringModal" class="modal fade" role="dialog">
+  <div class="modal-dialog modal-lg">
+    
+    <!-- Modal content -->
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h2 class="modal-title">
+          <b class="text-warning">
+            Continuous Monitoring
+            <i class="fa fa-eye" aria-hidden="true"></i>
+          </b>
+          <small>as of 16:44 June 15, 2018</small>
+        </h2>
+      </div>
+      <div class="modal-body">
+        <div class="row">
+          <div class="col-sm-6">
+            <div class="panel panel-info">
+              <div class="panel-heading">
+                Target Barangays
+              </div>
+              <div class="panel-body">
+                <div class="list-group">
+                  <a href="#" class="list-group-item">
+                    <b>
+                      <i class="fa fa-map-marker" aria-hidden="true"></i>
+                      Poblacion
+                    </b>
+                  </a>
+                  <a href="#" class="list-group-item">
+                    <b>
+                      <i class="fa fa-map-marker" aria-hidden="true"></i>
+                      Abangan
+                    </b>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-6">
+            <div class="panel panel-mid-high">
+              <div class="panel-heading">
+                Action Board
+                <i class="fa fa-bell fa-lg" aria-hidden="true"></i>
+              </div>
+              <div class="panel-body">
+                <h3 class="text-warning text-center">
+                  <b>
+                    <u>
+                      Shelters should be ready
+                      <i class="fa fa-exclamation-triangle" aria-hidden="true"></i>
+                    </u>
+                  </b>
+                </h3>
+                <br>
+                <div class="well well-lg">
+                  Shelters for the target barangays should be ready for occupancy.
+                </div>
+                <h3 class="text-warning text-center">
+                  <b>
+                    <u>
+                      Rescuers on Alert
+                      <i class="fa fa-exclamation-triangle" aria-hidden="true"></i>
+                    </u>
+                  </b>
+                </h3>
+                <br>
+                <div class="well well-lg">
+                  Assign rescuers to be on Alert for the target barangays.
+                </div>
+                <h3 class="text-warning text-center">
+                  <b>
+                    <u>
+                      Send Warnings
+                      <i class="fa fa-exclamation-triangle" aria-hidden="true"></i>
+                    </u>
+                  </b>
+                </h3>
+                <br>
+                <div class="well well-lg">
+                  Send warnings to target barangays. Impending hazard is coming.
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+  <!-- Municipality Action Modal - Start Recovery -->
+  <div id="municipalityDetailsRecoveryModal" class="modal fade" role="dialog">
+    <div class="modal-dialog modal-lg">
+      
+      <!-- Modal content -->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h2 class="modal-title">
+            <b class="text-primary">
+              Start Recovery
+              <i class="fa fa-check" aria-hidden="true"></i>
+            </b>
+            <small>as of {{ targetDate }}</small>
+          </h2>
+        </div>
+        <div class="modal-body">
+          <h3>
+            Recovery procedures shall commence. Skies are clear and all roads are passable.
+          </h3>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
   <!-- Barangay Details Modal -->
   <div id="barangayDetailsModal" class="modal fade" role="dialog">
     <div class="modal-dialog modal-lg">
