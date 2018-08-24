@@ -358,7 +358,7 @@
 
       $http.get(api_mun_recovery).then(function(resp) {
         $log.debug("Get Municipality Start Recovery API", resp.data);
-        vm.municipalityInfo.action_board.isStartRecovery = resp.data;
+        vm.municipalityInfo.action_board.isStartRecovery = (resp.data == "true");
       });
     }
 
