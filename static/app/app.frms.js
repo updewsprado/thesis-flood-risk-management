@@ -219,6 +219,9 @@
             vm.allBarangays[ctr].shelters = data[2];
 
             actionBoardComposition(vm.allBarangays[ctr]);
+
+            // Municipality Action Board Composition
+            actionsMunCompositionFromBarangay(vm.allBarangays[ctr])
           });
         };
 
@@ -329,17 +332,33 @@
     }
 
     // TODO: Get the Municipality Action Board
+    function actionsMunCompositionFromBarangay(barangay) {
+      actionMunEvacuateNow(barangay);
+        
+      // actionMunContinuousMonitoring(barangay);
+        // actionMunReadyShelters();
+        // actionMunRescuerAlert();
+        // actionMunSendBarangayWarnings();
+      // actionMunStartRecovery();
+
+      $log.debug("municipalityInfo:", vm.municipalityInfo);
+    }
+
     function actionMunStateOfCalamity() {
       $log.debug("getActionBoardMunicipality function");
 
       // State of calamity flag
       vm.municipalityInfo.action_board.isStateOfCalamity = (vm.municipalityInfo.alert.level >= 5);
+    }
 
-      // TODO:
-      //    State of calamity flag
-      //    List of Barangays for Evacuation and action board for it
-      //    List of Barangays for Continuous Monitoring and action board for it
-      //    Start Recovery flag
+    function actionMunEvacuateNow(barangay) {
+      $log.debug("actionMunEvacuateNow function");
+      // subActionMunCoordinateWithDSWD(barangay);
+
+      if (barangay.action_board.isEvacuateNow) {
+        vm.municipalityInfo.action_board.listEvacuation.push(barangay);
+        vm.municipalityInfo.action_board.isEvacuateNow = true;
+      }
     }
 
     // TODO: Get current date (to be used as input for other functions)
