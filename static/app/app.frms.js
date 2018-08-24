@@ -64,7 +64,7 @@
       actionContinuousMonitoring(barangay);
 
       // // Coordinate with shelters
-      // actionCoordinateWithShelters(barangay);
+      actionCoordinateWithShelters(barangay);
 
       // // Ask LGU for Rescuers
       // actionAskForRescuers(barangay);
@@ -102,6 +102,10 @@
       // Coordinate with shelters
     function actionCoordinateWithShelters(barangay) {
       $log.debug("actionCoordinateWithShelters", barangay);
+      let alert_score = barangay.alert.score;
+      let flood_score = barangay.flood_status.score;
+
+      barangay.action_board.isCoordinateWithShelters = ((flood_score >= 8) && (alert_score >= 8));
     }
 
       // Ask LGU for Rescuers
@@ -126,8 +130,10 @@
       let exposure = barangay.basic_info.exposure;
       let vulnerability = barangay.basic_info.vulnerability;
       let capacity = barangay.basic_info.capacity;
+      let flood_score = barangay.flood_status.score;
       let risk = (hazard * exposure * vulnerability) / capacity;
       barangay.risk_score = risk;
+      barangay.alert.score = risk + flood_score;
 
       if (risk < 1.6) {
         return "low";

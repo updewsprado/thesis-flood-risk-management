@@ -399,6 +399,20 @@
                       [Insert narrative]
                     </div>
                   </div>
+                  <div ng-if="params.action_board.isCoordinateWithShelters">
+                    <h2 class="text-warning text-center">
+                      <b>
+                        <u>
+                          Coordinate w/ Shelters
+                          <i class="fa fa-exclamation-triangle" aria-hidden="true"></i>
+                        </u>
+                      </b>
+                    </h2>
+                    <br>
+                    <div class="well well-lg">
+                      [Insert narrative]
+                    </div>
+                  </div>
                   <p>
                     <b>Assigned Shelter:</b>
                     <span ng-repeat="shelter in params.shelters">
