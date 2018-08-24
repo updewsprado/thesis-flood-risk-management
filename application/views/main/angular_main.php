@@ -138,7 +138,7 @@
                   <a href="" data-toggle="modal" data-target="#barangayDetailsModal"
                       ng-click="clickedBarangayMoreInfo(barangay)"
                       ng-repeat="barangay in municipalityInfo.action_board.listEvacuation">
-                    {{ barangay.basic_info.name }},
+                    {{ barangay.basic_info.name }} |
                   </a>
                   needs rescue and evacuation. COORDINATE with DSWD for relief goods.
                   <br><br>
@@ -154,8 +154,13 @@
                 <br>
                 <p>
                   Coordinate with BCs on
-                  <a href="#" data-toggle="modal" data-target="#barangayDetailsModalMidHigh">Poblacion</a> and 
-                  <a href="#" data-toggle="modal" data-target="#barangayDetailsModalMedium">Abangan</a>
+<!--                   <a href="#" data-toggle="modal" data-target="#barangayDetailsModalMidHigh">Poblacion</a> and 
+                  <a href="#" data-toggle="modal" data-target="#barangayDetailsModalMedium">Abangan</a> -->
+                  <a href="" data-toggle="modal" data-target="#barangayDetailsModal"
+                      ng-click="clickedBarangayMoreInfo(barangay)"
+                      ng-repeat="barangay in municipalityInfo.action_board.listContinuousMonitoring">
+                    {{ barangay.basic_info.name }} |
+                  </a>
                   <br><br>
                   <span>{{ targetDate }}</span>
                 </p>

@@ -334,11 +334,8 @@
     // TODO: Get the Municipality Action Board
     function actionsMunCompositionFromBarangay(barangay) {
       actionMunEvacuateNow(barangay);
-        
-      // actionMunContinuousMonitoring(barangay);
-        // actionMunReadyShelters();
-        // actionMunRescuerAlert();
-        // actionMunSendBarangayWarnings();
+      actionMunContinuousMonitoring(barangay);
+
       // actionMunStartRecovery();
 
       $log.debug("municipalityInfo:", vm.municipalityInfo);
@@ -358,6 +355,18 @@
       if (barangay.action_board.isEvacuateNow) {
         vm.municipalityInfo.action_board.listEvacuation.push(barangay);
         vm.municipalityInfo.action_board.isEvacuateNow = true;
+      }
+    }
+
+    function actionMunContinuousMonitoring(barangay) {
+      $log.debug("actionMunContinuousMonitoring function");
+      // subActionMunReadyShelters();
+      // subActionMunRescuerAlert();
+      // subActionMunSendBarangayWarnings();
+
+      if (barangay.action_board.isContinuousMonitoring) {
+        vm.municipalityInfo.action_board.listContinuousMonitoring.push(barangay);
+        vm.municipalityInfo.action_board.isContinuousMonitoring = true;
       }
     }
 
