@@ -357,18 +357,20 @@
                   <i class="fa fa-bell fa-lg" aria-hidden="true"></i>
                 </div>
                 <div class="panel-body">
-                  <h2 class="text-danger text-center">
-                    <b>
-                      <u>
-                        EVACUATE NOW
-                        <i class="fa fa-exclamation-triangle" aria-hidden="true"></i>
-                      </u>
-                    </b>
-                  </h2>
-                  <br>
-                  <div class="well well-lg">
-                    Coordinate with DSWD for the relief goods. Make sure that
-                    the relief shelter is ready for occupancy.
+                  <div>
+                    <h2 class="text-danger text-center">
+                      <b>
+                        <u>
+                          EVACUATE NOW
+                          <i class="fa fa-exclamation-triangle" aria-hidden="true"></i>
+                        </u>
+                      </b>
+                    </h2>
+                    <br>
+                    <div class="well well-lg">
+                      Coordinate with DSWD for the relief goods. Make sure that
+                      the relief shelter is ready for occupancy.
+                    </div>
                   </div>
                   <h2 class="text-danger text-center">
                     <b>

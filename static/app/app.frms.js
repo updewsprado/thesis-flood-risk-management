@@ -52,8 +52,15 @@
       // Compute for risk factor
       vm.params.risk = computeRiskFactor(barangay);
 
-      // TODO: Compute affected population
+      // Compute affected population
       vm.params.basic_info.affected = computeAffectedPopulation(barangay);
+
+      // Action Board - Evacuate Now
+    }
+
+    function actionEvacuateNow(barangay) {
+      $log.debug("actionEvacuateNow", barangay);
+
     }
 
     function computeRiskFactor(barangay) {
@@ -145,6 +152,14 @@
         for (i = 0; i < resp.data.length; i++) {
           vm.allBarangays[i] = {};
           vm.allBarangays[i].basic_info = resp.data[i];
+          vm.allBarangays[i].action_board = {
+            isEvacuateNow: false,
+            isContinuousMonitoring: false,
+            isCoordinateWithShelters: false,
+            isAskLGUForRecuers: false,
+            isStartRecovery: false,
+            isNormalOperations: false
+          };
 
           let ctr = i;
 
