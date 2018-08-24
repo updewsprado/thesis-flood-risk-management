@@ -316,7 +316,7 @@
           listNeedRescuers: [],
         };
 
-        isStateOfCalamity();
+        actionMunStateOfCalamity();
       });
 
       let api_weather = '/municipality/weather/1/' + targetDate;
@@ -329,7 +329,7 @@
     }
 
     // TODO: Get the Municipality Action Board
-    function isStateOfCalamity() {
+    function actionMunStateOfCalamity() {
       $log.debug("getActionBoardMunicipality function");
 
       // State of calamity flag
