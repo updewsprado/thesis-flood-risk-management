@@ -344,7 +344,7 @@
                   </p>
                   <p>
                     <b>Affected Population:</b>
-                    <span>{{ params.basic_info.population }}</span>
+                    <span>{{ params.basic_info.affected }}</span>
                   </p>
                 </div>
               </div>

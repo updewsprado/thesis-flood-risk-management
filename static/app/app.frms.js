@@ -47,15 +47,15 @@
     }
 
     function clickedBarangayMoreInfo(barangay) {
-      $log.debug("clickedBarangayMoreInfo", barangay);
       vm.params = barangay;
 
-      // TODO: Compute for risk factor
+      // Compute for risk factor
       vm.params.risk = computeRiskFactor(barangay);
 
-
-
       // TODO: Compute affected population
+      vm.params.basic_info.affected = computeAffectedPopulation(barangay);
+
+      $log.debug("clickedBarangayMoreInfo", barangay);
     }
 
     function computeRiskFactor(barangay) {
@@ -81,6 +81,29 @@
       }
       else {
         return "very high";
+      }
+    }
+
+    function computeAffectedPopulation(barangay) {
+      $log.debug("computeAffectedPopulation", barangay);
+
+      let alevel = barangay.alert.level;
+      let population = barangay.basic_info.population;
+
+      if (alevel == 1) {
+        return 0;
+      } 
+      else if (alevel == 2) {
+        return Math.round(population / 1.75);
+      }
+      else if (alevel == 3) {
+        return Math.round(population / 1.5);
+      }
+      else if (alevel == 4) {
+        return Math.round(population / 1.35);
+      }
+      else {
+        return Math.round(population / 1.2);
       }
     }
 
