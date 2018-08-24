@@ -47,7 +47,7 @@ class Municipality_model extends CI_Model {
   // Get alert level of the municipality
   public function get_alert_level($id=1, $timestamp=null) {
     $query_text = '
-        SELECT minfo.id, minfo.name, malert.ts, malert.alert_level_id as level,
+        SELECT minfo.id, minfo.name, minfo.full_address, malert.ts, malert.alert_level_id as level,
             alut.alert_desc as adesc
         FROM alert_level_history_municipality as malert,
             municipality_basic_info as minfo,

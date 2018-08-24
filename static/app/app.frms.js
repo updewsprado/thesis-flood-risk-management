@@ -164,7 +164,7 @@
       //    temperature and heat index
 
       vm.municipalityInfo = {
-        name: "Marilao, Bulacan",
+        // name: "Marilao, Bulacan",
         // alert: {
         //   level: 5,
         //   adesc: "critical",
@@ -182,6 +182,7 @@
 
       $http.get(api_alert).then(function(resp) {
         $log.debug("Get Municipality Alert API", resp.data);
+        vm.municipalityInfo.name = resp.data.full_address;
         vm.municipalityInfo.alert = {};
         vm.municipalityInfo.alert.level = resp.data.level;
         vm.municipalityInfo.alert.desc = resp.data.adesc;
