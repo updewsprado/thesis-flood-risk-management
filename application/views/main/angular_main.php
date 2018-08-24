@@ -186,6 +186,18 @@
     </div>
 
     <div class="row">
+      <div class="col-sm-12">
+        <div class="panel panel-default">
+          <div class="panel-heading">
+            <h2 class="text-center text-danger">
+              <i>Thesis project created by: {{ giberish }} {{ tasker }}</i>
+            </h2>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
       <div class="col-sm-8">
         <div class="panel panel-default">
           <div class="panel-heading">
@@ -296,6 +308,15 @@
         </h2>
       </div>
       <div class="modal-body">
+
+        <div class="row">
+          <div class="col-sm-12">
+            <div class="panel panel-danger">
+              <h3 class="text-center text-danger">Thesis project created by: {{ giberish }} {{ tasker }}</h3>
+            </div>
+          </div>
+        </div>
+        
         <h3>
           Convene a Special Session of the municipal council to approve the declaration of state of calamity.
         </h3>
@@ -325,6 +346,15 @@
         </h2>
       </div>
       <div class="modal-body">
+
+        <div class="row">
+          <div class="col-sm-12">
+            <div class="panel panel-danger">
+              <h3 class="text-center text-danger">Thesis project created by: {{ giberish }} {{ tasker }}</h3>
+            </div>
+          </div>
+        </div>
+
         <div class="row">
           <div class="col-sm-6">
             <div class="panel panel-info">
@@ -397,6 +427,15 @@
         </h2>
       </div>
       <div class="modal-body">
+
+        <div class="row">
+          <div class="col-sm-12">
+            <div class="panel panel-danger">
+              <h3 class="text-center text-danger">Thesis project created by: {{ giberish }} {{ tasker }}</h3>
+            </div>
+          </div>
+        </div>
+
         <div class="row">
           <div class="col-sm-6">
             <div class="panel panel-info">
@@ -491,6 +530,15 @@
         </h2>
       </div>
       <div class="modal-body">
+
+        <div class="row">
+          <div class="col-sm-12">
+            <div class="panel panel-danger">
+              <h3 class="text-center text-danger">Thesis project created by: {{ giberish }} {{ tasker }}</h3>
+            </div>
+          </div>
+        </div>
+
         <h3>
           Recovery procedures shall commence. Skies are clear and all roads are passable.
         </h3>
@@ -520,6 +568,13 @@
         </h3>
       </div>
       <div class="modal-body">
+        <div class="row">
+          <div class="col-sm-12">
+            <div class="panel panel-danger">
+              <h3 class="text-center text-danger">Thesis project created by: {{ giberish }} {{ tasker }}</h3>
+            </div>
+          </div>
+        </div>
         <div class="row">
           <div class="col-sm-6">
             <div class="panel panel-info">

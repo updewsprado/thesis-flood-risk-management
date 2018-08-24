@@ -15,6 +15,8 @@
     this.$onInit = onInit;
 
     // Function Declarations
+    vm.randomFunction = randomFunction;
+    vm.authorLN = authorLN;
     vm.clickedBarangayMoreInfo = clickedBarangayMoreInfo;
     vm.getAlertBarangays = getAlertBarangays;
     vm.getAlertMunicipality = getAlertMunicipality;
@@ -33,13 +35,26 @@
     vm.params = {};
     vm.targetDate;
     vm.momentDate;
+    vm.giberish;
+    vm.tasker;
 
     // Function Definitions
 
+    function randomFunction() {
+      vm.giberish = "Prado";
+    }
+
+    function authorLN() {
+      vm.tasker = "Bognot";
+    }
+
     function onInit() {
-      let initDate = "2014-09-19 3:00";
+      let initDate = "2014-09-19 0:00";
       vm.momentDate = moment(initDate);
       vm.targetDate = vm.momentDate.format("YYYY-MM-DD HH:mm");
+
+      randomFunction();
+      authorLN();
 
       $log.debug("mainController has been initiated!", vm.targetDate, vm.momentDate, vm.testDate);
       recalculateData(vm.targetDate);
