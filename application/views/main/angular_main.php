@@ -335,22 +335,13 @@
               </div>
               <div class="panel-body">
                 <div class="list-group">
-                  <a href="#" class="list-group-item">
+                  <a href="" class="list-group-item" data-toggle="modal" 
+                      data-target="#barangayDetailsModal"
+                      ng-click="clickedBarangayMoreInfo(barangay)"
+                      ng-repeat="barangay in municipalityInfo.action_board.listEvacuation">
                     <b>
                       <i class="fa fa-map-marker" aria-hidden="true"></i>
-                      Saog
-                    </b>
-                  </a>
-                  <a href="#" class="list-group-item">
-                    <b>
-                      <i class="fa fa-map-marker" aria-hidden="true"></i>
-                      Ibayo
-                    </b>
-                  </a>
-                  <a href="#" class="list-group-item">
-                    <b>
-                      <i class="fa fa-map-marker" aria-hidden="true"></i>
-                      Lias
+                      {{ barangay.basic_info.name }}
                     </b>
                   </a>
                 </div>
