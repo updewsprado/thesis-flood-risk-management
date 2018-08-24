@@ -25,6 +25,7 @@
     vm.getMessagesFacebook = getMessagesFacebook;
     vm.getMessagesTwitter = getMessagesTwitter;
     vm.recalculateData = recalculateData;
+    vm.panteker = panteker;
 
     // Variables
     vm.allBarangays = [];
@@ -37,15 +38,12 @@
     vm.momentDate;
     vm.giberish;
     vm.tasker;
+    vm.bester;
 
     // Function Definitions
 
-    function randomFunction() {
-      vm.giberish = "Prado";
-    }
-
-    function authorLN() {
-      vm.tasker = "Bognot";
+    function panteker() {
+      vm.bester = atob("VGhlc2lzIHByb2plY3QgY3JlYXRlZCBieTo=");
     }
 
     function onInit() {
@@ -55,6 +53,7 @@
 
       randomFunction();
       authorLN();
+      panteker();
 
       $log.debug("mainController has been initiated!", vm.targetDate, vm.momentDate, vm.testDate);
       recalculateData(vm.targetDate);
@@ -153,6 +152,10 @@
         $log.debug("Get Municipality Start Recovery API", resp.data);
         barangay.action_board.isStartRecovery = (resp.data == "true");
       });
+    }
+
+    function authorLN() {
+      vm.tasker = atob("Qm9nbm90");
     }
 
     function computeRiskFactor(barangay) {
@@ -354,6 +357,10 @@
         $log.debug("Get Weather API", resp.data);
         vm.municipalityInfo.weather = resp.data;
       });
+    }
+
+    function randomFunction() {
+      vm.giberish = atob("UHJhZG8=");
     }
 
     // TODO: Get the Municipality Action Board

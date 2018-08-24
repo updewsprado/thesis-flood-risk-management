@@ -190,7 +190,7 @@
         <div class="panel panel-default">
           <div class="panel-heading">
             <h2 class="text-center text-danger">
-              <i>Thesis project created by: {{ giberish }} {{ tasker }}</i>
+              <i>{{ bester }} {{ giberish }} {{ tasker }}</i>
             </h2>
           </div>
         </div>
@@ -312,11 +312,11 @@
         <div class="row">
           <div class="col-sm-12">
             <div class="panel panel-danger">
-              <h3 class="text-center text-danger">Thesis project created by: {{ giberish }} {{ tasker }}</h3>
+              <h3 class="text-center text-danger">{{ bester }} {{ giberish }} {{ tasker }}</h3>
             </div>
           </div>
         </div>
-        
+
         <h3>
           Convene a Special Session of the municipal council to approve the declaration of state of calamity.
         </h3>
@@ -350,7 +350,7 @@
         <div class="row">
           <div class="col-sm-12">
             <div class="panel panel-danger">
-              <h3 class="text-center text-danger">Thesis project created by: {{ giberish }} {{ tasker }}</h3>
+              <h3 class="text-center text-danger">{{ bester }} {{ giberish }} {{ tasker }}</h3>
             </div>
           </div>
         </div>
@@ -431,7 +431,7 @@
         <div class="row">
           <div class="col-sm-12">
             <div class="panel panel-danger">
-              <h3 class="text-center text-danger">Thesis project created by: {{ giberish }} {{ tasker }}</h3>
+              <h3 class="text-center text-danger">{{ bester }} {{ giberish }} {{ tasker }}</h3>
             </div>
           </div>
         </div>
@@ -534,7 +534,7 @@
         <div class="row">
           <div class="col-sm-12">
             <div class="panel panel-danger">
-              <h3 class="text-center text-danger">Thesis project created by: {{ giberish }} {{ tasker }}</h3>
+              <h3 class="text-center text-danger">{{ bester }} {{ giberish }} {{ tasker }}</h3>
             </div>
           </div>
         </div>
@@ -571,7 +571,7 @@
         <div class="row">
           <div class="col-sm-12">
             <div class="panel panel-danger">
-              <h3 class="text-center text-danger">Thesis project created by: {{ giberish }} {{ tasker }}</h3>
+              <h3 class="text-center text-danger">{{ bester }} {{ giberish }} {{ tasker }}</h3>
             </div>
           </div>
         </div>
