@@ -113,7 +113,8 @@
               <i class="fa fa-bell" aria-hidden="true"></i>
             </h3>
             <div class="row">
-              <div class="col-xs-3">
+              <div class="col-xs-3" 
+                  ng-if="municipalityInfo.action_board.isStateOfCalamity">
                 <button type="button" class="btn btn-calamity btn-block" data-toggle="modal"
                     data-target="#municipalityDetailsStateOfCalamityModal">
                   State of Calamity
@@ -123,7 +124,7 @@
                 <p>
                   Convene a Special Session of the municipal council to approve the declaration of state of calamity.
                   <br><br>
-                  <span>20:08 June 12</span>
+                  <span>{{ targetDate }}</span>
                 </p>
               </div>
               <div class="col-xs-3">
@@ -139,7 +140,7 @@
                   <a href="#" data-toggle="modal" data-target="#barangayDetailsModalHigh">Lias</a>
                   needs rescue and evacuation. COORDINATE with DSWD for relief goods.
                   <br><br>
-                  <span>20:08 June 12</span>
+                  <span>{{ targetDate }}</span>
                 </p>
               </div>
               <div class="col-xs-3">
@@ -154,7 +155,7 @@
                   <a href="#" data-toggle="modal" data-target="#barangayDetailsModalMidHigh">Poblacion</a> and 
                   <a href="#" data-toggle="modal" data-target="#barangayDetailsModalMedium">Abangan</a>
                   <br><br>
-                  <span>20:08 June 12</span>
+                  <span>{{ targetDate }}</span>
                 </p>
               </div>
               <div class="col-xs-3">
@@ -167,7 +168,7 @@
                 <p>
                   Recovery procedures shall commence.
                   <br><br>
-                  <span>20:08 June 12</span>
+                  <span>{{ targetDate }}</span>
                 </p>
               </div>
             </div>
@@ -283,7 +284,7 @@
               State of Calamity
               <i class="fa fa-exclamation-triangle" aria-hidden="true"></i> 
             </b>
-            <small>as of 16:44 June 15, 2018</small>
+            <small>as of {{ targetDate }}</small>
           </h2>
         </div>
         <div class="modal-body">

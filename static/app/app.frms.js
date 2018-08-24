@@ -16,7 +16,6 @@
 
     // Function Declarations
     vm.clickedBarangayMoreInfo = clickedBarangayMoreInfo;
-    vm.getActionBoardMunicipality = getActionBoardMunicipality;
     vm.getAlertBarangays = getAlertBarangays;
     vm.getAlertMunicipality = getAlertMunicipality;
     vm.getCurrentDate = getCurrentDate;
@@ -38,7 +37,7 @@
     // Function Definitions
 
     function onInit() {
-      let initDate = "2014-09-19 0:00";
+      let initDate = "2014-09-19 1:00";
       vm.momentDate = moment(initDate);
       vm.targetDate = vm.momentDate.format("YYYY-MM-DD HH:mm");
 
@@ -47,6 +46,7 @@
     }
 
     function clickedBarangayMoreInfo(barangay) {
+      $log.debug("clickedBarangayMoreInfo", barangay);
       vm.params = barangay;
 
       // Compute for risk factor
@@ -54,8 +54,6 @@
 
       // TODO: Compute affected population
       vm.params.basic_info.affected = computeAffectedPopulation(barangay);
-
-      $log.debug("clickedBarangayMoreInfo", barangay);
     }
 
     function computeRiskFactor(barangay) {
@@ -246,6 +244,9 @@
         vm.municipalityInfo.alert = {};
         vm.municipalityInfo.alert.level = resp.data.level;
         vm.municipalityInfo.alert.desc = resp.data.adesc;
+        vm.municipalityInfo.action_board = {};
+
+        isStateOfCalamity();
       });
 
       let api_weather = '/municipality/weather/1/' + targetDate;
@@ -258,8 +259,11 @@
     }
 
     // TODO: Get the Municipality Action Board
-    function getActionBoardMunicipality(targetDate) {
-      $log.debug("getActionBoardMunicipality function: target date = ", targetDate);
+    function isStateOfCalamity() {
+      $log.debug("getActionBoardMunicipality function");
+
+      // State of calamity flag
+      vm.municipalityInfo.action_board.isStateOfCalamity = (vm.municipalityInfo.alert.level >= 5);
 
       // TODO:
       //    State of calamity flag
