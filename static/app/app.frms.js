@@ -124,6 +124,7 @@
         balert.level = resp.data.level;
         balert.desc = resp.data.adesc;
         balert.action_required = "Standby";
+        balert.hscore = resp.data.hscore;
 
         return balert;
       });
