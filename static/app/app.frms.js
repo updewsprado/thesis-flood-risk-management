@@ -56,8 +56,24 @@
       vm.params.basic_info.affected = computeAffectedPopulation(barangay);
 
       // Action Board
+
       // Evacuate Now
       actionEvacuateNow(barangay);
+
+      // Continuous Monitoring
+      actionContinuousMonitoring(barangay);
+
+      // Coordinate with shelters
+      actionCoordinateWithShelters(barangay);
+
+      // Ask LGU for Rescuers
+      actionAskForRescuers(barangay);
+
+      // Normal Operations
+      actionNormalOperations(barangay);
+
+      // Start Recovery
+      actionStartRecovery(barangay);
 
       // TODO:
       // isContinuousMonitoring: false,
@@ -74,6 +90,31 @@
 
       $log.debug("actionEvacuateNow", flood_score, risk_score);
       barangay.action_board.isEvacuateNow = ((flood_score >= 10) && (risk_score >= 4.5));
+    }
+
+      // Continuous Monitoring
+    function actionContinuousMonitoring(barangay) {
+      $log.debug("actionContinuousMonitoring", barangay);
+    }
+
+      // Coordinate with shelters
+    function actionCoordinateWithShelters(barangay) {
+      $log.debug("actionCoordinateWithShelters", barangay);
+    }
+
+      // Ask LGU for Rescuers
+    function actionAskForRescuers(barangay) {
+      $log.debug("actionAskForRescuers", barangay);
+    }
+
+      // Normal Operations
+    function actionNormalOperations(barangay) {
+      $log.debug("actionNormalOperations", barangay);
+    }
+
+      // Start Recovery
+    function actionStartRecovery(barangay) {
+      $log.debug("actionStartRecovery", barangay);
     }
 
     function computeRiskFactor(barangay) {
