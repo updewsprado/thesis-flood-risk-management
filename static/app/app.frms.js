@@ -9,7 +9,7 @@
     }
   });
 
-  app.controller('mainCtrl', function($log, $scope, $http, $window) {
+  app.controller('mainCtrl', function($log, $scope, $http, $window, $q) {
 
     var vm = $scope;
     this.$onInit = onInit;
@@ -49,11 +49,16 @@
       $log.debug("clickedBarangayMoreInfo", barangay);
       vm.params = barangay;
 
+      actionBoardComposition(barangay)
+    }
+
+    function actionBoardComposition(barangay) {
+      $log.debug("actionBoardComposition", barangay);
       // Compute for risk factor
-      vm.params.risk = computeRiskFactor(barangay);
+      barangay.risk = computeRiskFactor(barangay);
 
       // Compute affected population
-      vm.params.basic_info.affected = computeAffectedPopulation(barangay);
+      barangay.basic_info.affected = computeAffectedPopulation(barangay);
 
       // Action Board
 
@@ -229,19 +234,29 @@
 
           let ctr = i;
 
-          // getBarangayAlert
-          getBarangayAlert(vm.allBarangays[ctr].basic_info.id, targetDate).then(function(response) {
-            vm.allBarangays[ctr].alert = response;
-          });
+          // // getBarangayAlert
+          // getBarangayAlert(vm.allBarangays[ctr].basic_info.id, targetDate).then(function(response) {
+          //   vm.allBarangays[ctr].alert = response;
+          // });
 
-          // getBarangayFloodStatus
-          getBarangayFloodStatus(vm.allBarangays[ctr].basic_info.id, targetDate).then(function(response) {
-            vm.allBarangays[ctr].flood_status = response;
-          });
+          // // getBarangayFloodStatus
+          // getBarangayFloodStatus(vm.allBarangays[ctr].basic_info.id, targetDate).then(function(response) {
+          //   vm.allBarangays[ctr].flood_status = response;
+          // });
 
-          // getBarangayShelters
-          getBarangayShelters(vm.allBarangays[ctr].basic_info.id).then(function(response) {
-            vm.allBarangays[ctr].shelters = response;
+          // // getBarangayShelters
+          // getBarangayShelters(vm.allBarangays[ctr].basic_info.id).then(function(response) {
+          //   vm.allBarangays[ctr].shelters = response;
+          // });
+
+          $q.all([
+            getBarangayAlert(vm.allBarangays[ctr].basic_info.id, targetDate),
+            getBarangayFloodStatus(vm.allBarangays[ctr].basic_info.id, targetDate),
+            getBarangayShelters(vm.allBarangays[ctr].basic_info.id)
+          ]).then(function(data) {
+            vm.allBarangays[ctr].alert = data[0];
+            vm.allBarangays[ctr].flood_status = data[1];
+            vm.allBarangays[ctr].shelters = data[2];
           });
         };
 
