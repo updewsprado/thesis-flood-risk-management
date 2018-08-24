@@ -35,10 +35,14 @@ class Municipality_model extends CI_Model {
   // TODO: Get all barangays under the municipality
   public function get_barangays_of_municipality($id=1) {
     $query_text = '
-        SELECT id, name, num_families as families, population_total as population,
-            population_vulnerable as vulnerable 
-        FROM barangay_basic_info
-        WHERE municipality_id = ' . $id;
+        SELECT bbi.id, bbi.name, bbi.num_families as families, 
+            bbi.population_total as population,
+            bbi.population_vulnerable as vulnerable,
+            brp.exposure, brp.vulnerability,
+            brp.coping_capacity as capacity
+        FROM barangay_basic_info as bbi, barangay_risk_profiles as brp
+        WHERE bbi.id = brp.barangay_id
+        AND bbi.municipality_id = ' . $id;
 
     $query = $this->db->query($query_text);
     return $query->result_array();
