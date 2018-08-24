@@ -63,6 +63,16 @@ class Municipality_model extends CI_Model {
     return $query->row_array();
   }
 
+  public function get_previous_severe_alerts_count($id=1, $timestamp=null) {
+    $query_text = '
+      SELECT * FROM alert_level_history_municipality 
+      WHERE municipality_id=' . $id .
+      ' AND alert_level_id >= 4 AND ts<"' . $timestamp . '"';
+
+    $query = $this->db->query($query_text);
+    return $query->num_rows();
+  }
+
   public function insert_batch_alerts($alerts) {
     //  Necessary fields to insert (4): id, ts, municipality_id, alert_level_id
     $data = [];

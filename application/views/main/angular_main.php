@@ -363,7 +363,7 @@
                 </h2>
                 <br>
                 <div class="well well-lg">
-                  Listed barangays need resuce and evacuation. Coordinate with 
+                  Listed barangays need rescue and evacuation. Coordinate with 
                   DSWD for the relief goods. Make sure that the relief shelter 
                   is ready for occupancy.
                 </div>

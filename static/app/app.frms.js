@@ -337,8 +337,6 @@
       actionMunEvacuateNow(barangay);
       actionMunContinuousMonitoring(barangay);
 
-      
-
       $log.debug("municipalityInfo:", vm.municipalityInfo);
     }
 
@@ -353,7 +351,15 @@
       $log.debug("actionMunStartRecovery function");
 
       // TODO: find out if municipality came from severe/critical for the past 12 hours
-      vm.municipalityInfo.action_board.isStartRecovery = (vm.municipalityInfo.alert.level <= 2);
+      // vm.municipalityInfo.action_board.isStartRecovery = (vm.municipalityInfo.alert.level <= 2);
+
+      let api_mun_recovery = '/municipality/is_recovering/1/' + vm.targetDate;
+      $log.debug("api value: ", api_mun_recovery);
+
+      $http.get(api_mun_recovery).then(function(resp) {
+        $log.debug("Get Municipality Start Recovery API", resp.data);
+        vm.municipalityInfo.action_board.isStartRecovery = resp.data;
+      });
     }
 
     function actionMunEvacuateNow(barangay) {
