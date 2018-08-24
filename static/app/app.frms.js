@@ -34,7 +34,6 @@
     vm.params = {};
     vm.targetDate;
     vm.momentDate;
-    vm.testDate;
 
     // Function Definitions
 
@@ -311,7 +310,6 @@
     }
 
     // Recalculate necessary data when target date changes
-    // TODO: Use ng-change on this later on
     function recalculateData(targetDate) {
       $log.debug("recalculateData function: target date = ", targetDate);
 

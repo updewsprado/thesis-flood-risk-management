@@ -11,7 +11,6 @@
   <!-- Custom Fonts -->
   <link rel="stylesheet" href="<?php echo base_url(); ?>static/vendor/font-awesome/css/font-awesome.min.css">
 
-  <link rel="stylesheet" href="<?php echo base_url(); ?>static/vendor/datetimepicker/bootstrap-datetimepicker.min.css">
   <link rel="stylesheet" href="<?php echo base_url(); ?>static/vendor/angular-moment-picker/angular-moment-picker.min.css">
 
   <!-- Angular JS Files -->
@@ -54,10 +53,9 @@
         <li>
 
           <div class='input-group date' id='datetimepicker1'>
-            <!-- <input type='text' class="form-control" /> -->
             <input class="form-control"
-                format="YYYY-MM-DD HH:mm"
-                ng-change="recalculateData(targetDate)"
+                format="YYYY-MM-DD HH"
+                change="recalculateData(targetDate)"
                 ng-model="momentDate"
                 ng-model-options="{ updateOn: 'blur' }"
                 placeholder="Select a date..."
@@ -74,19 +72,6 @@
 
   <!-- Main Content -->  
   <div class="container margin-top-page">
-<!-- 
-    <div class="row">
-      <div class="col-sm-12">
-        <input class="form-control"
-            format="YYYY-MM-DD HH:mm"
-            ng-change="recalculateData(targetDate)"
-            ng-model="momentDate"
-            ng-model-options="{ updateOn: 'blur' }"
-            placeholder="Select a date..."
-            moment-picker="targetDate">
-      </div>
-    </div>
-     -->
     <div class="row">
       <div class="col-sm-3 text-center">
         <div class="panel panel-default">
@@ -431,18 +416,6 @@
 
 <!-- Bootstrap Core Javascript -->
 <script src="<?php echo base_url(); ?>static/vendor/bootstrap/js/bootstrap.min.js"></script>
-
-<script src="<?php echo base_url(); ?>static/vendor/datetimepicker/bootstrap-datetimepicker.min.js"></script>
-
-<script type="text/javascript">
-  $(function () {
-    var defaultDateTime = moment('09/19/2014 08:00:00', 'MM/DD/YYYY hh:mm:ss');
-
-    $('#datetimepicker1').datetimepicker({
-      defaultDate: defaultDateTime,
-    });
-  });
-</script>
 
 </body>
 </html>
