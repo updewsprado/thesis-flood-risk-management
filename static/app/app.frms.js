@@ -49,7 +49,7 @@
       $log.debug("clickedBarangayMoreInfo", barangay);
       vm.params = barangay;
 
-      actionBoardComposition(barangay)
+      // actionBoardComposition(barangay);
     }
 
     function actionBoardComposition(barangay) {
@@ -187,31 +187,6 @@
     function getAlertBarangays(targetDate) {
       $log.debug("getAlertBarangays function: target date = ", targetDate);
 
-      // vm.allBarangays = [
-        // {
-        //   basic_info: {
-        //     name: "saog",
-        //     families: 2289,
-        //     population: 11445,
-        //     vulnerable: 4921,
-        //   },
-        //   alert: {
-        //     level: 5,
-        //     desc: "critical",
-        //     action_required: "rescue & evacuation",
-        //   },
-        //   flood_status: {
-        //     score: 14,
-        //     desc: "Neck High",
-        //     level: 1.12,
-        //   },
-        //   shelters: [
-        //     "Constantino Covered Court",
-        //     "Nagbalong Covered Court"
-        //   ],
-        // },
-      // ];
-
       // getBarangayBasicInfo
       let api_barangays_all = '/municipality/all_barangays/1/';
       $log.debug("api value: ", api_barangays_all);
@@ -234,21 +209,6 @@
 
           let ctr = i;
 
-          // // getBarangayAlert
-          // getBarangayAlert(vm.allBarangays[ctr].basic_info.id, targetDate).then(function(response) {
-          //   vm.allBarangays[ctr].alert = response;
-          // });
-
-          // // getBarangayFloodStatus
-          // getBarangayFloodStatus(vm.allBarangays[ctr].basic_info.id, targetDate).then(function(response) {
-          //   vm.allBarangays[ctr].flood_status = response;
-          // });
-
-          // // getBarangayShelters
-          // getBarangayShelters(vm.allBarangays[ctr].basic_info.id).then(function(response) {
-          //   vm.allBarangays[ctr].shelters = response;
-          // });
-
           $q.all([
             getBarangayAlert(vm.allBarangays[ctr].basic_info.id, targetDate),
             getBarangayFloodStatus(vm.allBarangays[ctr].basic_info.id, targetDate),
@@ -257,6 +217,8 @@
             vm.allBarangays[ctr].alert = data[0];
             vm.allBarangays[ctr].flood_status = data[1];
             vm.allBarangays[ctr].shelters = data[2];
+
+            actionBoardComposition(vm.allBarangays[ctr]);
           });
         };
 
