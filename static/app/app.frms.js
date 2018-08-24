@@ -111,6 +111,9 @@
       // Ask LGU for Rescuers
     function actionAskForRescuers(barangay) {
       $log.debug("actionAskForRescuers", barangay);
+      let flood_score = barangay.flood_status.score;
+
+      barangay.action_board.isAskLGUForRecuers = (flood_score >= 10);
     }
 
       // Normal Operations
