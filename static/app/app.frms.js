@@ -67,7 +67,7 @@
       actionCoordinateWithShelters(barangay);
 
       // // Ask LGU for Rescuers
-      // actionAskForRescuers(barangay);
+      actionAskForRescuers(barangay);
 
       // // Normal Operations
       // actionNormalOperations(barangay);
@@ -130,10 +130,10 @@
       let exposure = barangay.basic_info.exposure;
       let vulnerability = barangay.basic_info.vulnerability;
       let capacity = barangay.basic_info.capacity;
-      let flood_score = barangay.flood_status.score;
-      let risk = (hazard * exposure * vulnerability) / capacity;
+      let flood_score = parseInt(barangay.flood_status.score);
+      let risk = parseInt((hazard * exposure * vulnerability) / capacity);
       barangay.risk_score = risk;
-      barangay.alert.score = risk + flood_score;
+      barangay.alert.score = barangay.risk_score + flood_score;
 
       if (risk < 1.6) {
         return "low";
