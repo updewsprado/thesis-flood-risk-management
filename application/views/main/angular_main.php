@@ -385,11 +385,11 @@
                       [Insert narrative]
                     </div>
                   </div>
-                  <div ng-if="params.action_board.isContinuousMonitoring">
+                  <div ng-if="params.action_board.isCoordinateWithShelters">
                     <h2 class="text-warning text-center">
                       <b>
                         <u>
-                          Continuous Monitoring
+                          Coordinate w/ Shelters
                           <i class="fa fa-exclamation-triangle" aria-hidden="true"></i>
                         </u>
                       </b>
@@ -399,11 +399,11 @@
                       [Insert narrative]
                     </div>
                   </div>
-                  <div ng-if="params.action_board.isCoordinateWithShelters">
+                  <div ng-if="params.action_board.isContinuousMonitoring">
                     <h2 class="text-warning text-center">
                       <b>
                         <u>
-                          Coordinate w/ Shelters
+                          Continuous Monitoring
                           <i class="fa fa-exclamation-triangle" aria-hidden="true"></i>
                         </u>
                       </b>

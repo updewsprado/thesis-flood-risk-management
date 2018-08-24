@@ -97,7 +97,7 @@
       $log.debug("actionContinuousMonitoring", barangay);
       let alert_level = barangay.alert.level;
 
-      barangay.action_board.isContinuousMonitoring = (alert_level == 2);
+      barangay.action_board.isContinuousMonitoring = (alert_level >= 2);
     }
 
       // Coordinate with shelters
@@ -302,7 +302,19 @@
         vm.municipalityInfo.alert = {};
         vm.municipalityInfo.alert.level = resp.data.level;
         vm.municipalityInfo.alert.desc = resp.data.adesc;
-        vm.municipalityInfo.action_board = {};
+        vm.municipalityInfo.action_board = {
+          isStateOfCalamity: false,
+          isEvacuateNow: false,
+          isCoordinateWithDSWD: false,
+          isContinuousMonitoring: false,
+          isSheltersReadyReminder: false,
+          isRescuersOnAlert: false,
+          isSendWarningsToBarangay: false,
+          isStartRecovery: false,
+          listEvacuation: [],
+          listContinuousMonitoring: [],
+          listNeedRescuers: [],
+        };
 
         isStateOfCalamity();
       });
