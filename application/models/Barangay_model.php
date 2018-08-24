@@ -31,6 +31,16 @@ class Barangay_model extends CI_Model {
     return $query->row_array();
   }
 
+  public function get_previous_severe_alerts_count($id=1, $timestamp=null) {
+    $query_text = '
+      SELECT * FROM alert_level_history_barangay 
+      WHERE barangay_id=' . $id .
+      ' AND alert_level_id >= 4 AND ts<"' . $timestamp . '"';
+
+    $query = $this->db->query($query_text);
+    return $query->num_rows();
+  }
+
   // Get flood level of the barangay
   public function get_flood_level($id=1, $timestamp=null) {
     $query_text = '

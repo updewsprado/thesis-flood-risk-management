@@ -30,7 +30,7 @@ class Barangay extends CI_Controller {
     $timestamp = str_replace("%20"," ", $timestamp);
     $timestamp = str_replace("."," ", $timestamp);
 
-    $data['bgy_alert'] = $this->barangay_model->get_alert_level($bgy_id, $timestamp);
+    $data['bgy_alert'] = $this->get_alert_level($bgy_id, $timestamp);
 
     if (empty($data['bgy_alert'])) {
       show_404();
@@ -38,6 +38,38 @@ class Barangay extends CI_Controller {
     }
     else {
       echo json_encode($data['bgy_alert']);  
+    }
+  }
+
+  public function get_alert_level($bgy_id=1, $timestamp="2018-10-10 00:00:00") {
+    // Quick parsing of date input
+    $timestamp = str_replace("%20"," ", $timestamp);
+    $timestamp = str_replace("."," ", $timestamp);
+
+    $data = $this->barangay_model->get_alert_level($bgy_id, $timestamp);
+
+    return $data;  
+  }
+
+  public function is_recovering($bgy_id=1, $timestamp="2018-10-10 00:00:00") {
+    // Quick parsing of date input
+    $timestamp = str_replace("%20"," ", $timestamp);
+    $timestamp = str_replace("."," ", $timestamp);
+
+    $current_alert = $this->get_alert_level($bgy_id, $timestamp);
+
+    if ($current_alert["level"] <= 2) {
+      $data['severe_alert_count'] = $this->barangay_model->get_previous_severe_alerts_count($bgy_id, $timestamp);
+
+      if ($data['severe_alert_count'] > 1) {
+        echo json_encode(true);
+      } 
+      else {
+        echo json_encode(false);
+      }
+      
+    } else {
+      echo json_encode(false);
     }
   }
 
