@@ -320,6 +320,7 @@
         };
 
         actionMunStateOfCalamity();
+        actionMunStartRecovery();
       });
 
       let api_weather = '/municipality/weather/1/' + targetDate;
@@ -336,7 +337,7 @@
       actionMunEvacuateNow(barangay);
       actionMunContinuousMonitoring(barangay);
 
-      // actionMunStartRecovery();
+      
 
       $log.debug("municipalityInfo:", vm.municipalityInfo);
     }
@@ -346,6 +347,13 @@
 
       // State of calamity flag
       vm.municipalityInfo.action_board.isStateOfCalamity = (vm.municipalityInfo.alert.level >= 5);
+    }
+
+    function actionMunStartRecovery() {
+      $log.debug("actionMunStartRecovery function");
+
+      // TODO: find out if municipality came from severe/critical for the past 12 hours
+      vm.municipalityInfo.action_board.isStartRecovery = (vm.municipalityInfo.alert.level <= 2);
     }
 
     function actionMunEvacuateNow(barangay) {

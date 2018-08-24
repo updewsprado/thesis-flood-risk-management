@@ -127,7 +127,8 @@
                   <span>{{ targetDate }}</span>
                 </p>
               </div>
-              <div class="col-xs-3">
+              <div class="col-xs-3"
+                  ng-if="municipalityInfo.action_board.isEvacuateNow">
                 <button type="button" class="btn btn-danger btn-block" data-toggle="modal"
                     data-target="#municipalityDetailsEvacuateModal">
                   Evacuate Now
@@ -145,7 +146,8 @@
                   <span>{{ targetDate }}</span>
                 </p>
               </div>
-              <div class="col-xs-3">
+              <div class="col-xs-3"
+                  ng-if="municipalityInfo.action_board.isContinuousMonitoring">
                 <button type="button" class="btn btn-warning btn-block" data-toggle="modal"
                     data-target="#municipalityDetailsMonitoringModal">
                   Continuous Monitoring
@@ -154,8 +156,6 @@
                 <br>
                 <p>
                   Coordinate with BCs on
-<!--                   <a href="#" data-toggle="modal" data-target="#barangayDetailsModalMidHigh">Poblacion</a> and 
-                  <a href="#" data-toggle="modal" data-target="#barangayDetailsModalMedium">Abangan</a> -->
                   <a href="" data-toggle="modal" data-target="#barangayDetailsModal"
                       ng-click="clickedBarangayMoreInfo(barangay)"
                       ng-repeat="barangay in municipalityInfo.action_board.listContinuousMonitoring">
@@ -165,7 +165,8 @@
                   <span>{{ targetDate }}</span>
                 </p>
               </div>
-              <div class="col-xs-3">
+              <div class="col-xs-3"
+                  ng-if="municipalityInfo.action_board.isStartRecovery">
                 <button type="button" class="btn btn-primary btn-block" data-toggle="modal"
                     data-target="#municipalityDetailsRecoveryModal">
                   Start Recovery
