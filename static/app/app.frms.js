@@ -37,7 +37,7 @@
     // Function Definitions
 
     function onInit() {
-      let initDate = "2014-09-19 1:00";
+      let initDate = "2014-09-19 3:00";
       vm.momentDate = moment(initDate);
       vm.targetDate = vm.momentDate.format("YYYY-MM-DD HH:mm");
 
@@ -55,12 +55,25 @@
       // Compute affected population
       vm.params.basic_info.affected = computeAffectedPopulation(barangay);
 
-      // Action Board - Evacuate Now
+      // Action Board
+      // Evacuate Now
+      actionEvacuateNow(barangay);
+
+      // TODO:
+      // isContinuousMonitoring: false,
+      // isCoordinateWithShelters: false,
+      // isAskLGUForRecuers: false,
+      // isStartRecovery: false,
+      // isNormalOperations: false
     }
 
     function actionEvacuateNow(barangay) {
-      $log.debug("actionEvacuateNow", barangay);
 
+      let flood_score = barangay.flood_status.score;
+      let risk_score = barangay.risk_score;
+
+      $log.debug("actionEvacuateNow", flood_score, risk_score);
+      barangay.action_board.isEvacuateNow = ((flood_score >= 10) && (risk_score >= 4.5));
     }
 
     function computeRiskFactor(barangay) {
@@ -71,6 +84,7 @@
       let vulnerability = barangay.basic_info.vulnerability;
       let capacity = barangay.basic_info.capacity;
       let risk = (hazard * exposure * vulnerability) / capacity;
+      barangay.risk_score = risk;
 
       if (risk < 1.6) {
         return "low";

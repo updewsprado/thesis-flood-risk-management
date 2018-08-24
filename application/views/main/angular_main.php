@@ -357,7 +357,7 @@
                   <i class="fa fa-bell fa-lg" aria-hidden="true"></i>
                 </div>
                 <div class="panel-body">
-                  <div>
+                  <div ng-if="params.action_board.isEvacuateNow">
                     <h2 class="text-danger text-center">
                       <b>
                         <u>
