@@ -47,7 +47,7 @@
     }
 
     function onInit() {
-      let initDate = "2014-09-19 0:00";
+      let initDate = "2014-09-19 1:00";
       vm.momentDate = moment(initDate);
       vm.targetDate = vm.momentDate.format("YYYY-MM-DD HH:mm");
 
@@ -94,8 +94,36 @@
       // Start Recovery
       actionStartRecovery(barangay);
 
-      // TODO:
-      // isStartRecovery: false,
+      // Determine highest priority action
+      actionRequired(barangay);
+    }
+
+      // Continuous Monitoring
+    function actionRequired(barangay) {
+      $log.debug("actionRequired", barangay);
+      let action_flags = barangay.action_board;
+
+      if (action_flags.isEvacuateNow) {
+        barangay.alert.action_required = "Evacuate Now";
+      } 
+      else if (action_flags.isAskLGUForRecuers) {
+        barangay.alert.action_required = "Call Rescuers";
+      }
+      else if (action_flags.isCoordinateWithShelters) {
+        barangay.alert.action_required = "Coordinate w/ Shelters";
+      }
+      else if (action_flags.isContinuousMonitoring) {
+        barangay.alert.action_required = "Continuous Monitoring";
+      }
+      else if (action_flags.isStartRecovery) {
+        barangay.alert.action_required = "Start Recovery";
+      }
+      else if (action_flags.isNormalOperations) {
+        barangay.alert.action_required = "None";
+      }
+      else {
+        barangay.alert.action_required = "Standby";
+      }
     }
 
     function actionEvacuateNow(barangay) {
