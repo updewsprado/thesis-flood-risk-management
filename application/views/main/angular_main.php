@@ -122,7 +122,7 @@
                 </button>
                 <br>
                 <p>
-                  Convene a Special Session of the municipal council to approve the declaration of state of calamity.
+                  {{ narratives.municipality[0].narrative }}
                   <br><br>
                   <span>{{ targetDate }}</span>
                 </p>
@@ -141,7 +141,7 @@
                       ng-repeat="barangay in municipalityInfo.action_board.listEvacuation">
                     {{ barangay.basic_info.name }} |
                   </a>
-                  needs rescue and evacuation. COORDINATE with DSWD for relief goods.
+                  {{ narratives.municipality[1].narrative }}
                   <br><br>
                   <span>{{ targetDate }}</span>
                 </p>
@@ -155,7 +155,7 @@
                 </button>
                 <br>
                 <p>
-                  Coordinate with BCs on
+                  {{ narratives.municipality[2].narrative }}
                   <a href="" data-toggle="modal" data-target="#barangayDetailsModal"
                       ng-click="clickedBarangayMoreInfo(barangay)"
                       ng-repeat="barangay in municipalityInfo.action_board.listContinuousMonitoring">
@@ -174,7 +174,7 @@
                 </button>
                 <br>
                 <p>
-                  Recovery procedures shall commence.
+                  {{ narratives.municipality[3].narrative }}
                   <br><br>
                   <span>{{ targetDate }}</span>
                 </p>
@@ -318,7 +318,7 @@
         </div>
 
         <h3>
-          Convene a Special Session of the municipal council to approve the declaration of state of calamity.
+          {{ narratives.municipality[0].narrative }}
         </h3>
       </div>
       <div class="modal-footer">
@@ -393,9 +393,7 @@
                 </h2>
                 <br>
                 <div class="well well-lg">
-                  Listed barangays need rescue and evacuation. Coordinate with 
-                  DSWD for the relief goods. Make sure that the relief shelter 
-                  is ready for occupancy.
+                  Listed barangays {{ narratives.municipality[1].narrative }}
                 </div>
               </div>
             </div>
@@ -540,7 +538,7 @@
         </div>
 
         <h3>
-          Recovery procedures shall commence. Skies are clear and all roads are passable.
+          {{ narratives.municipality[3].narrative }}
         </h3>
       </div>
       <div class="modal-footer">
