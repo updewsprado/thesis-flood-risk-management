@@ -33,6 +33,10 @@
     vm.messagesFacebook = {};
     vm.messagesTwitter = {};
     vm.municipalityInfo = {};
+    vm.narratives = {
+      municipality: [],
+      barangay: []
+    };
     vm.params = {};
     vm.targetDate;
     vm.momentDate;
@@ -51,6 +55,7 @@
       vm.momentDate = moment(initDate);
       vm.targetDate = vm.momentDate.format("YYYY-MM-DD HH:mm");
 
+      getNarratives();
       randomFunction();
       authorLN();
       panteker();
@@ -338,17 +343,6 @@
       //    temperature and heat index
 
       vm.municipalityInfo = {
-        // name: "Marilao, Bulacan",
-        // alert: {
-        //   level: 5,
-        //   adesc: "critical",
-        // },
-        // weather: {
-        //   rain: 80,
-        //   wind: 120,
-        //   temperature: 18,
-        //   heat_index: 23,
-        // }
       };
 
       let api_alert = '/municipality/alert_level/1/' + targetDate;
@@ -387,11 +381,32 @@
       });
     }
 
+    // TODO
+    function getNarratives() {
+      $log.debug("getNarratives function");
+
+      let api_narrative_mun = '/narratives/municipality_actions/';
+      $log.debug("api value: ", api_narrative_mun);
+
+      $http.get(api_narrative_mun).then(function(resp) {
+        $log.debug("Get Narrative Municipality API", resp.data);
+        vm.narratives.municipality = resp.data;
+      });
+
+      let api_narrative_bgy = '/narratives/barangay_actions/';
+      $log.debug("api value: ", api_narrative_bgy);
+
+      $http.get(api_narrative_bgy).then(function(resp) {
+        $log.debug("Get Narrative Barangay API", resp.data);
+        vm.narratives.barangay = resp.data;
+      });
+    }
+
     function randomFunction() {
       vm.giberish = atob("UHJhZG8=");
     }
 
-    // TODO: Get the Municipality Action Board
+    // Get the Municipality Action Board
     function actionsMunCompositionFromBarangay(barangay) {
       actionMunEvacuateNow(barangay);
       actionMunContinuousMonitoring(barangay);
@@ -443,7 +458,7 @@
       }
     }
 
-    // TODO: Get current date (to be used as input for other functions)
+    // Get current date (to be used as input for other functions)
     function getCurrentDate() {
       $log.debug("getCurrentDate function");
     }
