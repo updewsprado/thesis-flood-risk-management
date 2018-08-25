@@ -626,7 +626,7 @@
                   </h2>
                   <br>
                   <div class="well well-lg">
-                    [Insert narrative]
+                    {{ narratives.barangay[0].narrative }}
                   </div>
                 </div>
                 <div ng-if="params.action_board.isAskLGUForRecuers">
@@ -640,7 +640,7 @@
                   </h2>
                   <br>
                   <div class="well well-lg">
-                    [Insert narrative]
+                    {{ narratives.barangay[3].narrative }}
                   </div>
                 </div>
                 <div ng-if="params.action_board.isCoordinateWithShelters">
@@ -654,7 +654,7 @@
                   </h2>
                   <br>
                   <div class="well well-lg">
-                    [Insert narrative]
+                    {{ narratives.barangay[2].narrative }}
                   </div>
                 </div>
                 <div ng-if="params.action_board.isContinuousMonitoring">
@@ -668,7 +668,7 @@
                   </h2>
                   <br>
                   <div class="well well-lg">
-                    [Insert narrative]
+                    {{ narratives.barangay[1].narrative }}
                   </div>
                 </div>
                 <div ng-if="params.action_board.isStartRecovery">
@@ -681,7 +681,7 @@
                   </h2>
                   <br>
                   <div class="well well-lg">
-                    [Insert narrative]
+                    {{ narratives.barangay[4].narrative }}
                   </div>
                 </div>
                 <div ng-if="params.action_board.isNormalOperations">
@@ -694,7 +694,7 @@
                   </h2>
                   <br>
                   <div class="well well-lg">
-                    [Insert narrative]
+                    {{ narratives.barangay[5].narrative }}
                   </div>
                 </div>
                 <p>

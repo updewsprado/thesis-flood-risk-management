@@ -51,7 +51,7 @@
     }
 
     function onInit() {
-      let initDate = "2014-09-19 1:00";
+      let initDate = "2014-09-19 3:00";
       vm.momentDate = moment(initDate);
       vm.targetDate = vm.momentDate.format("YYYY-MM-DD HH:mm");
 
