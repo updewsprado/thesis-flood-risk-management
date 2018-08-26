@@ -113,7 +113,7 @@
               <i class="fa fa-bell" aria-hidden="true"></i>
             </h3>
             <div class="row">
-              <div class="col-xs-3" 
+              <div class="col-xs-4" 
                   ng-if="municipalityInfo.action_board.isStateOfCalamity">
                 <button type="button" class="btn btn-calamity btn-block" data-toggle="modal"
                     data-target="#municipalityDetailsStateOfCalamityModal">
@@ -127,7 +127,7 @@
                   <span>{{ targetDate }}</span>
                 </p>
               </div>
-              <div class="col-xs-3"
+              <div class="col-xs-4"
                   ng-if="municipalityInfo.action_board.isEvacuateNow">
                 <button type="button" class="btn btn-danger btn-block" data-toggle="modal"
                     data-target="#municipalityDetailsEvacuateModal">
@@ -146,7 +146,7 @@
                   <span>{{ targetDate }}</span>
                 </p>
               </div>
-              <div class="col-xs-3"
+              <div class="col-xs-4"
                   ng-if="municipalityInfo.action_board.isContinuousMonitoring">
                 <button type="button" class="btn btn-warning btn-block" data-toggle="modal"
                     data-target="#municipalityDetailsMonitoringModal">
@@ -165,7 +165,7 @@
                   <span>{{ targetDate }}</span>
                 </p>
               </div>
-              <div class="col-xs-3"
+              <div class="col-xs-4"
                   ng-if="municipalityInfo.action_board.isStartRecovery">
                 <button type="button" class="btn btn-primary btn-block" data-toggle="modal"
                     data-target="#municipalityDetailsRecoveryModal">
