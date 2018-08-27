@@ -43,6 +43,7 @@
     vm.giberish;
     vm.tasker;
     vm.bester;
+    vm.isLock = false;
 
     // Function Definitions
 

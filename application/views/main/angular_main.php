@@ -185,7 +185,7 @@
       </div>
     </div>
 
-    <div class="row">
+    <div class="row" ng-if="isLock">
       <div class="col-sm-12">
         <div class="panel panel-default">
           <div class="panel-heading">
@@ -309,7 +309,7 @@
       </div>
       <div class="modal-body">
 
-        <div class="row">
+        <div class="row" ng-if="isLock">
           <div class="col-sm-12">
             <div class="panel panel-danger">
               <h3 class="text-center text-danger">{{ bester }} {{ giberish }} {{ tasker }}</h3>
@@ -347,7 +347,7 @@
       </div>
       <div class="modal-body">
 
-        <div class="row">
+        <div class="row" ng-if="isLock">
           <div class="col-sm-12">
             <div class="panel panel-danger">
               <h3 class="text-center text-danger">{{ bester }} {{ giberish }} {{ tasker }}</h3>
@@ -426,7 +426,7 @@
       </div>
       <div class="modal-body">
 
-        <div class="row">
+        <div class="row" ng-if="isLock">
           <div class="col-sm-12">
             <div class="panel panel-danger">
               <h3 class="text-center text-danger">{{ bester }} {{ giberish }} {{ tasker }}</h3>
@@ -529,7 +529,7 @@
       </div>
       <div class="modal-body">
 
-        <div class="row">
+        <div class="row" ng-if="isLock">
           <div class="col-sm-12">
             <div class="panel panel-danger">
               <h3 class="text-center text-danger">{{ bester }} {{ giberish }} {{ tasker }}</h3>
@@ -566,7 +566,7 @@
         </h3>
       </div>
       <div class="modal-body">
-        <div class="row">
+        <div class="row" ng-if="isLock">
           <div class="col-sm-12">
             <div class="panel panel-danger">
               <h3 class="text-center text-danger">{{ bester }} {{ giberish }} {{ tasker }}</h3>
